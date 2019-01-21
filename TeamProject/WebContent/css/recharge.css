@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+body{
+
+font-family: "Nanum Barun Gothic"; 
+letter-spacing: 1px;
+ 
+}
+
+
+#rechargeModal{
+	width: 350px;
+/* 	height: 500px; */
+}
+
+
+
+.price{
+	display: none;
+}
+
+
+
+#recharge span{
+	margin-bottom: 10px;
+	padding : 0px 2px;
+}
+
+#recharge label{
+	width: 100%;
+	
+}
+
+
+
+
+
+#writtenPrice{
+text-align: right; 
+padding-right:1px;
+}
+
+#rechargeSubmit {
+	width: 100%;
+	background-color: rgb(123, 110, 102);
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.display{
+	font-size: 1.1em;
+	color: rgb(156, 143, 109);
+}
+
+.display input{
+	font-size: 1.1em;
+	color: rgb(156, 143, 109);
+}
