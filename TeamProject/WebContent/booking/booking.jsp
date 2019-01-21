@@ -28,21 +28,23 @@ body{
 	padding-top: 55px;
 }
 .con{
-	border: 1px solid red;
+	border: 1px solid white;
 	margin-top: 55px;	
 }
 .div_left{
-	border: 1px solid blue;
+	border: 1px solid white;
 	padding : 25px;
 	
 }
-.div_right{
-	border: 1px solid green;	
-	padding : 25px;
-	position: sticky;
+.div_right{		
+	padding : 25px;	
 }
 .div_hr{
 	margin:10px 0;
+}
+.div_sticky{
+	position: sticky;
+	top: 55px;	
 }
 
 small{
@@ -50,6 +52,12 @@ small{
 }
 .small_time{
 	padding-right: 270px;
+}
+.div_table{
+
+	border-left : 1px solid grey;	
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 </style>
 </head>
@@ -78,30 +86,112 @@ small{
 					</div>
 				</div>
 				<hr>
-								
-			</div>		
-			<div class="w3-col m3 div_right w3-dark-grey w3-margin-bottom">
-				<div class="w3-row">					
+				<div class="w3-row">
 					<div class="w3-col m12">
-						<h5>예약일</h5>
-						<p>2019-01-31</p>
-						<hr>
-						<small class="small_time">예약시간</small>
-						<small>1 시간</small>
+						<h5>유료 부대시설</h5>
+						<input type="checkbox" class="w3-check" value="1"><b>주차</b> &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" class="w3-check" value="1"><b>무선 인터넷</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" class="w3-check" value="1"><b>빔 프로젝트</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" class="w3-check" value="1"><b>컴퓨터</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" class="w3-check" value="1"><b>사물함</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<p>각 유료 부대시설은 각각의 요금이 다르며 해당 가격 표는 아래와 같습니다.</p>
+						<p>주차 : 1000원</p>
+						<p>무선 인터넷 : 1000원</p>
+						<p>빔 프로젝트 : 1000원</p>
+						<p>컴퓨터 : 1000원</p>
+						<p>사물함 : 1000원</p>
+						
 					</div>
 				</div>
-			</div>			
-			<div class="w3-col m3 div_right w3-dark-grey">
-				<div class="w3-row">					
-					<div class="w3-col m6">						
-						1
-					</div>
-					<div class="w3-col m6">						
-						1
+				<hr>
+				<div class="w3-row">
+					<div class="w3-col m12">
+						<h5>취소 및 환불 규정</h5>
+						<div class="w3-col m6 w3-dark-grey" align="center">
+							<h6>취소 기준일</h6>
+						</div>
+						<div class="w3-col m6 w3-dark-grey" align="center">
+							<h6>취소 수수료</h6>
+						</div>
+						<div class="w3-col m6 div_table" align="center">
+							<h6>입실 1일 전</h6>
+						</div>
+						<div class="w3-col m6 div_table" align="center">
+							<h6>없음</h6>
+						</div>
+						<div class="w3-col m6 div_table" align="center">
+							<h6>당일</h6>
+						</div>
+						<div class="w3-col m6 div_table" align="center">
+							<h6>환불 불가</h6>
+						</div>					
 					</div>
 				</div>
+				<hr>
+				<div class="w3-row">
+					<div class="w3-col m5">
+						<h5>공지 사항</h5>
+					</div>
+				</div>
+				<hr>				
 			</div>
-			<div class="w3-col m2"><p> </p></div>			
+			<div class="div_sticky">		
+				<div class="w3-col m3 div_right w3-dark-grey w3-margin-bottom">
+					<div class="w3-row">					
+						<div class="w3-col m12">
+							<h5>예약일</h5>
+							<p>2019-01-31</p>
+							<hr>
+							<small class="small_time">예약시간</small>
+							<small>1 시간</small>
+						</div>
+					</div>
+				</div>			
+				<div class="w3-col m3 div_right w3-dark-grey">
+					<div class="w3-row">					
+						<div class="w3-col m6">						
+							1
+						</div>
+						<div class="w3-col m6" align="right">						
+							1
+						</div>												
+					</div>
+					<div class="w3-row">					
+						<div class="w3-col m6">						
+							1
+						</div>
+						<div class="w3-col m6" align="right">						
+							1
+						</div>												
+					</div>
+					<hr>
+					<div class="w3-row">					
+						<div class="w3-col m6">						
+							1
+						</div>
+						<div class="w3-col m6" align="right">						
+							1
+						</div>						
+					</div>
+					<div class="w3-row">					
+						<div class="w3-col m6">						
+							1
+						</div>
+						<div class="w3-col m6" align="right">						
+							1
+						</div>						
+					</div>
+					<hr>
+				</div>				
+				<div class="w3-col m3">
+					<div class="w3-row">
+						<div class="w3-col m12">						
+							 <input type="button" id="btn_submit" class="w3-button w3-block w3-xlarge w3-red" value="결제하기" onclick="">
+						</div>
+					</div>
+				</div>				
+				<div class="w3-col m2"><p> </p></div>			
+			</div>
 		</div>
 <!-- 본문 종료 -->
 </body>
