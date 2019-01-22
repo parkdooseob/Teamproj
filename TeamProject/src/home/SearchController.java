@@ -1,6 +1,9 @@
 package home;
 
 import java.io.IOException;
+import java.util.Vector;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +28,14 @@ public class SearchController extends HttpServlet {
 		String location = request.getParameter("location");//위치
 		String date = request.getParameter("date");//날짜
 		String number = request.getParameter("number");//수용인원수
-		
-		System.out.println(type);
 		System.out.println(date);
+		SearchDAO dao = new SearchDAO();
+		Vector<SearchDTO> FindV = dao.FindSpace(type, location, date, number);
 		
+		request.setAttribute("FindV ", FindV );
+		
+		RequestDispatcher dis = request.getRequestDispatcher("detail.jsp");
+		dis.forward(request, response);
 	}
 
 	
