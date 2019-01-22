@@ -50,9 +50,6 @@ body{
 small{
 	/* border: 1px solid white; */
 }
-.small_time{
-	padding-right: 270px;
-}
 .div_table{
 
 	border-left : 1px solid grey;	
@@ -138,11 +135,19 @@ small{
 			<div class="div_sticky">		
 				<div class="w3-col m3 div_right w3-dark-grey w3-margin-bottom">
 					<div class="w3-row">					
-						<div class="w3-col m12">
+						<div class="w3-col m12">							
 							<h5>예약일</h5>
-							<p>2019-01-31</p>
-							<hr>
-							<small class="small_time">예약시간</small>
+						</div>	
+						<div class="w3-col m12">
+							<font size="10px"><b>2019-01-31</b></font>
+						</div>							
+						<div class="w3-col m12">
+						<hr>
+						</div>
+						<div class="w3-col m6">
+							<small>예약시간</small>
+						</div>
+						<div class="w3-col m6">	
 							<small>1 시간</small>
 						</div>
 					</div>
@@ -150,7 +155,7 @@ small{
 				<div class="w3-col m3 div_right w3-dark-grey">
 					<div class="w3-row">					
 						<div class="w3-col m6">						
-							1
+							예약 인원
 						</div>
 						<div class="w3-col m6" align="right">						
 							1

@@ -34,8 +34,8 @@ public class HostSignUpController extends HttpServlet {
 		hdto.setEmail(sessionDTO.getEmail());
 		hdto.setHost_nic(request.getParameter("host_name"));
 		hdto.setHost_phone(request.getParameter("host_phone"));
-		hdto.setHost_pass(request.getParameter("host_pass"));		
-		hdto.setPoint(sessionDTO.getPoint());		
+		hdto.setHost_pass(request.getParameter("host_pass"));	
+				
 		
 		boolean result = udao.insertHost(hdto);
 		

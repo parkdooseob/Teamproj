@@ -348,8 +348,7 @@ public class UserDAO {
 			hdto.setHost_pass(rs.getString("host_pass"));
 			hdto.setHost_nic(rs.getString("host_nic"));
 			hdto.setHost_phone(rs.getString("host_phone"));
-			hdto.setHost_level(rs.getInt("host_level"));
-			hdto.setPoint(rs.getInt("point"));
+			hdto.setHost_level(rs.getInt("host_level"));			
 			
 			
 		} catch (Exception e) {
@@ -427,21 +426,31 @@ public class UserDAO {
 	public boolean insertHost(HostDTO hdto) {
 		// TODO Auto-generated method stub
 		boolean result=false;
+		String sql = "";
 		try {
 			
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO host(host_id,email,host_pass,host_nic,host_phone,host_level,point) "
-					+ "VALUES(?,?,?,?,?,0,?)";
+			
+			sql = "UPDATE user SET host = 1 WHERE email=?";			
 			
 			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, hdto.getEmail());
+			
+			pstmt.executeUpdate();
+			
+			sql = "INSERT INTO host(host_id,email,host_pass,host_nic,host_phone,host_level) "
+					+ "VALUES(?,?,?,?,?,0)";
+			
+			pstmt = con.prepareStatement(sql);			
 			
 			pstmt.setString(1, hdto.getHost_id());
 			pstmt.setString(2, hdto.getEmail());
 			pstmt.setString(3, hdto.getHost_pass());
 			pstmt.setString(4, hdto.getHost_nic());
 			pstmt.setString(5, hdto.getHost_phone());
-			pstmt.setInt(6, hdto.getPoint());
+			
 			
 			System.out.println(pstmt.toString());
 			

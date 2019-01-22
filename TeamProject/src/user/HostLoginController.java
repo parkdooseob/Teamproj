@@ -62,11 +62,17 @@ public class HostLoginController extends HttpServlet {
 		}
 		
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();		
 		
 		HostDTO hdto = udao.getHost(host_id);
 		
+		UserDTO udto = udao.getUser(hdto.getEmail());
+		
+		int point = udto.getPoint();
+		
 		session.setAttribute("hdto", hdto);		
+		
+		session.setAttribute("point", point);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 		
