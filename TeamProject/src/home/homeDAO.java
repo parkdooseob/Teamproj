@@ -66,27 +66,33 @@ public class homeDAO {
 					con = ds.getConnection();	
 					System.out.println("연결됨");
 					String sql = "update user2 set point=? where email=?";
-					sql = "select * from hosting h join hosting_pic"
-							+ "on ";
+					sql = "select *	from hosting h join hosting_pic pic "
+					+"on h.room_no = pic.room_no "
+					+"join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b "
+					+"on h.room_no = b.room_no "
+					+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
+					+"on h.room_no = r.room_no "
+    				+"order by b.count*r.star desc";
+						
 					/*
-					select * from hosting h join hosting_pic pic
+					select * 
+					from hosting h join hosting_pic pic
 					on h.room_no = pic.room_no
-					join (select room_no, count(*) from booking
-					 		where
+					join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b
 					on h.room_no = b.room_no
-					left outer join review r
+					join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r
 					on h.room_no = r.room_no
+    				order by b.count*r.star desc;
 					
 					*/
 					
 					pstmt = con.prepareStatement(sql);
-//					pstmt.setInt(1, addedPoint);
-//					pstmt.setString(2, email);
 					
-					result = pstmt.executeUpdate();
-					System.out.println(result);
+					rs = pstmt.executeQuery();
+
+
 				} catch (SQLException e) {
-					System.out.println("recharge() 함수 오류"+e);
+					System.out.println("popularSpace() 함수 오류"+e);
 					e.printStackTrace();
 				} finally {
 					freeResource();
