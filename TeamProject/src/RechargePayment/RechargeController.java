@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.connector.Request;
 
-@WebServlet("/rechargeController.do")
-public class rechargeController extends HttpServlet {
+@WebServlet("/RechargeController.do")
+public class RechargeController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("point1");
 		request.setCharacterEncoding("utf-8");
 		
 		String email = request.getParameter("email");

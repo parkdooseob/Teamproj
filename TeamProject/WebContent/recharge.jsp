@@ -139,7 +139,7 @@
 					
 				</div><!-- container -->
 				<footer class="w3-white w3-padding">
-					<form action="rechargeController.do" method="post">
+					<form action="RechargeController.do" method="post">
 					<input type="hidden" name="email" value="aaaaaa"><!-- jstl di 처리--> 
 					<%String price = "10000"; %>
 						<div id="display">
