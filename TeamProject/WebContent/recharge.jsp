@@ -73,6 +73,24 @@
 		});
 	});
 	
+	/*최종 확인*/
+	function CheckMethod(){
+// 		alert("1");
+		var price = $('#selectedPrice').val();
+		var method = $(':input[name=rechargeMethod]:radio:checked').val();
+// 		alert(price);
+		if(price == ""){
+			alert('충전 금액을 선택 해주세요');
+			return false;
+		}
+
+		if(method == null){
+			alert('결제 수단을 선택 해주세요');
+			return false;
+		}
+	}
+	
+	
 	
 	</script>
 </head>
@@ -130,16 +148,16 @@
 					
 					<p><b>결제 수단</b></p>
 					
-					<input type="radio" name="rechargeMethod" id="creditCard">
+					<input type="radio" name="rechargeMethod" value="creditCard">
 					<label for="creditCard">신용카드</label>
-					<input type="radio" name="rechargeMethod" id="transfer">
+					<input type="radio" name="rechargeMethod" value="transfer">
 					<label for="transfer">실시간 계좌이체</label>
-					<input type="radio" name="rechargeMethod" id="paypal">
+					<input type="radio" name="rechargeMethod" value="paypal">
 					<label for="paypal">Paypal</label>
 					
 				</div><!-- container -->
 				<footer class="w3-white w3-padding">
-					<form action="RechargeController.do" method="post">
+					<form action="RechargeController.do" method="post" onSubmit="return CheckMethod();">
 					<input type="hidden" name="email" value="aaaaaa"><!-- jstl di 처리--> 
 					<%String price = "10000"; %>
 						<div id="display">

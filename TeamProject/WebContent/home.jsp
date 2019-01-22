@@ -164,7 +164,6 @@ letter-spacing: 1px;
         <div class="w3-col l2 m2 w3-padding">
           <label>공간</label>
            <button type="button" onclick="myFunction('type_select')" style="border: none; padding:0px; background-color: white;">
-<!--           	<i class="fas fa-coffee" style="display:inline-block"></i> -->
           	<input type="text" id="type" name="type" value="카페" class="w3-input w3-border-0"   style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118);" >
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
@@ -223,7 +222,7 @@ letter-spacing: 1px;
         
        	<div class="w3-row w3-hide" style="margin:2px -70px;" id="location_select">
 	        <div class="w3-col l2 w3-padding"></div>
-	        <div class="w3-col l3 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+	        <div class="w3-col l5 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 	  			<table width="100%">
 	  				<tr height="1.5em">
 	  					<td><input type="button" value="강서구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
@@ -252,7 +251,7 @@ letter-spacing: 1px;
 	  				</tr>
 	  			</table>
 	        </div>
-	        <div class="w3-col l7 w3-padding"></div>
+	        <div class="w3-col l5 w3-padding"></div>
         </div>
         
         
