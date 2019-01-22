@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -25,7 +26,7 @@ public class homeDAO {
 					Context init = new InitialContext();
 
 					// 2.연결된 Was서버에서 DataSource(커넥션풀)을 검색해서 얻기
-					ds = (DataSource) init.lookup("java:comp/env/jdbc/jspbeginner");
+					ds = (DataSource) init.lookup("java:comp/env/jdbc/sharespace");
 
 				} catch (Exception e) {
 					System.out.println("커넥션풀 가져오기 실패 : " + e);
@@ -59,53 +60,114 @@ public class homeDAO {
 			}// 생성자 끝
 			
 			/**인기공간 찾기*/
-			public int popularSpace(){
+			public Vector<homeDTO> popularSpace(){
 				System.out.println("요청 들어옴");
-				int result = 0;
+				
+				Vector<homeDTO> popularV = new Vector<homeDTO>();
+				
 				try {
 					con = ds.getConnection();	
 					System.out.println("연결됨");
-					String sql = "update user2 set point=? where email=?";
-					sql = "select *	from hosting h join hosting_pic pic "
+					String sql = "select *	from hosting h join hosting_pic pic "
+							+"on h.room_no = pic.room_no "
+							+"join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b "
+							+"on h.room_no = b.room_no "
+							+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
+							+"on h.room_no = r.room_no "
+							+"order by b.count*r.star desc";
+						
+					
+					pstmt = con.prepareStatement(sql);
+					/*
+					 	private int host_id;	
+	 					private int room_no;	
+	 					private String subject;	
+	 					private String room;	
+	 					private int people;		
+						private String pic1;	
+						private int count;	
+						private double star;
+	 
+					*/
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()){
+						homeDTO dto = new homeDTO();
+						dto.setHost_id(rs.getInt("host_id"));
+						dto.setRoom_no(rs.getInt("room_no"));
+						dto.setSubject(rs.getString("subject"));
+						dto.setRoom(rs.getString("room"));
+						dto.setPeople(rs.getInt("people"));
+						dto.setPic1(rs.getString("pic1"));
+						dto.setCount(rs.getInt("count"));
+						dto.setStar(rs.getDouble("star"));
+						popularV.add(dto);
+					}
+					
+				
+				} catch (SQLException e) {
+					System.out.println("popularSpace() 함수 오류"+e);
+					e.printStackTrace();
+				} finally {
+					freeResource();
+				}
+				
+				return popularV;
+			}
+			
+			/**추천 공간 찾기*/
+			public Vector<homeDTO> RecommendSpace(){
+				System.out.println("요청 들어옴");
+				
+				Vector<homeDTO> recommendV = new Vector<homeDTO>();
+				
+				try {
+					con = ds.getConnection();	
+					System.out.println("연결됨");
+					
+					String sql = "select * " 
+					+"from hosting h join hosting_pic pic "
 					+"on h.room_no = pic.room_no "
-					+"join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b "
+					+"join host "
+					+"on  h.host_id = host.host_id "
+					+"join (select room_no, count(*) as 'count' from booking where book_check=0 group by room_no) b "
 					+"on h.room_no = b.room_no "
 					+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
 					+"on h.room_no = r.room_no "
-    				+"order by b.count*r.star desc";
+					+"where host_level = 3 "
+    				+"order by b.count*r.star desc ";
 						
-					/*
-					select * 
-					from hosting h join hosting_pic pic
-					on h.room_no = pic.room_no
-					join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b
-					on h.room_no = b.room_no
-					join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r
-					on h.room_no = r.room_no
-    				order by b.count*r.star desc;
 					
-					*/
-					
-					/*/*
-					select * 
-					from hosting h join hosting_pic pic
-					on h.room_no = pic.room_no
-					join host
-					on  h.host_id = host.host_id
-					join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b
-					on h.room_no = b.room_no
-					join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r
-					on h.room_no = r.room_no
-					where host_level = 3
-    				order by b.count*r.star desc;
-					
-					*/
-					  
 					
 					
 					pstmt = con.prepareStatement(sql);
-					
+					/*
+					 	private int host_id;	
+	 					private int room_no;	
+	 					private String subject;	
+	 					private String room;	
+	 					private int people;		
+						private String pic1;	
+						private int count;	
+						private double star;
+	 
+					*/
 					rs = pstmt.executeQuery();
+					
+					while(rs.next()){
+						homeDTO dto = new homeDTO();
+						dto.setHost_id(rs.getInt("host_id"));
+						dto.setRoom_no(rs.getInt("room_no"));
+						dto.setSubject(rs.getString("subject"));
+						dto.setRoom(rs.getString("room"));
+						dto.setPeople(rs.getInt("people"));
+						dto.setPic1(rs.getString("pic1"));
+						dto.setCount(rs.getInt("count"));
+						dto.setStar(rs.getDouble("star"));
+						recommendV.add(dto);
+					}
+					
+					
 
 
 				} catch (SQLException e) {
@@ -115,34 +177,8 @@ public class homeDAO {
 					freeResource();
 				}
 				
-				return result;
+				return recommendV;
 			}
 			
-			
-			/*
-			public int recharge(String email, int addedPoint){
-				System.out.println("요청 들어옴");
-				int result = 0;
-				try {
-					con = ds.getConnection();	
-					System.out.println("연결됨");
-					String sql = "update user2 set point=? where email=?";
-					
-					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, addedPoint);
-					pstmt.setString(2, email);
-					
-					result = pstmt.executeUpdate();
-					System.out.println(result);
-				} catch (SQLException e) {
-					System.out.println("recharge() 함수 오류"+e);
-					e.printStackTrace();
-				} finally {
-					freeResource();
-				}
-				
-				return result;
-			}
-			*/
 
 }

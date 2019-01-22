@@ -93,7 +93,7 @@ function myFunction(id) {
 	  var b = document.getElementById("location_select");
 	  var c = document.getElementById("date_select");
 	  var d = document.getElementById("number_select");
-	
+	  var e = document.getElementById("time_select");
 	  
 	  
 	  if (x.className.indexOf("w3-show") == -1) {//처음 클릭했다.
@@ -103,7 +103,7 @@ function myFunction(id) {
 		  b.className = b.className.replace(" w3-show", "");
 		  c.className = c.className.replace(" w3-show", "");
 		  d.className = d.className.replace(" w3-show", "");
-	
+		  e.className = e.className.replace(" w3-show", "");
 		  //내꺼만 다시 보이게
 		  x.className += " w3-show";
 	  } else { // 열려있는 상태에서 클릭했다.
@@ -123,12 +123,12 @@ function setValue(obj, target){
 	var b = document.getElementById("location_select");
 	var c = document.getElementById("date_select");
 	var d = document.getElementById("number_select");
-	
+	var e = document.getElementById("time_select");
 	a.className = a.className.replace(" w3-show", "");
 	b.className = b.className.replace(" w3-show", "");
 	c.className = c.className.replace(" w3-show", "");
 	d.className = d.className.replace(" w3-show", "");
-
+	e.className = e.className.replace(" w3-show", "");
 }
 
 	
@@ -171,7 +171,7 @@ letter-spacing: 1px;
           </button>
         </div>
         
-        <div class="w3-col l4 m4 w3-border-left w3-padding">
+        <div class="w3-col l3 m3 w3-border-left w3-padding">
           <label >지역</label>
            <button type="button" onclick="myFunction('location_select')" style="border: none; padding:0px; background-color: white;">
           	<input type="text" id="location" name="location" value="해운대구" class="w3-input w3-border-0" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)" >
@@ -179,10 +179,18 @@ letter-spacing: 1px;
           </button>
         </div>
           
-        <div class="w3-col l4 m4 w3-border-left w3-padding">
+        <div class="w3-col l3 m3 w3-border-left w3-padding">
           <label>날짜</label><br/>
           <button type="button" onclick="myFunction('date_select')" style="border: none; padding:0px; background-color: white;">
           	<input type="text" id="date" name="date" class="w3-input w3-border-0"  style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
+            <i class="material-icons">keyboard_arrow_down</i>
+          </button>
+        </div>
+        
+        <div class="w3-col l2 m2 w3-border-left w3-padding">
+          <label>시간</label>
+          <button type="button" onclick="myFunction('time_select')" style="border: none; padding:0px; background-color: white;">
+          	<input type="text" id="time" name="time" class="w3-input w3-border-0"  value="2" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
         </div>
@@ -211,7 +219,7 @@ letter-spacing: 1px;
 	  			<input type="button" value="강의실" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
 	  			<input type="button" value="야외" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>  
 	        </div>
-	        <div class="w3-col l10 m10 w3-padding"></div>
+	        <div class="w3-col l9 m9 w3-padding"></div>
         </div>
         
        	<div class="w3-row w3-hide" style="margin:2px -70px;" id="location_select">
@@ -250,11 +258,22 @@ letter-spacing: 1px;
         
         
         <div class="w3-row w3-hide w3-center" style="margin:2px -70px;" id="date_select">
-	        <div class="w3-col l6 w3-padding"></div>
-	        <div class="w3-col l4 w3-padding-small w3-white w3-round" id="datepicker" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
-	        <div class="w3-col l2 w3-padding"></div>
+	        <div class="w3-col l5 w3-padding"></div>
+	        <div class="w3-col l3 w3-padding-small w3-white w3-round" id="datepicker" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
+	        <div class="w3-col l4 w3-padding"></div>
         </div>
         
+        
+        <div class="w3-row w3-hide" style="margin:2px -70px;" id="time_select">
+	        <div class="w3-col l8 w3-padding"></div>
+	        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+	  			<input type="button" value="1" onclick="setValue(this, 'time')" style="border: none; padding:0px; background-color: white;"><br/>
+	  			<input type="button" value="2" onclick="setValue(this, 'time')" style="border: none; padding:0px; background-color: white;"><br/> 
+	  			<input type="button" value="3" onclick="setValue(this, 'time')" style="border: none; padding:0px; background-color: white;"><br/>
+	  			<input type="button" value="4" onclick="setValue(this, 'time')" style="border: none; padding:0px; background-color: white;"><br/> 
+	        </div>
+	        <div class="w3-col l2 w3-padding"></div>        
+        </div>
         
         <div class="w3-row w3-hide" style="margin:2px -70px;" id="number_select">
 	        <div class="w3-col l10 w3-padding"></div>
