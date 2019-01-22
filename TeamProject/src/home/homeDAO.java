@@ -90,8 +90,8 @@ public class homeDAO {
 					select * 
 					from hosting h join hosting_pic pic
 					on h.room_no = pic.room_no
-					join host host
-					on  h.host_no = host.host_no
+					join host
+					on  h.host_id = host.host_id
 					join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b
 					on h.room_no = b.room_no
 					join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r
