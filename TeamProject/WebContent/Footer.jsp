@@ -134,7 +134,7 @@ p{
 				</div>
 				<div class="col-sm-1"><h6 style="text-align: center;">NOTICE</h6>
 					<div class="list-group">
-						<a href="event/event.jsp"><button class="w3-button w3-round">공지사항</button></a>
+						<a href="footer/notice.jsp"><button class="w3-button w3-round">공지사항</button></a>
 						<a href="footer/help.jsp""><button class="w3-button w3-round">Q&A</button></a>
 						<a href="event/event.jsp"><button class="w3-button w3-round">이용약관</button></a>
 					</div>

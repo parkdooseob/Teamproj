@@ -29,8 +29,12 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	<style>
 	body{	
 		font-family: "Nanum Barun Gothic"; 
-		letter-spacing: 1px;	 
-	}	
+		letter-spacing: 1px; 
+	}
+	
+	button{
+		margin-bottom: 10px;
+	}
 	</style>
 
 <body>
@@ -76,8 +80,6 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		</a>
     </div>
     <div class="w3-padding-20"></div>
-    
-    <br/><br/>
     
 </div>
 <!-- center 끝 -->
