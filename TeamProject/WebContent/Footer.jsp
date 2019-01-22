@@ -42,7 +42,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
 
-<title>Insert title here</title>
+<title>나눔 공간</title>
 <script type="text/javascript">
 $(document).ready(function() {	  
 	
@@ -87,7 +87,8 @@ a{
 }
 
 #footerDiv{	
-	width: 100%; height: 300px;
+	width: 100%; height: auto;
+	
 	/*background-image: url("../img/header.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -100,8 +101,8 @@ p{
  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-#container{
-	
+.list-group{
+	display: inline-block;
 }
 
 </style>
@@ -109,34 +110,36 @@ p{
 <body>
 
 <div id="footerDiv">
-	<div id="container">
-  	<div class="w3-container w3-blue-grey w3-center">
-		<img src="event/e_img/footer_img.jpg">
-  		<p class="w3-container w3-blue-grey">
-  			대표이사: (주) Share Space | 6강2조 | 주소: 부산 아이티윌 <br/>
-			메일: help@sharespace.com | tel: 1644-1234(9am-6pm)<br/>
-			호스팅 서비스 제공자: (주)Share Space<br/>
-		</p>
-	<div class="w3-container w3-small w3-blue-grey">
-			<p>
-			(주)Share Space는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며<br/>
-			상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다<br/>
-			</p>
-	</div>
-	<div class="w3-container w3-blue-grey w3-center">
-		<a href="#">
-  			<i class="material-icons">favorite</i>
-  		</a>
-  		<a href="#">
-  			<i class="material-icons">favorite</i>
-  		</a>
-  		<a href="#">
-  			<i class="material-icons">favorite</i>
-  		</a>
-  	</div>
-  </div>  
-  </div> <!-- container -->
-</div>
+	<div class="w3-container w3-blue-grey w3-center"> <br>	
+			<div class="row">
+				<div  class="col-sm-2" style="text-align: right;">
+					<a href="home.jsp"><img src="event/e_img/footer_img.jpg"></a>
+				</div>
+				<div class="col-sm-8" style="text-align: left;">
+					<h5>Copyright&copy; Share Space</h5>
+					대표이사: (주) Share Space | 6강2조 | 주소: 부산 아이티윌 <br/>
+					메일: help@sharespace.com | tel: 1644-1234(9am-6pm)<br/>
+					호스팅 서비스 제공자: (주)Share Space<br/>
+					<div class="w3-container w3-small">
+					(주)Share Space는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며<br/>
+					상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다<br/>
+					</div>
+				</div>
+				<div class="col-sm-1"><h6 style="text-align: center;">SNS</h6>
+					<div class="list-group">
+						<a href="event/event.jsp"><button class="w3-button w3-round">페이스북</button></a>
+						<a href="event/event.jsp"><button class="w3-button w3-round">인스타</button></a>
+						<a href="event/event.jsp"><button class="w3-button w3-round">유튜브</button></a>
+					</div>
+				</div>
+				<div class="col-sm-1"><h6 style="text-align: center;">NOTICE</h6>
+					<div class="list-group">
+						<a href="event/event.jsp"><button class="w3-button w3-round">공지사항</button></a>
+						<a href="event/event.jsp"><button class="w3-button w3-round">Q&A</button></a>
+						<a href="event/event.jsp"><button class="w3-button w3-round">이용약관</button></a>
+					</div>
+				</div>
+		</div>
 
 <!-- Footer 
 	<footer class="w3-center w3-white w3-padding-50">
