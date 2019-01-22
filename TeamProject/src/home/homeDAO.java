@@ -101,7 +101,7 @@ public class homeDAO {
 					
 					*/
 					  
-					 */
+					
 					
 					pstmt = con.prepareStatement(sql);
 					
