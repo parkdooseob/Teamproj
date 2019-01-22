@@ -9,6 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import user.UserDTO;
+
 public class UserDAO {
 	// DB작업할 삼총사 객체를 담을 변수 선언
 			private Connection con;
@@ -64,7 +66,7 @@ public class UserDAO {
 				try {
 					con = ds.getConnection();	
 					System.out.println("연결됨");
-					String sql = "update user2 set point=? where email=?";
+					String sql = "update user set point=? where email=?";
 					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, addedPoint);
@@ -82,4 +84,40 @@ public class UserDAO {
 				return result;
 			}
 
+			// 회원정보 가져오기 메서드
+			public UserDTO getUser(String email) {
+				
+				UserDTO udto = new UserDTO();
+				
+				try {
+					
+					con = ds.getConnection();
+					
+					String sql = "SELECT * FROM user WHERE email=?";
+					
+					pstmt = con.prepareStatement(sql);
+					
+					pstmt.setString(1, email);		
+					
+					rs = pstmt.executeQuery();		
+					
+					rs.next();		
+					
+					udto.setEmail(rs.getString("email"));
+					udto.setPass(rs.getString("pass"));
+					udto.setName(rs.getString("name"));
+					udto.setHost(rs.getInt("host"));
+					udto.setPoint(rs.getInt("point"));
+					
+					
+					
+				} catch (Exception e) {
+					System.out.println("userCheck() 메서드에서 "+e);
+				} finally {
+					freeResource();
+				}
+				
+				
+				return udto;
+			}
 }

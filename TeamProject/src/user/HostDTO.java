@@ -7,8 +7,7 @@ public class HostDTO {
 	private String host_pass;
 	private String host_nic;
 	private String host_phone;
-	private int host_level;
-	private int point;
+	private int host_level;	
 	
 	// getter, setter
 	public String getHost_id() {
@@ -46,12 +45,6 @@ public class HostDTO {
 	}
 	public void setHost_level(int host_level) {
 		this.host_level = host_level;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
 	}
 	
 	
