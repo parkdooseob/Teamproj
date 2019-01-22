@@ -91,11 +91,11 @@ desc hosting_address;
 					 Date dateF;
 					try {
 						dateF = new SimpleDateFormat("yyyy년 mm월 dd일").parse(date);
-						bookDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+						bookDate = new SimpleDateFormat("yyyy-MM-dd").format(dateF);
 					} catch (ParseException e1) {
 						System.out.println("날짜변환 오류");
 					}
-
+//					System.out.println(bookDate);
 					 
 					try {
 						con = ds.getConnection();	
