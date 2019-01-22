@@ -77,5 +77,9 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 </div>
 <!-- center 끝 -->
 
+<!-- Footer -->
+	<jsp:include page="Footer_event.jsp" flush="false"/>
+<!-- Footer 끝 -->
+
 </body>
 </html>

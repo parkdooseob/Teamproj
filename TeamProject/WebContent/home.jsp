@@ -153,7 +153,7 @@ letter-spacing: 1px;
 <!-- Header시작 -->
 
 <header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
-  <img class="w3-image" src="img/main_pic.jpg" width="100%">
+  <img class="w3-image" src="img/main_pic2.jpg" width="100%">
   <form action="search.do" method="post">
  	 <div class="w3-display-middle w3-margin-top w3-center w3-container" style="min-height: 500px; top:80%">
      <!-- 첫 row -->
@@ -405,7 +405,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		     <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+		     <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Summer House</div>
 		     <img src="img/room01.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -413,7 +413,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Brick House</div>
 		    <img src="img/room02.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -421,7 +421,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Renovated</div>
 		    <img src="img/room03.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -447,7 +447,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		     <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+		     <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Summer House</div>
 		     <img src="img/room01.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -455,7 +455,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Brick House</div>
 		    <img src="img/room02.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -463,7 +463,7 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Renovated</div>
 		    <img src="img/room03.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -488,18 +488,18 @@ letter-spacing: 1px;
     <div class="w3-display-container mySlides">
       <img src="img/event02.jpg" style="width:100%; height:30%;">
       <div class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Lorem ipsum</span>
+        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Lorem ipsum</span>
       </div>
     </div>
     <div class="w3-display-container mySlides">
       <img src="img/event02.jpg" style="width:100%; height:30%;">
       <div class="w3-display-middle w3-container w3-padding-32" >
-        <span class="w3-white w3-padding-large w3-animate-bottom">Klorim tipsum</span>
+        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span>
       </div>
     </div>
     <div class="w3-display-container mySlides">
       <img src="img/event02.jpg" style="width:100%; height:30%;">
-      <div class="w3-display-topright w3-container w3-padding-32">
+      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
         <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span>
       </div>
     </div>
@@ -523,11 +523,13 @@ letter-spacing: 1px;
 <!-- End page content -->
 </div>
 
-
 <!-- Footer -->
+	<jsp:include page="Footer.jsp" flush="false"/>
+<!-- Footer 끝 -->
+<!-- Footer
 <footer class="w3-center w3-white w3-padding-50">
   <p><a href="#" title="W3.CSS" target="_blank" class="w3-hover-text-green">Share Space</a></p>
-</footer>
+</footer> -->
 
 
 <script>
