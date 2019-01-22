@@ -55,4 +55,6 @@ padding-right:1px;
 .display input{
 	font-size: 1.1em;
 	color: rgb(156, 143, 109);
+	text-align: right; 
+	padding-right:1px;
 }

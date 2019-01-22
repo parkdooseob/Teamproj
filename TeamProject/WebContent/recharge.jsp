@@ -139,13 +139,14 @@
 					
 				</div><!-- container -->
 				<footer class="w3-white w3-padding">
-					<form action="#" method="post">
+					<form action="rechargeController.do" method="post">
+					<input type="hidden" name="email" value="aaaaaa"><!-- jstl di 처리--> 
 					<%String price = "10000"; %>
 						<div id="display">
 							<p align="right"> 
 							현재 잔액 : <span class="display"><input type="text" size="5" id="balance"  class="w3-border-0" value="<%=price %>" readonly>원</span><br/>
 							충전 금액 : <span class="display"><input type="text" size="5" id="selectedPrice" class="w3-border-0" readonly>원</span><br/>
-							충전 후 예상 잔액 : <span class="display"><input type="text" size="5" id="totalPrice"  class="w3-border-0" value="<%=price %>" readonly>원</span>
+							충전 후 예상 잔액 : <span class="display"><input type="text" size="5" id="totalPrice"  name="addedPoint" class="w3-border-0" value="<%=price %>" readonly>원</span>
 							</p>
 						</div>
 						<input type="submit" value="충전하기" class="w3-button w3-round w3-center" id="rechargeSubmit" >
