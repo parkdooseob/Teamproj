@@ -57,8 +57,12 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
   
   <!-- 이벤트 제목 -->
   <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">회원가입 이벤트</h3>
-    <h6 class="w3"></h6>
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">
+    	회원가입 이벤트
+    	<a href="event.jsp">
+    		<button class="w3-button w3-small w3-right w3-white w3-border w3-border-red w3-round-large">EVENT LIST</button>
+    	</a> 
+    </h3>
   </div>
   
   	<!-- 이벤트 -->
@@ -66,20 +70,18 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
     <!-- 이벤트 끝 -->
         
     <div>
-    	<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16"></h3>
-		<a href="event.jsp">
-    		<button href="event.jsp" class="w3-button w3-teal w3-border w3-round-large w3-right">Event list</button>
+    	<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16"></h3>    	
+		<a href="ePage1.jsp">
+    		<button href="event.jsp" class="w3-button w3-middle w3-right w3-white w3-border w3-border-red w3-round-large">TOP</button>
 		</a>
     </div>
+    <div class="w3-padding-20"></div>
     
     <br/><br/>
     
 </div>
 <!-- center 끝 -->
 
-<!-- Footer -->
-	<jsp:include page="Footer_event.jsp" flush="false"/>
-<!-- Footer 끝 -->
 
 </body>
 </html>

@@ -483,7 +483,11 @@ letter-spacing: 1px;
 
 
  <!-- Slideshow -->
- <hr/>
+ <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="event/event.jsp" class="w3-right w3-medium">더보기</a></h3>
+    <div>
+  </div>
+  
   <div class="w3-container">
     <div class="w3-display-container mySlides">
       <img src="img/event02.jpg" style="width:100%; height:30%;">
