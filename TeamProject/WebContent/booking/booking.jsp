@@ -181,7 +181,14 @@ small{
 						</div>
 						<div class="w3-col m6 div_table" align="center">
 							<h6>환불 불가</h6>
-						</div>					
+						</div>
+						<div class="w3-col m12 w3-margin-top">
+							● 취소 규정이 적용되는 기준은 체크인 입니다.
+						</div>
+						<div class="w3-col m12">
+							● 취소 수수료는 판매금액을 기준으로 계산 됩니다.
+						</div>
+											
 					</div>
 				</div>
 				<hr>
@@ -228,8 +235,10 @@ small{
 				</div>
 				<hr>
 				<div class="w3-row">
-					<div class="w3-col m5">
+					<div class="w3-col m12">
 						<h5>공지 사항</h5>
+						<p><small>● 해당 공간의 호스트 사정으로 인한 취소 발생시 100% 환불 가능 합니다.</small></p>
+						<p><small>● 해당 공간의 호스트 사정으로 객실 정보가 수시로 변경될 수 있습니다. 이로인한 불이익은 당사가 책임지지 않습니다.</small></p>
 					</div>
 				</div>
 				<hr>				
