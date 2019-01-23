@@ -190,7 +190,7 @@ letter-spacing: 1px;
         <div class="w3-col l2 m2 w3-border-left w3-padding">
           <label>인원</label>
           <button type="button" onclick="myFunction('number_select')" style="border: none; padding:0px; background-color: white;">
-          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="2" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
+          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="소" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
         </div>
@@ -259,10 +259,9 @@ letter-spacing: 1px;
         <div class="w3-row w3-hide" style="margin:2px -70px;" id="number_select">
 	        <div class="w3-col l10 w3-padding"></div>
 	        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-	  			<input type="button" value="1" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
-	  			<input type="button" value="2" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
-	  			<input type="button" value="3" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
-	  			<input type="button" value="4" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
+	  			<input type="button" value="소" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
+	  			<input type="button" value="중" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
+	  			<input type="button" value="대" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>	  			 
 	        </div>        
         </div>
         

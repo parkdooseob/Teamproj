@@ -2,7 +2,7 @@ package home;
 
 public class homeDTO {
 	
-	 private int host_id;	
+	 private String host_id;	
 	 private int room_no;	
 	 private String subject;	
 	 private String room;	
@@ -12,10 +12,10 @@ public class homeDTO {
 	 private double star;
 	 
 	 
-	public int getHost_id() {
+	public String getHost_id() {
 		return host_id;
 	}
-	public void setHost_id(int host_id) {
+	public void setHost_id(String host_id) {
 		this.host_id = host_id;
 	}
 	public int getRoom_no() {
