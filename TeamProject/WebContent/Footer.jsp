@@ -5,11 +5,8 @@
 	/* <jsp:include page="../Top.jsp" flush="false"/>
 		동적 페이지 폴더 변경 */
 	String servlet = request.getServletPath();
-	// 이미지 동적경로 지정시
 	String path = "../";
-	// 컨트롤러 동적경로 지정시
 	String path1 = ".";
-	// 페이지 동적경로 지정시
 	String path2 = "../user/";
 	if(servlet.equals("/home.jsp") || servlet.equals("/Footer.jsp")){
 		path="";
