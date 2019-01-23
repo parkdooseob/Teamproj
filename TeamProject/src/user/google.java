@@ -41,7 +41,7 @@ public class google extends HttpServlet {
 		
 		String client_id = "463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com";
 		
-		String redirectURI = "http://localhost:8181/TeamProj/google";
+		String redirectURI = "http://localhost:8181/TeamProject/google";
 		
 		String client_secret = "Vwl1rm1fi2naT41YevXIP7IB";
 		
