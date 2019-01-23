@@ -31,7 +31,7 @@
 		script.println("</script>");
 	}
 	//해당 글의 구체적인 정보를 bbs인스턴스에 담아 가져오기
-	BbsDTO bbs = new BbsDAO().getBbs(bbsID);
+	//BbsDTO bbs = new BbsDAO().getBbs(bbsID);
 %>
 
 <!-- 최상단 네비 바 시작 -->
@@ -61,44 +61,34 @@
 					<!-- 실제 게시글의 제목 및 작성자, 글 내용 넣기 -->
 					<tr>
 						<td style="width: 20%;">글 제목</td>
-						<td colspan="2"><%=bbs.getBbsTitle()
+						<td colspan="2"><%-- <%=bbs.getBbsTitle()
 											.replaceAll(" ", "&nbsp;")
 											.replaceAll("<", "&lt;")
 											.replaceAll(">", "&gt;")
 											.replaceAll("\n", "<br>")	
-											%></td>
+											%> --%></td>
 					</tr>
-					<tr>
-						<td>작성자</td>
-						<td colspan="2"><%=bbs.getUserID() %></td>
-					</tr>
-					<tr>
-						<td>작성일자</td>
-						<td colspan="2"><%= bbs.getBbsDate().substring(0, 11)
-										+	bbs.getBbsDate().substring(11, 13) + "시 /"
-										+	bbs.getBbsDate().substring(14, 16) + " 분" %></td>
-					</tr>
-					<tr>
+
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: Left;"><%=bbs.getBbsContent()
+						<td colspan="2" style="min-height: 200px; text-align: Left;"><%-- <%=bbs.getBbsContent()
 																					.replaceAll(" ", "&nbsp;")
 																					.replaceAll("<", "&lt;")
 																					.replaceAll(">", "&gt;")
 																					.replaceAll("\n", "<br>")
-																					%></td>
+																					%> --%></td>
 					</tr>
 				</tbody>
 			</table>
 			<a href="bbs.jsp" class="btn btn-primary">목록</a>
 			
 			<%	//현재 글 작성자가 본인이라면
-				if(email != null && email.equals(bbs.getUserID())){
+				//if(email != null && email.equals(bbs.getUserID())){
 					//업데이트가 가능하도록 출력(수정,삭제)
 			%>	
 					<a href="update.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">수정</a>
 					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">삭제</a>
 			<%
-				}
+				//}
 			%>
 		</div>
 	</div>

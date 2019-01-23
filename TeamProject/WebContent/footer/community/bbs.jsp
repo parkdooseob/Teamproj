@@ -93,30 +93,33 @@
 						<th style="text-align: center;">Date</th>
 					</tr>
 				</thead>
-				<tbody>
-					<%
-						BbsDAO bbsDAO = new BbsDAO();
-						//현재의 페이지에서 가져온 리스트(=목록)
-						ArrayList<BbsDTO> list = bbsDAO.getList(pageNumber);
-						//목록을 하나씩 출력
-						for(int i=0; i<list.size(); i++){
-					%>
+<!-- 					<tbody>
+			
+<%-- 					<% --%>
+// 						BbsDAO bbsDAO = new BbsDAO();
+// 						//현재의 페이지에서 가져온 리스트(=목록)
+// 						ArrayList<BbsDTO> list = bbsDAO.getList(pageNumber);
+// 						//목록을 하나씩 출력
+// 						for(int i=0; i<list.size(); i++){
+<%-- 					%> --%>
 					<tr>
+					-->
 						<!-- 현재 게시글의 정보 가져오기 -->
-						<td><%= list.get(i).getBbsID() %></td>
-							<!-- a태그 사용하여 제목을 눌렀을때 view를 사용하여 해당 게시글을 보여줌 -->
-							<!-- view.jsp로 해당 게시글번호를 매개변수로 보내어 처리 -->
-							<!-- 해당 게시글번호에 맞는 게시글을 view페이지에 볼수 있도록 해당 view페이지로 이동하도록 함 -->
-						<td><a href="bView.jsp?bbsID=<%= list.get(i).getBbsID() %>"> <%= list.get(i).getBbsTitle()%></a></td>
-						<td><%= list.get(i).getUserID() %></td>
-							<!-- substring을 사용해 날짜를 보기좋게 출력 -->
-						<td><%= list.get(i).getBbsDate().substring(0, 11)
+<%-- 						<td><%= list.get(i).getBbsID() %></td> --%>
+<!-- 							a태그 사용하여 제목을 눌렀을때 view를 사용하여 해당 게시글을 보여줌 -->
+<!-- 							view.jsp로 해당 게시글번호를 매개변수로 보내어 처리 -->
+<!-- 							해당 게시글번호에 맞는 게시글을 view페이지에 볼수 있도록 해당 view페이지로 이동하도록 함 -->
+<%-- 						<td><a href="bView.jsp?bbsID=<%= list.get(i).getBbsID() %>"> <%= list.get(i).getBbsTitle()%></a></td> --%>
+<%-- 						<td><%= list.get(i).getUserID() %></td> --%>
+<!-- 							substring을 사용해 날짜를 보기좋게 출력 -->
+<%-- 						<td><%= list.get(i).getBbsDate().substring(0, 11) --%>
 								+	list.get(i).getBbsDate().substring(11, 13) + "시 /"
-								+	list.get(i).getBbsDate().substring(14, 16) + " 분"  %></td>
-					</tr>
-					<%
-						}
-					%>
+<%-- 								+	list.get(i).getBbsDate().substring(14, 16) + " 분"  %></td>  --%>
+<!-- 					</tr> -->
+<%-- 					<% --%>
+							}
+<%-- 					%> --%>
+
 				</tbody>
 			</table>
 			<hr/>
@@ -126,19 +129,19 @@
 				<%
 					if(pageNumber != 1){ //페이지넘버가 1이 아니라면
 				%>
-					<!-- 화살표 모양 -->					
+					<!-- 화살표 모양					
 					<a href="bbs.jsp?pageNumber=<%= pageNumber -1 %>">
 						<i class="fa fa-arrow-left"></i>
 					</a>
-				<%		
-					} if(bbsDAO.nextPage(pageNumber + 1)){ //만약 다음페이지가 존재 한다면
+				<%
+					//} if(BbsDAO.nextPage(pageNumber + 1)){ //만약 다음페이지가 존재 한다면
 				%>
 					<a href="bbs.jsp?pageNumber=<%= pageNumber +1 %>">
 						<i class="fa fa-arrow-right"></i>
 					</a>
 				<%
 					}
-				%>
+				%> -->
 					<div class="col-sm-2">
 						<a href="home.jsp" style="float: right;"><i class="fa fa-home"></i></a>
 					</div>
