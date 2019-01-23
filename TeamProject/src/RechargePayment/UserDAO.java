@@ -106,7 +106,7 @@ public class UserDAO {
 					udto.setEmail(rs.getString("email"));
 					udto.setPass(rs.getString("pass"));
 					udto.setName(rs.getString("name"));
-					udto.setHost(rs.getInt("host"));
+					udto.setHost_check(rs.getInt("host_check"));
 					udto.setPoint(rs.getInt("point"));
 					
 					
