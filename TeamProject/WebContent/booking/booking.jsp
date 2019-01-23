@@ -320,5 +320,9 @@ small{
 		</div>
 	</form>	
 <!-- 본문 종료 -->
+
+<!-- Footer -->
+	<jsp:include page="../Footer.jsp" flush="false"/>
+<!-- Footer 끝 -->
 </body>
 </html>

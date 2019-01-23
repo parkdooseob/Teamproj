@@ -27,6 +27,17 @@ function popupOpen(){
 		//win.close();
 	}
 	
+	$(document).ready(function(){
+		
+		$("#div_load").load("index.jsp");
+			
+		
+		
+	});
+		
+	
+	
+	
 </script>
 <head>    
 </head>
@@ -59,6 +70,6 @@ function popupOpen(){
 	
 	<input type="text" maxlength="3" name="name">
 	
-	
+	<div id=div_load></div>
 </body>
 </html>

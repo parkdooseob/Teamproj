@@ -51,7 +51,7 @@ public class UserProfileUpdateController extends HttpServlet {
 		
 		udao.userProfileUpdate(session_dto.getEmail(),udto);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("./home.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("./index.jsp");
 		
 		dis.forward(request, response);
 				
