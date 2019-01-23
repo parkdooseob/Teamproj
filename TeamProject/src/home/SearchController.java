@@ -34,7 +34,7 @@ public class SearchController extends HttpServlet {
 		
 		request.setAttribute("FindV ", FindV );
 		
-		RequestDispatcher dis = request.getRequestDispatcher("detail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		dis.forward(request, response);
 	}
 

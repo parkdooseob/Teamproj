@@ -88,7 +88,7 @@ desc hosting_address;
 					
 					Vector<SearchDTO> FindV = new Vector<SearchDTO>();
 					String bookDate = null;
-					 Date dateF;
+					Date dateF;
 					try {
 						dateF = new SimpleDateFormat("yyyy년 mm월 dd일").parse(date);
 						bookDate = new SimpleDateFormat("yyyy-MM-dd").format(dateF);
@@ -96,7 +96,16 @@ desc hosting_address;
 						System.out.println("날짜변환 오류");
 					}
 //					System.out.println(bookDate);
-					 
+					
+					int people = 0;
+					if(number.equals("소")){
+						people = 0;
+					}else if(number.equals("중")){
+						people = 1;
+					}else if(number.equals("대")){
+						people = 2;
+					}
+					
 					try {
 						con = ds.getConnection();	
 						System.out.println("연결됨");
@@ -120,7 +129,7 @@ desc hosting_address;
 						pstmt = con.prepareStatement(sql);
 						pstmt.setString(1, bookDate);// 날짜
 						pstmt.setString(2, type);// 공간 윻ㅇ
-						pstmt.setString(3, location);// 인원 
+						pstmt.setInt(3, people);// 인원 
 						pstmt.setInt(4, Integer.parseInt(number));// 인원 
 						
 					
