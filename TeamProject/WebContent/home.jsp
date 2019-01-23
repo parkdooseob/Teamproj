@@ -190,7 +190,7 @@ letter-spacing: 1px;
         <div class="w3-col l2 m2 w3-border-left w3-padding">
           <label>인원</label>
           <button type="button" onclick="myFunction('number_select')" style="border: none; padding:0px; background-color: white;">
-          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="2" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
+          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="소" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
         </div>

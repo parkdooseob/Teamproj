@@ -129,8 +129,8 @@ desc hosting_address;
 						pstmt = con.prepareStatement(sql);
 						pstmt.setString(1, bookDate);// 날짜
 						pstmt.setString(2, type);// 공간 윻ㅇ
-						pstmt.setInt(3, people);// 인원 
-						pstmt.setInt(4, Integer.parseInt(number));// 인원 
+						pstmt.setString(3, location);// 인원 
+						pstmt.setInt(4, people);// 인원 
 						
 					
 						rs = pstmt.executeQuery();
