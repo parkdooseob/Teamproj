@@ -37,6 +37,9 @@
 		color: grey;
 	}	
 
+	#img{margin-top: 75px;
+		transform:scaleY(3);
+	}
 </style>
 
 <script type="text/javascript">
@@ -88,11 +91,11 @@ $(document).ready(function() {
 </head>
 <body>
 <!-- 최상단 네비 바 시작 -->
-<jsp:include page="../Top.jsp" flush="false"/>
+<jsp:include page="../../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <div class="w3-container w3-padding-large con">		
 		<div class="w3-row">
-			<div class="w3-col m2"></div>				
+			<div class="w3-col m2"><img id="img" src="study1_2.jpg" style="padding: 0; width: 300px; height:100%; opacity:0.8;"></div>				
 			<div class="w3-col m2" align="left">
 				<h1 style="padding-left: 20px;">Q&A</h1>			
 				<ul class="ul_left">

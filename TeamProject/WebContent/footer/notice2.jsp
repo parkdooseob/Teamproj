@@ -19,12 +19,17 @@
 
 	.w3-table{border: 1px solid pink;}
 	
-	th{border: 1px solid #808080;
-		background-color: #d9d9d9;
+	th{	border: 2px solid #fff;
+		background-color:  #669999;
 		text-align: center;
-		color: white;}
+		color: white;
+		font-size: 20px;
+		font-family: sans-serif;
+		font-variant: small-caps;
+		}
 	
-	td{border: 1px solid #808080;}
+	td{	border: 2px solid #fff;
+		background-color: #fff;}
 	
 </style>
 
@@ -39,7 +44,7 @@
 <!-- 최상단 네비 바 종료 -->
 
 <!-- 페이지 center-->
-<div class="w3-content w3-padding" style="max-width:1564px">
+<div class="w3-content w3-padding" style="max-width:1250px">
 
 <!--내 위치(위쪽여백)-->
 <div class="w3-container w3-padding-16 w3-margin-bottom"  align="center">
@@ -58,9 +63,9 @@
 	
 	  <table class="w3-table">
 	    <tr>
-	      <th>번호</th>
-	      <th>제목</th>
-	      <th>게시일</th>
+	      <th>No</th>
+	      <th>Content</th>
+	      <th>Date</th>
 	    </tr>
 	    <tr>
 	      <td>1</td>
