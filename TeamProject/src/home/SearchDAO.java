@@ -16,18 +16,22 @@ import javax.sql.DataSource;
 public class SearchDAO {
 	/*
 select * from 
- hosting h join hosting_option o
- on h.room_no = o.room_no
- join hosting_bill b
- on h.room_no = b.room_no
- join hosting_address a
- on h.room_no = a.room_no
- left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r
- on h.room_no = r.room_no
- where h.room_no not in(select room_no 
+hosting h join hosting_option o
+on h.room_no = o.room_no
+join hosting_bill b
+on h.room_no = b.room_no
+join hosting_address a
+on h.room_no = a.room_no
+left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r
+on h.room_no = r.room_no
+left outer join (select room_no, sum(t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19 + t20 + t21) as 'ch'
 from booking b left outer join booking_time t
 on b.book_no = t.book_no
-where b.book_date = '2019-01-01' and b.book_check = 0)
+where b.book_date = '2019-01-01'
+and b.book_check = 0
+group by room_no) c
+on h.room_no = c.room_no
+where c.ch != 12
 and h.room = '카페'
 and a.a_address like '%해운대구%'
 and people = '';
