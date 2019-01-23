@@ -139,7 +139,7 @@ small{
 				<hr>
 				<div class="w3-row">
 					<div class="w3-col m5">
-						<h5>이용시간</h5>
+						<h5>예약시간</h5>
 					</div>
 				</div>
 				<hr>

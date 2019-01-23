@@ -257,7 +257,7 @@ function host_space(){
 
  // 상단 호스트 별표 클릭시
  function star_click(){	 
-	 if(${sessionScope.udto.host} != 1){		 
+	 if(${sessionScope.udto.host_check} != 1){		 
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
 			 location.href="${path2}hostSignUp.jsp";
 		}		 

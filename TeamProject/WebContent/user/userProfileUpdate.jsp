@@ -247,7 +247,7 @@
 	</div>
 	<div class="w3-row" >								
 		<div class="w3-col m7">
-			<input type="text" class="w3-input" placeholder="포인트" name="point" value="${sessionScope.udto.point }" readonly="readonly">
+			<input type="text" class="w3-input" placeholder="포인트" name="point" value="${sessionScope.udto.point }" disabled="disabled">
 		</div>
 		<div class="w3-col m1"><p><small>POINT</small>(원)<p></div>
 		<div class="w3-col m4"></div>

@@ -131,6 +131,7 @@ function setValue(obj, target){
 
 }
 
+
 	
 	
 </script>
@@ -322,7 +323,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-quarter w3-center">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="#" style="text-decoration: none;" onclick="sign_host()">
   	<i class="material-icons" style="font-size:80px;color:#333;">stars</i>
   	<p style="margin:2px;">호스트되기</p>
   	</a>
@@ -547,7 +548,18 @@ function showDivs(n) {
 }
 
 
+function sign_host(){
+	var host_check="${sessionScope.udto.host_check}";
+	if(host_check==""){
+		alert("로그인 또는 회원 가입을 먼저 하셔야 합니다.");
+	}else if(host_check==1){
+		alert("이미 호스트 가입 되어있습니다. 호스트 로그인 해주세요.");
+	}else{
+		location.href="user/hostSignUp.jsp";
+	}
+}
 
+</script>
 
 
 </script>

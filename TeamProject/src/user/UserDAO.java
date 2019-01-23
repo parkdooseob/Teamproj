@@ -25,7 +25,7 @@ public class UserDAO {
 			// 1. Was서버와 연결된 웹프로젝트의 모든정보를 가지고 있는 컨텍스트 객체 생성
 			Context init = new InitialContext();
 			// 2. 연결된 Was서버에서 DataSource(커넥션 풀)을 검색해서 얻기
-			ds = (DataSource)init.lookup("java:comp/env/jdbc/jspbeginner");
+			ds = (DataSource)init.lookup("java:comp/env/jdbc/sharespace");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -129,7 +129,7 @@ public class UserDAO {
 			udto.setEmail(rs.getString("email"));
 			udto.setPass(rs.getString("pass"));
 			udto.setName(rs.getString("name"));
-			udto.setHost(rs.getInt("host"));
+			udto.setHost_check(rs.getInt("host_check"));
 			udto.setPoint(rs.getInt("point"));
 			
 			
@@ -150,7 +150,7 @@ public class UserDAO {
 			
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO user(email,name,pass,host,point) VALUES(?,?,?,0,0)";
+			String sql = "INSERT INTO user(email,name,pass,host_check,point) VALUES(?,?,?,0,0)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -432,7 +432,7 @@ public class UserDAO {
 			con = ds.getConnection();
 			
 			
-			sql = "UPDATE user SET host = 1 WHERE email=?";			
+			sql = "UPDATE user SET host_check = 1 WHERE email=?";			
 			
 			pstmt = con.prepareStatement(sql);
 			
