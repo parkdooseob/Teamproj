@@ -5,7 +5,7 @@ public class SearchDTO {
 	private int room_no;
 	private String subject;
 	private String room;
-	private int people;
+	private String people;
 	private int drink;
 	private int elevator;
 	private int toilet;
@@ -63,11 +63,11 @@ public class SearchDTO {
 		this.room = room;
 	}
 
-	public int getPeople() {
+	public String getPeople() {
 		return people;
 	}
 
-	public void setPeople(int people) {
+	public void setPeople(String people) {
 		this.people = people;
 	}
 

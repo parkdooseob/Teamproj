@@ -6,7 +6,7 @@ public class homeDTO {
 	 private int room_no;	
 	 private String subject;	
 	 private String room;	
-	 private int people;		
+	 private String people;		
 	 private String pic1;	
 	 private int count;	
 	 private double star;
@@ -36,10 +36,10 @@ public class homeDTO {
 	public void setRoom(String room) {
 		this.room = room;
 	}
-	public int getPeople() {
+	public String getPeople() {
 		return people;
 	}
-	public void setPeople(int people) {
+	public void setPeople(String people) {
 		this.people = people;
 	}
 	public String getPic1() {

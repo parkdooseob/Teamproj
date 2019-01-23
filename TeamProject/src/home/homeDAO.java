@@ -97,7 +97,7 @@ public class homeDAO {
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
 						dto.setRoom(rs.getString("room"));
-						dto.setPeople(rs.getInt("people"));
+						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));
 						dto.setStar(rs.getDouble("star"));
@@ -160,7 +160,7 @@ public class homeDAO {
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
 						dto.setRoom(rs.getString("room"));
-						dto.setPeople(rs.getInt("people"));
+						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));
 						dto.setStar(rs.getDouble("star"));
