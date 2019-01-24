@@ -35,6 +35,10 @@
 		text-decoration: none;		
 		font-size: 1.2em;
 		color: grey;
+	}
+	.div_sticky{
+		position: sticky;
+		top : 95px;
 	}	
 
 </style>
@@ -69,6 +73,7 @@ $(document).ready(function() {
 		$(".a_click3").css("color","black");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
+		$("#contents").load("../ReViewBoardListController.do");
 	});
 	$(".a_click4").click(function(){
 		//alert("클릭");
@@ -98,14 +103,14 @@ $(document).ready(function() {
 <div class="w3-container w3-padding-large con">		
 		<div class="w3-row">
 			<div class="w3-col m2"></div>				
-			<div class="w3-col m2" align="left">
+			<div class="w3-col m2 div_sticky" align="left">
 				<h1 style="padding-left: 20px;">목록</h1>			
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
-					<li><a href="#" class="a_click2">공간등록 정보</a></li> <!-- 예약 현황 게시판 -->
-					<li><a href="#" class="a_click3">후기</a></li> <!-- 예약한 공간에 대한 후기 -->
+					<li><a href="#" class="a_click2">공간등록 정보</a></li> <!-- 내가 등록한 공간 -->
+					<li><a href="#" class="a_click3">리뷰</a></li> <!-- 예약한 공간에 대한 리뷰 -->
 					<li><a href="#" class="a_click4">추천글</a></li>					
-					<li><a href="#" class="a_click5">결제 정보</a></li>
+					<!-- <li><a href="#" class="a_click5"></a></li> -->
 				</ul>			
 			</div>		
 			<div class="w3-col m6" id="contents"></div>
