@@ -23,11 +23,15 @@
 	
 	<style type="text/css">
 		
+		table{max-width:1250px;
+			padding: 30px 30px 30px 30px;}
+			/* 위 우 아래 좌 */
+		
 		td>input, textarea{
 			width: 1150px;
 		}
 		
-		th{
+		th{	height: 50px;
 			border: 2px solid #fff;
 			background-color:  #85adad;
 			text-align: center;
@@ -40,6 +44,11 @@
 		a,i {color: #669999;
 			float: right;
 			text-decoration: none;}
+			
+		.w3-row{padding: 10px 0 30px 0;}
+			
+		#submit{float: right;}
+		
 	</style>
 	
 </head>
@@ -95,14 +104,16 @@
 					</tr>	
 				</tbody>
 			</table>
-			<hr/>				
-				<button type="submit" class="w3-button w3-padding-small w3-black">Register</button> 
+				<div class="w3-row">				
+					<button type="reset" class="w3-button w3-padding-small w3-black style="width:20%">reset</button>
+					<button id="submit" type="submit" class="w3-button w3-padding-small w3-black style="width:20%;">Register</button>
+				</div>
 			</form>
-			<a href="bbs.jsp" class="w3-button w3-padding-small w3-black">menu</a>
 			
 		</div>
 	</div>
-	
+
+</div>
 	
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 </body>
