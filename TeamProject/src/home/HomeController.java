@@ -29,8 +29,11 @@ public class HomeController extends HttpServlet {
 		System.out.println("접속");
 		homeDAO dao = new homeDAO();
 		
-		Vector<homeDTO> popularV = dao.popularSpace();
-		Vector<homeDTO> recommendV = dao.RecommendSpace();
+		Vector<homeDTO> popularV = new Vector<homeDTO>();
+		Vector<homeDTO> recommendV = new Vector<homeDTO>();
+		
+		popularV = dao.popularSpace();
+		recommendV = dao.RecommendSpace();
 	
 		request.setAttribute("popularV", popularV);
 		request.setAttribute("recommendV", recommendV);

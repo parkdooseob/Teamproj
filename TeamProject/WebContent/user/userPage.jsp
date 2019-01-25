@@ -108,7 +108,7 @@ $(document).ready(function() {
 					<li><a href="#" class="a_click5">결제 정보</a></li>
 				</ul>			
 			</div>		
-			<div class="w3-col m6" id="contents"></div>
+			<div class="w3-col m6" id="contents" style="border: solid 1px red"></div>
 			<div class="w3-col m2"></div>			
 		</div>
 </div>

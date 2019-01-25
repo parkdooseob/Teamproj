@@ -73,7 +73,7 @@ public class UserLoginController extends HttpServlet {
 		// 카카오 로그인시 2
 		session.setAttribute("login_val", 0);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
 		
 		dis.forward(request, response);
 		

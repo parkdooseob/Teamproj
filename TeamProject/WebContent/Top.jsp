@@ -57,7 +57,7 @@ $(document).ready(function() {
 // 	<!-- 구글 client_secret : Vwl1rm1fi2naT41YevXIP7IB -->
 	$("#google-sign").click(function(){	
 		var popUrl ="https://accounts.google.com/o/oauth2/v2/auth?"
-			+"redirect_uri=http://localhost:8181/TeamProj/google&"
+			+"redirect_uri=http://localhost:8181/TeamProject/google&"
 			+"response_type=code&"			
 			+"client_id=463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com&"
 			+"scope=openid%20email&"
@@ -75,7 +75,7 @@ $(document).ready(function() {
 // 	&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code” -->	
 	$("#kakao-sign").click(function(){	
 		var popUrl ="https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84"
-			+"&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code";	
+			+"&redirect_uri=http://localhost:8181/TeamProject/kakao&response_type=code";	
 			//팝업창에 출력될 페이지 URL
 	
 	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
@@ -164,7 +164,7 @@ function host_space(){
 <!-- Navbar 복사4-->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="${path}home.jsp" class="w3-bar-item w3-button"><b>SS</b> share space</a>
+    <a href="${path}index.jsp" class="w3-bar-item w3-button"><b>SS</b> share space</a>
     <c:set var="email" value="${sessionScope.udto.email }"/>
     <c:set var="host_id" value="${sessionScope.hdto.host_id }"/>
     <div class="w3-right w3-hide-small">   		      
@@ -257,7 +257,7 @@ function host_space(){
 
  // 상단 호스트 별표 클릭시
  function star_click(){	 
-	 if(${sessionScope.udto.host} != 1){		 
+	 if(${sessionScope.udto.host_check} != 1){		 
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
 			 location.href="${path2}hostSignUp.jsp";
 		}		 

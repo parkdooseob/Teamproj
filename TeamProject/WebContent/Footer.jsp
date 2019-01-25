@@ -44,42 +44,6 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <title>나눔 공간</title>
 <script type="text/javascript">
-$(document).ready(function() {	  
-	
-// 	<!-- 구글 로그인 구현 -->
-// 	<!-- 구글 CLIENT_ID : 463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com -->
-// 	<!-- 구글 redirect_uri : http://localhost:8080/TeamProj/google-->
-// 	<!-- 구글 client_secret : Vwl1rm1fi2naT41YevXIP7IB -->
-	$("#google-sign").click(function(){	
-		var popUrl ="https://accounts.google.com/o/oauth2/v2/auth?"
-			+"redirect_uri=http://localhost:8181/TeamProj/google&"
-			+"response_type=code&"			
-			+"client_id=463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com&"
-			+"scope=openid%20email&"
-			+"access_type=offline";	
-			//팝업창에 출력될 페이지 URL
-	
-	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	
-	var win = window.open(popUrl,"",popOption);		
-		
-   });
-// 	<!-- Rest API 키  :  7bed2c2cc35da2f635429b5665085d84 -->
-// 	<!-- /PrivateProject1225/kakao -->
-// 	<!-- “https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84
-// 	&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code” -->	
-	$("#kakao-sign").click(function(){	
-		var popUrl ="https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84"
-			+"&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code";	
-			//팝업창에 출력될 페이지 URL
-	
-	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	
-	var win = window.open(popUrl,"",popOption);		
-		
-   });	
-	
-});
 </script>
 <style type="text/css">
 a{
@@ -113,7 +77,7 @@ p{
 	<div class="w3-container w3-blue-grey w3-center"> <br>	
 			<div class="row">
 				<div  class="col-sm-2" style="text-align: right;">
-					<a href="home.jsp"><img src="footer/footer_img.jpg"></a>
+					<a href="${path2 }index.jsp"><img src="${path }footer/footer_img.jpg"></a>
 				</div>
 				<div class="col-sm-8" style="text-align: left;">
 					<h5>Copyright&copy; Share Space</h5>
@@ -127,16 +91,16 @@ p{
 				</div>
 				<div class="col-sm-1"><h6 style="text-align: center;">SNS</h6>
 					<div class="list-group">
-						<a href="event/event.jsp"><button class="w3-button w3-round">페이스북</button></a>
-						<a href="event/event.jsp"><button class="w3-button w3-round">인스타</button></a>
-						<a href="event/event.jsp"><button class="w3-button w3-round">유튜브</button></a>
+						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round">페이스북</button></a>
+						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round">인스타</button></a>
+						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round">유튜브</button></a>
 					</div>
 				</div>
 				<div class="col-sm-1"><h6 style="text-align: center;">NOTICE</h6>
 					<div class="list-group">
-						<a href="footer/notice.jsp"><button class="w3-button w3-round">공지사항</button></a>
-						<a href="footer/help.jsp""><button class="w3-button w3-round">Q&A</button></a>
-						<a href="event/event.jsp"><button class="w3-button w3-round">이용약관</button></a>
+						<a href="${path2 }footer/notice.jsp"><button class="w3-button w3-round">공지사항</button></a>
+						<a href="${path2 }footer/help.jsp"><button class="w3-button w3-round">Q&A</button></a>
+						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round">이용약관</button></a>
 					</div>
 				</div>
 		</div>

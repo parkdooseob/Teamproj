@@ -2,20 +2,20 @@ package home;
 
 public class homeDTO {
 	
-	 private int host_id;	
+	 private String host_id;	
 	 private int room_no;	
 	 private String subject;	
 	 private String room;	
-	 private int people;		
+	 private String people;		
 	 private String pic1;	
 	 private int count;	
 	 private double star;
 	 
 	 
-	public int getHost_id() {
+	public String getHost_id() {
 		return host_id;
 	}
-	public void setHost_id(int host_id) {
+	public void setHost_id(String host_id) {
 		this.host_id = host_id;
 	}
 	public int getRoom_no() {
@@ -36,10 +36,10 @@ public class homeDTO {
 	public void setRoom(String room) {
 		this.room = room;
 	}
-	public int getPeople() {
+	public String getPeople() {
 		return people;
 	}
-	public void setPeople(int people) {
+	public void setPeople(String people) {
 		this.people = people;
 	}
 	public String getPic1() {

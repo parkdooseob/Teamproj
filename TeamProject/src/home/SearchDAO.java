@@ -16,18 +16,22 @@ import javax.sql.DataSource;
 public class SearchDAO {
 	/*
 select * from 
- hosting h join hosting_option o
- on h.room_no = o.room_no
- join hosting_bill b
- on h.room_no = b.room_no
- join hosting_address a
- on h.room_no = a.room_no
- left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r
- on h.room_no = r.room_no
- where h.room_no not in(select room_no 
+hosting h join hosting_option o
+on h.room_no = o.room_no
+join hosting_bill b
+on h.room_no = b.room_no
+join hosting_address a
+on h.room_no = a.room_no
+left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r
+on h.room_no = r.room_no
+left outer join (select room_no, sum(t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19 + t20 + t21) as 'ch'
 from booking b left outer join booking_time t
 on b.book_no = t.book_no
-where b.book_date = '2019-01-01' and b.book_check = 0)
+where b.book_date = '2019-01-01'
+and b.book_check = 0
+group by room_no) c
+on h.room_no = c.room_no
+where c.ch != 12
 and h.room = '카페'
 and a.a_address like '%해운대구%'
 and people = '';
@@ -88,7 +92,7 @@ desc hosting_address;
 					
 					Vector<SearchDTO> FindV = new Vector<SearchDTO>();
 					String bookDate = null;
-					 Date dateF;
+					Date dateF;
 					try {
 						dateF = new SimpleDateFormat("yyyy년 mm월 dd일").parse(date);
 						bookDate = new SimpleDateFormat("yyyy-MM-dd").format(dateF);
@@ -96,32 +100,45 @@ desc hosting_address;
 						System.out.println("날짜변환 오류");
 					}
 //					System.out.println(bookDate);
-					 
+					
+//					int people = 0;
+//					if(number.equals("소")){
+//						people = 0;
+//					}else if(number.equals("중")){
+//						people = 1;
+//					}else if(number.equals("대")){
+//						people = 2;
+//					}
+					
 					try {
 						con = ds.getConnection();	
 						System.out.println("연결됨");
-						String sql = "select * from "
-									 +"hosting h join hosting_option o "
-									 +"on h.room_no = o.room_no "
-									 +"join hosting_bill b "
-									 +"on h.room_no = b.room_no "
-									 +"join hosting_address a "
-									 +"on h.room_no = a.room_no "
-									 +"left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r "
-									 +"on h.room_no = r.room_no "
-									 +"where h.room_no not in(select room_no "
-									 +"from booking b left outer join booking_time t "
-									 +"on b.book_no = t.book_no "
-									 +"where b.book_date = ? and b.book_check = 0) "
-									 +"and h.room = ? "
-									 +"and a.a_address like '%?%' "
-									 +"and people = ? ";
+						String sql = "select * from  "
+								 +"hosting h join hosting_option o "
+								 +"on h.room_no = o.room_no "
+								 +"join hosting_bill b "
+								 +"on h.room_no = b.room_no "
+								 +"join hosting_address a "
+								 +"on h.room_no = a.room_no "
+								 +"left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r "
+								 +"on h.room_no = r.room_no "
+								 +"left outer join (select room_no, sum(t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19 + t20 + t21) as 'ch' "
+								+"from booking b left outer join booking_time t "
+								+"on b.book_no = t.book_no "
+								+"where b.book_date = ? "
+								+"and b.book_check = 0 "
+								+"group by room_no) c "
+								+"on h.room_no = c.room_no "
+								+"where c.ch != 12 "
+								+"and h.room = ? "
+								+"and a.a_address like '%?%' "
+								+"and people = ?";
 						
 						pstmt = con.prepareStatement(sql);
 						pstmt.setString(1, bookDate);// 날짜
 						pstmt.setString(2, type);// 공간 윻ㅇ
 						pstmt.setString(3, location);// 인원 
-						pstmt.setInt(4, Integer.parseInt(number));// 인원 
+						pstmt.setString(4, number);// 인원 
 						
 					
 						rs = pstmt.executeQuery();
@@ -132,7 +149,7 @@ desc hosting_address;
 							dto.setRoom_no(rs.getInt("room_no")); 
 							dto.setSubject(rs.getString("subject")); 
 							dto.setRoom(rs.getString("room"));
-							dto.setPeople(rs.getInt("people"));
+							dto.setPeople(rs.getString("people"));
 							dto.setDrink(rs.getInt("drink"));
 							dto.setElevator(rs.getInt("elevator"));
 							dto.setToilet(rs.getInt("toilet"));

@@ -26,7 +26,18 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+<!-- bxslider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
 <script type="text/javascript">
+
+/**bxSlier*/
+$(document).ready(function(){
+ $('#bxslider').bxSlider();
+});
+
   
   $(document).ready(function() {
 	    $("#datepicker").datepicker({
@@ -131,7 +142,7 @@ function setValue(obj, target){
 
 }
 
-	
+
 	
 </script>
 
@@ -190,7 +201,7 @@ letter-spacing: 1px;
         <div class="w3-col l2 m2 w3-border-left w3-padding">
           <label>인원</label>
           <button type="button" onclick="myFunction('number_select')" style="border: none; padding:0px; background-color: white;">
-          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="2" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
+          	<input type="text" id="number" name="number" class="w3-input w3-border-0"  value="소" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118)">
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
         </div>
@@ -259,10 +270,9 @@ letter-spacing: 1px;
         <div class="w3-row w3-hide" style="margin:2px -70px;" id="number_select">
 	        <div class="w3-col l10 w3-padding"></div>
 	        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-	  			<input type="button" value="1" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
-	  			<input type="button" value="2" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
-	  			<input type="button" value="3" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
-	  			<input type="button" value="4" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
+	  			<input type="button" value="소" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
+	  			<input type="button" value="중" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
+	  			<input type="button" value="대" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>	  			 
 	        </div>        
         </div>
         
@@ -271,12 +281,7 @@ letter-spacing: 1px;
    	 </div> <!-- 검색창  -->
    	   	   
 	</form>
-  
-<!--   <div class="w3-display-bottomleft w3-container w3-amber" -->
-<!--    		style="bottom:5%;opacity:0.7;width:100%"> -->
-<!--    <h2><b>예약카드4 Good Reasons<br>For travelling with us</b></h2> -->
-<!--    <br> -->
-<!--   </div> -->
+
 
 </header>
 
@@ -383,19 +388,31 @@ letter-spacing: 1px;
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">추천 공간</h3>
   </div>
 
-  <div class="w3-row-padding">
+<% 
+Vector<homeDTO> recV = (Vector<homeDTO>)request.getAttribute("recommendV");
+%>
+
+
+  <div class="w3-row-padding" id="bxslider">
+	<%if(recV.size()==0){ %>
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		     <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Summer House</div>
-		     <img src="img/room01.jpg" alt="House" style="width:100%">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
+		    <img src="img/room01.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
     </div>
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Brick House</div>
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
 		    <img src="img/room02.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
@@ -403,20 +420,37 @@ letter-spacing: 1px;
     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Renovated</div>
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
 		    <img src="img/room03.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
     </div>
-    
-<!--     <div class="w3-col l3 w3-margin-bottom"> -->
-<!--       <a href="#" class="w3-btn" style="padding: 0px"> -->
-<!-- 	      <div class="w3-display-container"> -->
-<!-- 		     <div class="w3-display-topleft w3-black w3-padding">Barn House</div> -->
-<!-- 		     <img src="img/room04.jpg" alt="House" style="width:100%">  -->
-<!-- 	      </div> -->
-<!--       </a> -->
-<!--     </div> -->
+	<%}else{ 
+			int j = recV.size()<3? recV.size():3;
+			for(int i=0; i<j; i++){
+				homeDTO recDTO = recV.get(i);
+	%>
+	
+	 <div class="w3-col l4 w3-margin-bottom">
+      <a href="m_detail.jsp?<%=recDTO.getRoom_no()%>" class="w3-btn" style="padding: 0px">
+	      <div class="w3-display-container">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=recDTO.getRoom()%> 평점:<%=(Math.round(recDTO.getStar()*10)/10.0)%></small>
+      			<p style="font-weight:bold;"><%=recDTO.getSubject()%></p>
+		    </div>
+		    <img src="<%=recDTO.getPic1()%>" alt="House" style="width:100%">
+	      </div>
+      </a>
+      </div>
+   
+  	<%
+  			}
+		}	
+  	%>
+  
   </div>
   
   
@@ -424,41 +458,67 @@ letter-spacing: 1px;
   <div class="w3-container w3-padding-32" id="projects">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">인기 공간</h3>
   </div>
-
+<% 
+Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
+%>
   <div class="w3-row-padding">
-    <div class="w3-col l4 w3-margin-bottom">
+    <%if(popV.size()==0){ %>
+     <div class="w3-col l4 w3-margin-bottom">
       <a href="#" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
-		     <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Summer House</div>
-		     <img src="img/room01.jpg" alt="House" style="width:100%">
-	      </div>
-      </a>
-    </div>
-    <div class="w3-col l4 w3-margin-bottom">
-      <a href="#" class="w3-btn" style="padding: 0px">
-	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Brick House</div>
-		    <img src="img/room02.jpg" alt="House" style="width:100%">
-	      </div>
-      </a>
-    </div>
-    <div class="w3-col l4 w3-margin-bottom">
-      <a href="#" class="w3-btn" style="padding: 0px">
-	      <div class="w3-display-container">
-		    <div class="w3-display-topleft w3-black w3-padding" style="opacity:0.8">Renovated</div>
-		    <img src="img/room03.jpg" alt="House" style="width:100%">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 예약수: 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
+		    <img src="img/room01.jpg" alt="House" style="width:100%">
 	      </div>
       </a>
     </div>
     
-<!--     <div class="w3-col l3 w3-margin-bottom"> -->
-<!--       <a href="#" class="w3-btn" style="padding: 0px"> -->
-<!-- 	      <div class="w3-display-container"> -->
-<!-- 		     <div class="w3-display-topleft w3-black w3-padding">Barn House</div> -->
-<!-- 		     <img src="img/room04.jpg" alt="House" style="width:100%">  -->
-<!-- 	      </div> -->
-<!--       </a> -->
-<!--     </div> -->
+    <div class="w3-col l4 w3-margin-bottom">
+      <a href="#" class="w3-btn" style="padding: 0px">
+	      <div class="w3-display-container">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 예약수: 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
+		    <img src="img/room02.jpg" alt="House" style="width:100%">
+	      </div>
+      </a>
+    </div>
+    
+    <div class="w3-col l4 w3-margin-bottom">
+      <a href="#" class="w3-btn" style="padding: 0px">
+	      <div class="w3-display-container">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;">공간 유형 예약수: 평점:</small>
+      			<p style="font-weight:bold;">공간이름</p>
+		    </div>
+		    <img src="img/room03.jpg" alt="House" style="width:100%">
+	      </div>
+      </a>
+    </div>
+      <%}else{ 
+			int j = popV.size()<3? popV.size():3;
+			for(int i=0; i<j; i++){
+				homeDTO popDTO = popV.get(i);
+	%>
+	  <div class="w3-col l4 w3-margin-bottom">
+      <a href="m_detail.jsp?<%=popDTO.getRoom_no()%>" class="w3-btn" style="padding: 0px">
+	      <div class="w3-display-container">
+		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
+		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=popDTO.getRoom()%> 예약수:<%=popDTO.getCount()%> 평점:<%=(Math.round(popDTO.getStar()*10)/10.0)%></small>
+      			<p style="font-weight:bold;"><%=popDTO.getSubject()%></p>
+		    </div>
+		    <img src="<%=popDTO.getPic1()%>" alt="House" style="width:100%">
+	      </div>
+      </a>
+      </div>
+   
+  	<%
+  			}
+		}	
+  	%>
   </div>
 
 
@@ -545,7 +605,6 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " w3-white";
 }
-
 
 
 

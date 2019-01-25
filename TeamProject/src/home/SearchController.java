@@ -28,13 +28,14 @@ public class SearchController extends HttpServlet {
 		String location = request.getParameter("location");//위치
 		String date = request.getParameter("date");//날짜
 		String number = request.getParameter("number");//수용인원수
-		System.out.println(date);
+		System.out.println(number);
+
 		SearchDAO dao = new SearchDAO();
 		Vector<SearchDTO> FindV = dao.FindSpace(type, location, date, number);
 		
 		request.setAttribute("FindV ", FindV );
 		
-		RequestDispatcher dis = request.getRequestDispatcher("detail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		dis.forward(request, response);
 	}
 

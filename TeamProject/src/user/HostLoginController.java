@@ -74,7 +74,7 @@ public class HostLoginController extends HttpServlet {
 		
 		session.setAttribute("point", point);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 		
 		dis.forward(request, response);	
 		

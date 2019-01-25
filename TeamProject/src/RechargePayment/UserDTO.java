@@ -4,7 +4,7 @@ public class UserDTO {
 	private String email;
 	private String name;
 	private String pass;
-	private int host;
+	private int host_check;
 	private int point;
 	
 	
@@ -26,11 +26,11 @@ public class UserDTO {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public int getHost() {
-		return host;
+	public int getHost_check() {
+		return host_check;
 	}
-	public void setHost(int host) {
-		this.host = host;
+	public void setHost_check(int host_check) {
+		this.host_check = host_check;
 	}
 	public int getPoint() {
 		return point;

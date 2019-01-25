@@ -70,7 +70,7 @@ public class homeDAO {
 					System.out.println("연결됨");
 					String sql = "select *	from hosting h join hosting_pic pic "
 							+"on h.room_no = pic.room_no "
-							+"join (select room_no, count(*) as 'count' from booking where cancle=0 group by room_no) b "
+							+"join (select room_no, count(*) as 'count' from booking where book_check=0 group by room_no) b "
 							+"on h.room_no = b.room_no "
 							+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
 							+"on h.room_no = r.room_no "
@@ -93,11 +93,11 @@ public class homeDAO {
 					
 					while(rs.next()){
 						homeDTO dto = new homeDTO();
-						dto.setHost_id(rs.getInt("host_id"));
+						dto.setHost_id(rs.getString("host_id"));
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
 						dto.setRoom(rs.getString("room"));
-						dto.setPeople(rs.getInt("people"));
+						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));
 						dto.setStar(rs.getDouble("star"));
@@ -156,11 +156,11 @@ public class homeDAO {
 					
 					while(rs.next()){
 						homeDTO dto = new homeDTO();
-						dto.setHost_id(rs.getInt("host_id"));
+						dto.setHost_id(rs.getString("host_id"));
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
 						dto.setRoom(rs.getString("room"));
-						dto.setPeople(rs.getInt("people"));
+						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));
 						dto.setStar(rs.getDouble("star"));

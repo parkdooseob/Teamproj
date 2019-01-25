@@ -48,7 +48,7 @@ public class HostSignUpController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		out.println("alert('성공적으로 가입 되었습니다.')");
-		out.println("location.href='home.jsp'");
+		out.println("location.href='index.jsp'");
 		out.println("</script>");	
 		
 	}
