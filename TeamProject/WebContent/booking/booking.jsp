@@ -32,7 +32,7 @@ body{
 	margin-top: 55px;	
 }
 .div_left{
-	border: 1px solid white;
+	border: 1px solid white;	
 	padding : 25px;
 	
 }

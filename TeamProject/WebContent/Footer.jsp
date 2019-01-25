@@ -104,7 +104,9 @@ p{
 					</div>
 				</div>
 		</div>
+	</div>	
 
+</div>
 <!-- Footer 
 	<footer class="w3-center w3-white w3-padding-50">
 			<div class="w3-cell-row">
