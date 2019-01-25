@@ -319,5 +319,10 @@ small{
 		</div>
 	</form>	
 <!-- 본문 종료 -->
+
+<!-- 최상단 네비 바 시작 -->
+<jsp:include page="../Footer.jsp" flush="false"/>
+<!-- 최상단 네비 바 종료 -->
+
 </body>
 </html>
