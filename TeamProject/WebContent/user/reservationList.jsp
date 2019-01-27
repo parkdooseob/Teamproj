@@ -48,8 +48,8 @@ h2{
 </style>
 </head>
 <body>
-<i class="material-icons" style="font-size:80px;color:#333;">event</i>
-<p>내 예약 정보</h2>
+
+<h2>내 예약 정보<i class="material-icons" style="font-size:80px;color:#333;">event</i></h2>
 <div class="w3-bar w3-green">
   <a href="../ReservationController.do" class="w3-bar-item w3-hover-white w3-padding">London</a>
   <a href="#" class="w3-bar-item w3-hover-white w3-padding">Paris</a>
