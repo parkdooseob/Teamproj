@@ -45,15 +45,65 @@ h2{
  	color: green !important;
 
 }
+
 </style>
+
+<script type="text/javascript">
+function tog(show, hide) {
+	document.getElementById(show).style.display='block';
+	document.getElementById(hide).style.display='none';
+}
+
+
+
+</script>
 </head>
 <body>
 
-<h2>내 예약 정보<i class="material-icons" style="font-size:80px;color:#333;">event</i></h2>
+<h2 class="w3-left">내 예약 정보<i class="material-icons" style="font-size:60px; vertical-align: middle;">event</i></h2>
+<span class="w3-right">3개의 내역</span>
 <div class="w3-bar w3-green">
-  <a href="../ReservationController.do" class="w3-bar-item w3-hover-white w3-padding">London</a>
-  <a href="#" class="w3-bar-item w3-hover-white w3-padding">Paris</a>
-  <a href="#" class="w3-bar-item w3-hover-white w3-padding">Tokyo</a>
+  <a href="../ReservationController.do" class="w3-bar-item w3-hover-white w3-padding">전체보기</a>
+  <a href="#" class="w3-bar-item w3-hover-white w3-padding">지난 예약</a>
+  <a href="#" class="w3-bar-item w3-hover-white w3-padding">다가올 예약</a>
+  <a href="#" class="w3-bar-item w3-hover-white w3-padding">취소 내역</a>
+ 
+</div>
+<%!String status; %>
+<div class="w3-row">
+  <div class="w3-third w3-container w3-border">
+    <img src="../img/room01.jpg" style="width: 100%; height: 100%"/>
+  </div>
+  <div class="w3-rest w3-container w3-border">
+    <h4>공간 이름 </h4>
+    <hr style="margin: 3px;">
+    <div id="reservContent" style="display: block;">
+    	<table width="100%">
+      		<tr>
+	    		<td width=25%>예약 상태:</td>
+	    		<td width=25%></td>
+	    		<td width=25%>결제 금액:</td>
+	    		<td width=25%></td>
+    		</tr>
+    		<tr>
+	    		<td width=25%>예약 날짜:</td>
+	    		<td width=25%></td>
+	    		<td width=25%>예약 시간:sta:00~ endT</td>
+	    		<td width=25%></td>
+    		</tr>
+    	</table>
+    </div>
+    <div id="reviewContent" style="display: none;">
+    	<span style="color: grey;">취소된 예약입니다</span>
+    	<span style="color: grey;">공간 사용 전입니다</span>
+    	<span style="color: grey;">작성된 리뷰가 없습니다</span><a href="m_detail.jsp?roomno">리뷰 작성</a>
+    	<textarea rows="3" cols="30" >리뷰 수정 삭제</textarea>
+    </div>
+  	<button class="w3-button w3-blue" onclick="tog('reservContent', 'reviewContent')">예약 보기</button>&nbsp;
+  	<button class="w3-button w3-blue" onclick="tog('reviewContent', 'reservContent')">리뷰 보기</button>&nbsp;
+  	<button class="w3-button w3-blue" onclick="home.jsp">다시 예약</button>&nbsp;
+ 	
+  </div>
 </div>
 </body>
 </html>
