@@ -66,42 +66,7 @@ public class ReservListDAO {
 		}
 	}// 생성자 끝
 	
-	/**예약 시간 추출 메소드
-	 * String 배열로 시작 시간 끝 시간 return*/
-	
-	public int[] time(int t10, int t11, int t12, int t13, 
-					   int t14, int t15, int t16, int t17, 
-					   int t18, int t19, int t20, int t21){
-		
-		int[] timeS = new int[2];
-	
-		// 시작 시간  끝 시간 
-		ArrayList rd = new ArrayList();
-	
-		rd.add(t10);
-		rd.add(t11);
-		rd.add(t12);
-		rd.add(t13);
-		rd.add(t14);
-		rd.add(t15);
-		rd.add(t16);
-		rd.add(t17);
-		rd.add(t18);
-		rd.add(t19);
-		rd.add(t20);
-		rd.add(t21);
-		
-		int start = (rd.indexOf(1)) + 10;
-		int end = (rd.lastIndexOf(1)) + 10;
-		timeS[0] = start;
-		timeS[1] = end;
-		
-		
-		
-		return timeS;
-		
-	} 
-	
+
 	
 	/**예약 상태 추출 메소드
 	 * 0: 사용 전 예약
@@ -140,6 +105,8 @@ public class ReservListDAO {
 		
 		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
 		
+		
+		
 		try {
 			con = ds.getConnection();	
 			System.out.println("연결됨");
@@ -148,6 +115,8 @@ public class ReservListDAO {
 						+"on b.book_no = t.book_no "
 						+"join review r "
 						+"on b.book_no = r.book_no "
+						+"join hosting_pic p "
+						+"on b.room_no = p.room_no "
 						+"where b.email = ?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -164,12 +133,27 @@ public class ReservListDAO {
 				dto.setTotal_price(rs.getInt("total_price"));
 				dto.setRoom_no(rs.getInt("room_no"));
 //				dto.setBook_check(rs.getInt("book_check"));
-				int[] timeS = new int[2];
-				timeS = time(rs.getInt("t10"),rs.getInt("t11"),rs.getInt("t12"),rs.getInt("t13"),rs.getInt("t14"),
-					 rs.getInt("t15"),rs.getInt("t16"),rs.getInt("t17"),rs.getInt("t18"),
-					 rs.getInt("t19"),rs.getInt("t20"),rs.getInt("t21"));
-				dto.setStartT(timeS[0]);
-				dto.setEndT(timeS[1]);
+
+				/**booking_time table 값 받아오기 for*/
+				String prefix = "T";
+				ArrayList timeTb = new ArrayList();
+				for(int i = 10; i < 22; i++){
+					String postfix = String.valueOf(i);
+					String index = prefix + postfix;
+					timeTb.add(rs.getInt(index));
+				}
+				
+				int StartTime = timeTb.indexOf(1)+10;
+				int EndTime = timeTb.lastIndexOf(1)+10;
+			
+				dto.setStartT(StartTime); //예약 시작 시간 
+				dto.setEndT(EndTime); // 예약 마감 시간
+				
+				
+				dto.setPic_1(rs.getString("pic1"));
+				
+				
+
 //				dto.setT10(rs.getInt("t10"));
 //				dto.setT11(rs.getInt("t11"));
 //				dto.setT12(rs.getInt("t12"));
@@ -182,7 +166,10 @@ public class ReservListDAO {
 //				dto.setT19(rs.getInt("t19"));
 //				dto.setT20(rs.getInt("t20"));
 //				dto.setT21(rs.getInt("t21"));
+				
+				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
 				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
+				
 				dto.setReview_no(rs.getInt("review_no"));
 				dto.setRv_date(rs.getDate("rv_date"));
 				dto.setRv_star(rs.getInt("rv_star"));
