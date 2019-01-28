@@ -73,7 +73,7 @@ $(document).ready(function() {
 		$(".a_click3").css("color","black");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
-		$("#contents").load("../ReViewBoardListController.do");
+		
 	});
 	$(".a_click4").click(function(){
 		//alert("클릭");
@@ -82,6 +82,7 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","black");
 		$(".a_click5").css("color","grey");
+		$("#contents").load("../ReViewBoardListController.do");
 	});
 	$(".a_click5").click(function(){
 		//alert("클릭");
@@ -108,8 +109,8 @@ $(document).ready(function() {
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
 					<li><a href="#" class="a_click2">공간등록 정보</a></li> <!-- 내가 등록한 공간 -->
-					<li><a href="#" class="a_click3">리뷰</a></li> <!-- 예약한 공간에 대한 리뷰 -->
-					<li><a href="#" class="a_click4">추천글</a></li>					
+					<li><a href="#" class="a_click3">내 예약관리</a></li> <!-- 예약한 공간에 대한 리뷰 -->
+					<li><a href="#" class="a_click4">리뷰</a></li>					
 					<!-- <li><a href="#" class="a_click5"></a></li> -->
 				</ul>			
 			</div>		

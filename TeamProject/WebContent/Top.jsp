@@ -193,7 +193,8 @@ a{
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button">${sessionScope.hdto.host_nic }</button>
    				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
-   					<a href="#" class="w3-bar-item w3-button">프로필 수정</a>      				   				
+   					<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : ${sessionScope.point}</small>
+   					      				   				
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	

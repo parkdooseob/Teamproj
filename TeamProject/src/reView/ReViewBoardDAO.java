@@ -1,15 +1,20 @@
 package reView;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import DB.HostingDTO;
 public class ReViewBoardDAO {
 	// DB 작업 객체
 		private Connection con;
@@ -111,18 +116,50 @@ public class ReViewBoardDAO {
 					ReViewBoardDTO rb=new ReViewBoardDTO();
 					rb.setRoom_no(rs.getInt("room_no"));					
 					rb.setEmail(rs.getString("email"));
-					rb.setName(rs.getString("name"));
+					rb.setName(rs.getString("name"));										
 					rb.setRv_date(rs.getTimestamp("rv_date"));
 					rb.setRv_star(rs.getInt("rv_star"));
 					rb.setRv_post(rs.getString("rv_post"));
 					boardList.add(rb);
 				}
 			}catch(Exception e){
-				e.printStackTrace();
+				System.out.println("getBoardList() 메서드에서 "+e);
 			}finally {
 				freeResource();
 			}
 			return boardList;
+		}
+
+		public HostingDTO getHostingList(int i) {
+			// TODO Auto-generated method stub
+			HostingDTO hodto = new HostingDTO();
+				
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "SELECT * FROM hosting WHERE room_no = ?";			
+				
+				pstmt = con.prepareStatement(sql);
+					
+				pstmt.setInt(1, i);
+				
+				rs = pstmt.executeQuery();
+				
+				rs.next();
+				
+				
+				return hodto;
+				
+			} catch(Exception e){
+				System.out.println("getHostingList() 메서드에서 "+e);
+			}finally {
+				freeResource();
+			}
+			
+			
+			
+			return null;
 		}
 		
 }

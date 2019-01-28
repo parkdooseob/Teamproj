@@ -150,7 +150,7 @@ small{
 						<input type="checkbox" id="chk_3" class="w3-check" value="1"><b> 빔 프로젝트</b>  &nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="checkbox" id="chk_4" class="w3-check" value="1"><b> 컴퓨터</b>  &nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="checkbox" id="chk_5" class="w3-check" value="1"><b> 사물함</b>  &nbsp;&nbsp;&nbsp;&nbsp;
-						<p>각 유료 부대시설은 각각의 요금이 다르며 해당 가격 표는 아래와 같습니다.</p>
+						<p class="w3-margin-top">각 유료 부대시설은 각각의 요금이 다르며 해당 가격 표는 아래와 같습니다.</p>
 						<p>주차 : 1000원</p>
 						<p>무선 인터넷 : 1000원</p>
 						<p>빔 프로젝트 : 1000원</p>
@@ -193,7 +193,7 @@ small{
 				<hr>
 				<div class="w3-row">
 					<h5>필수 입력사항</h5>
-					<div class="w3-row">
+					<div class="w3-row  w3-margin-top">
 						<div class="w3-col m2">
 							<p>이메일</p>
 						</div>
@@ -201,7 +201,7 @@ small{
 							<input type="text" class="w3-input" placeholder="예약자 이메일" name="email" value="" disabled="disabled">
 						</div>
 					</div>
-					<div class="w3-row">
+					<div class="w3-row w3-margin-top">
 						<div class="w3-col m2">
 							<p>휴대 전화</p>
 						</div>
@@ -255,10 +255,10 @@ small{
 						<hr>
 						</div>
 						<div class="w3-col m6">
-							<small>예약시간</small>
+							예약시간
 						</div>
 						<div class="w3-col m6" align="right">	
-							<small>1 시간</small>
+							1 시간
 						</div>
 					</div>
 				</div>			
