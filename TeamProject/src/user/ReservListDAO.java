@@ -72,7 +72,7 @@ public class ReservListDAO {
 	 * 0: 사용 전 예약
 	 * 1. 지난 예약
 	 * 2. 취소된 예약*/
-	public int rStatus(int check, Date date){
+	public int rStatus(int check, java.sql.Date date){
 		Date now = new Date();
 		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -89,9 +89,9 @@ public class ReservListDAO {
 		
 		if(check == 1){//예약 취소`
 			status = 2;
-		}else if(check == 0 && (now.getTime()-resD.getTime()) >= 0){//0까지는 오늘 예약
+		}else if(check == 0 && (now.getTime()-resD.getTime()) < 0){//0까지는 오늘 예약
 			status = 0;
-		}else if(check == 0 && (now.getTime()-resD.getTime()) < 0){// 지난 예약
+		}else if(check == 0 && (now.getTime()-resD.getTime()) >= 0){// 지난 예약
 			status = 1;
 		}
 		
@@ -101,7 +101,7 @@ public class ReservListDAO {
 	
 	/**홈에서 선택된 공간 찾기 */
 	public Vector<ReservListDTO> getList(String id){
-		System.out.println("요청 들어옴");
+		System.out.println("getList요청 들어옴");
 		
 		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
 		
@@ -113,25 +113,29 @@ public class ReservListDAO {
 			String sql = "select * from " 
 						+"booking b join booking_time t " 
 						+"on b.book_no = t.book_no "
-						+"join review r "
+						+"left outer join review r "
 						+"on b.book_no = r.book_no "
+						+"join hosting h "
+						+"on b.room_no = h.room_no "
 						+"join hosting_pic p "
 						+"on b.room_no = p.room_no "
 						+"where b.email = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			
+			System.out.println("Getlist 실행됨");
 		
 			rs = pstmt.executeQuery();
-			
+			System.out.println("P1");
 			while(rs.next()){
+				System.out.println("P2");
 				ReservListDTO dto = new ReservListDTO();
 				dto.setBook_no(rs.getInt("book_no")); 
 				dto.setEmail(id);
 				dto.setBook_date(rs.getDate("book_date"));
 				dto.setTotal_price(rs.getInt("total_price"));
 				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setSubject(rs.getString("subject"));
 //				dto.setBook_check(rs.getInt("book_check"));
 
 				/**booking_time table 값 받아오기 for*/
@@ -150,22 +154,8 @@ public class ReservListDAO {
 				dto.setEndT(EndTime); // 예약 마감 시간
 				
 				
-				dto.setPic_1(rs.getString("pic1"));
-				
-				
-
-//				dto.setT10(rs.getInt("t10"));
-//				dto.setT11(rs.getInt("t11"));
-//				dto.setT12(rs.getInt("t12"));
-//				dto.setT13(rs.getInt("t13"));
-//				dto.setT14(rs.getInt("t14"));
-//				dto.setT15(rs.getInt("t15"));
-//				dto.setT16(rs.getInt("t16"));
-//				dto.setT17(rs.getInt("t17"));
-//				dto.setT18(rs.getInt("t18"));
-//				dto.setT19(rs.getInt("t19"));
-//				dto.setT20(rs.getInt("t20"));
-//				dto.setT21(rs.getInt("t21"));
+				dto.setPic1(rs.getString("pic1"));
+				dto.setRoom(rs.getString("room"));
 				
 				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
 				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
@@ -176,6 +166,7 @@ public class ReservListDAO {
 				dto.setRv_post(rs.getString("rv_post"));
 				
 				ReservList.add(dto);
+				System.out.println("Getlist 담김");
 			}
 			
 		

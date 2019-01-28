@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ReservListDTO {
 	private int book_no;
+	private String subject;
 	private String email;
 	private Date book_date;
 	private int total_price;
@@ -30,6 +31,7 @@ public class ReservListDTO {
 	private int rStatus; //예약 상태(사용 전, 사용 후, 취소)
 	
 	private String pic1;
+	private String room;
 	
 	private int review_no;
 	private Date rv_date;
@@ -37,6 +39,23 @@ public class ReservListDTO {
 	private String rv_post;
 	
 	
+	
+	
+	public String getRoom() {
+		return room;
+	}
+	public void setRoom(String room) {
+		this.room = room;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public void setPic1(String pic1) {
+		this.pic1 = pic1;
+	}
 	public int getrStatus() {
 		return rStatus;
 	}
@@ -193,9 +212,7 @@ public class ReservListDTO {
 	public String getPic1() {
 		return pic1;
 	}
-	public void setPic_1(String pic_1) {
-		this.pic1 = pic1;
-	}
+	
 	
 	
 	
