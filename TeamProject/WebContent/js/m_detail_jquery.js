@@ -11,7 +11,7 @@
 	}
 	
 	$("#datepicker1").datepicker({
-		minDate: 0,
+		minDate: 1,
 		maxDate: 7,
 		dateFormat: 'yy-mm-dd D',
 		beforeShowDay: disableAllTheseDays,
@@ -260,10 +260,39 @@
 	
 	//무한스크롤-----------------------------------
 	let isEnd = false;
+	
+	function playWheel()
+	{
+		console.log("해제");
+		$(window).off(".disableScroll");
+	}
 
+
+	
+	function blockWheel()
+	{
+		console.log("막음");
+		$(window).on("mousewheel.disableScroll DOMMouseScroll.disableScroll touchmove.disableScroll", function(e) {
+			e.preventDefault();
+			return;
+		});
+	 
+	 
+	 
+	    $(window).on("keydown.disableScroll", function(e) {
+	        var eventKeyArray = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+	        for (var i = 0; i < eventKeyArray.length; i++) {
+	            if (e.keyCode === eventKeyArray [i]) {
+	                e.preventDefault();
+	                return;
+	            }
+	        }
+	    });
+	}
 
 	function renderList(comment){
         // 리스트 html을 정의
+		
         let html = 	 '<li class="w3-bar">'
 					+'	<button class="w3-right w3-white w3-border-0 c-btn delete'+comment.comment_no+'" id="'+comment.comment_no+'">x</button>'
 					+'	<button class="w3-white w3-right w3-border-0 u-btn update'+comment.comment_no+'" id="'+comment.comment_no+'">'
@@ -280,12 +309,15 @@
 					+'	</div>'
 					+'</li>';
 		$(".content-comment ul li:last-child").after(html);
+		
+		
 	}
 
 
 	
 	function fetchList(){
 		if(isEnd == true){
+			
 			return;
 		}
 		// 방명록 리스트를 가져올 때 시작 번호
@@ -301,15 +333,21 @@
 	    		success: function(data){
 	                    // 컨트롤러에서 가져온 방명록 리스트는data에 담겨오도록 했다.
 	            		// 남은 데이터가 10개 이하일 경우 무한 스크롤 종료
-	            		if( length < 10 ){
-	            			isEnd = true;
-	            		}
-	            		$.each(data.list, function(index, comment){
+	    				var ja = $.parseJSON(data);
+//	    				console.log("array 개수:"+ja.length);
+	    				if(ja.length<10){
+	    					isEnd=true;
+	    				}
+	    				
+	            		$.each(ja, function(index, comment){
+	            			
 	            			renderList(comment);
+	            			
 	            		});
 	            }
 	    });
 	}
+	
 
 	
 	$(window).scroll(function(){
@@ -319,13 +357,17 @@
         let windowHeight = $window.height();
         let documentHeight = $(document).height();
 
-        console.log("documentHeight:" + documentHeight + " | scrollTop:" +
-        			scrollTop + " | windowHeight: " + windowHeight );
-        console.log("documentHeight:"+ documentHeight +"plus"+(scrollTop+documentHeight))
+//        console.log("documentHeight:" + documentHeight + " | scrollTop:" +
+//        			scrollTop + " | windowHeight: " + windowHeight );
+//        console.log("documentHeight:"+ documentHeight +"plus"+(scrollTop+windowHeight))
         // scrollbar의 thumb가 바닥 전 10px까지 도달 하면 리스트를 가져온다.
-        if( scrollTop + windowHeight + 10 > documentHeight ){
+        if( scrollTop + windowHeight + 3 > documentHeight ){
         	
-        	fetchList();
+        	timer = setTimeout( fetchList(), 1000 );
+        	clearTimeout(timer);
+        	
+        	
+        	
         }
 	});
 

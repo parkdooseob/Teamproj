@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+
 
 
 
@@ -21,9 +21,9 @@ public class CommentSelectController extends HttpServlet {
 		int startNo = Integer.parseInt(request.getParameter("startNo"));
 		int room_no = Integer.parseInt(request.getParameter("room_no"));
 		CommentDao cDao = new CommentDao();
-		JSONObject ob = cDao.getSelectComment(startNo, room_no);
+		JSONArray ar = cDao.getSelectComment(startNo, room_no);
 		PrintWriter out = response.getWriter();
-		out.println(ob);
+		out.println(ar);
 	}
 
 }
