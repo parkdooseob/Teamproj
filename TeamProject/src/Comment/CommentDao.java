@@ -144,8 +144,8 @@ public class CommentDao {
 		return result;
 	}
 
-	public JSONObject getSelectComment(int startNo, int room_no) {
-		JSONObject aJson = new JSONObject();
+	public JSONArray getSelectComment(int startNo, int room_no) {
+		JSONArray aJson = new JSONArray();
 		JSONObject json = null;
 		try{
 			con = ds.getConnection();
@@ -153,7 +153,7 @@ public class CommentDao {
 						+"u.name, c.com_content, c.com_date "
 						+"from comment c join user u "
 						+"on c.email = u.email "
-						+"where c.room_no=? and c.comment_no <=? "
+						+"where c.room_no=? and c.comment_no <? "
 						+"order by c.com_date desc limit 0, 10 ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, room_no);
@@ -178,7 +178,7 @@ public class CommentDao {
 				json.put("com_content", rs.getString(5));
 				json.put("com_date", rs.getDate(6).toString());
 				
-				aJson.put("list", json);
+				aJson.add(json);
 				
 			}
 			
