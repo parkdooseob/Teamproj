@@ -111,12 +111,7 @@ small{
 </script>
 </head>
 <body>
-<!-- 앞페이지에서 넘어올 파라미터 값 -->
-<c:set var="book_date" value="${book_date }"/> <!-- 체크인 날짜 -->
-<c:set var="book_time" value="${book_time }"/> <!-- 체크인 시간 -->
-<c:set var="total_price" value="${total_price }"/> <!-- 총 금액 -->
-<c:set var="room_no" value="${room_no }"/> <!-- 룸번호 -->
-<!-- t10 ~ t21 시간 값 -->
+
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->

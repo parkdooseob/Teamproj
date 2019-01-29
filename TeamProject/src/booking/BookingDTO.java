@@ -11,10 +11,69 @@ public class BookingDTO {
 	private Timestamp book_date; // 예약 날짜
 	private int book_time; // 체크인 시간
 	private int book_hour; // 이용시간
+	private int parking; // 주차
+	private int wifi; // 와이파이
+	private int projector; // 프로젝터
+	private int laptop; // 컴퓨터
+	private int cabinet; // 캐비넷	
 	private int total_price; // 총 금액
 	private int book_check; // 취소유무
 	
+	/* 룸정보에서 (사진, 제목, 내용 ) */
+	private String content;	
+	private String subject;
+	/* 룸번호의 사진 받아오기*/
+	private String pic1;	
 	
+	// getter, setter
+	public int getParking() {
+		return parking;
+	}
+	public void setParking(int parking) {
+		this.parking = parking;
+	}
+	public int getWifi() {
+		return wifi;
+	}
+	public void setWifi(int wifi) {
+		this.wifi = wifi;
+	}
+	public int getProjector() {
+		return projector;
+	}
+	public void setProjector(int projector) {
+		this.projector = projector;
+	}
+	public int getLaptop() {
+		return laptop;
+	}
+	public void setLaptop(int laptop) {
+		this.laptop = laptop;
+	}
+	public int getCabinet() {
+		return cabinet;
+	}
+	public void setCabinet(int cabinet) {
+		this.cabinet = cabinet;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getPic1() {
+		return pic1;
+	}
+	public void setPic1(String pic1) {
+		this.pic1 = pic1;
+	}	
 	public int getBook_no() {
 		return book_no;
 	}

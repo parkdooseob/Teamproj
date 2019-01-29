@@ -60,6 +60,58 @@ public class BookingDAO {
 				}
 			}
 		}
+
+		public BookingDTO getPreBookingList(String roomNumber) {
+			// TODO Auto-generated method stub
+			
+				BookingDTO boodto = new BookingDTO();
+			
+			try {
+				System.out.println("다오왔다");
+				
+				con = ds.getConnection();
+				
+				String sql = "SELECT h.subject, h.content, hp.pic1,"
+						+ " ho.parking, ho.wifi, ho.projector, "
+						+ "ho.laptop, ho.cabinet "
+						+ "FROM hosting h join hosting_pic hp on h.room_no = hp.room_no "
+						+ "join hosting_option ho on h.room_no = ho.room_no "
+						+ "WHERE h.room_no=?";				
+				
+				pstmt = con.prepareStatement(sql);
+				
+				if(roomNumber.equals("")){
+					roomNumber = "1";
+				}
+				
+				pstmt.setString(1, roomNumber);
+				
+				System.out.println(pstmt.toString());
+				
+				rs = pstmt.executeQuery();
+				
+				rs.next();
+				
+				boodto.setRoom_no(Integer.parseInt(roomNumber));
+				boodto.setSubject(rs.getString("subject"));
+				boodto.setContent(rs.getString("content"));
+				boodto.setPic1(rs.getString("pic1"));
+				boodto.setParking(rs.getInt("parking"));
+				boodto.setWifi(rs.getInt("wifi"));
+				boodto.setProjector(rs.getInt("projector"));
+				boodto.setLaptop(rs.getInt("laptop"));
+				boodto.setCabinet(rs.getInt("cabinet"));
+				
+				return boodto;
+				
+			} catch (Exception e) {
+				System.out.println("getPreBookingList() 메서드에서 "+e);
+			} finally{
+				freeResource();
+			}	
+			
+			return null;
+		}
 	
 	
 		
