@@ -1,17 +1,17 @@
 package notice;
 
 public class NoticeBoardDTO {
-	private String host_id; // �샇�뒪�듃�븘�씠�뵒
-	private int room_no; // 猷몃쾲�샇(�옄�룞�깮�꽦)
-	private String subject; // �젣紐�
-	private String room; // 怨듦컙 ���엯
-	private String people; // �닔�슜�씤�썝�닔
-	private int drink; // 湲곕낯�쓬猷뚯젣怨�
-	private int elevator; // �뿕由щ쿋�씠�꽣
-	private int toilet; // �솕�옣�떎
-	private int airconditioner; // �뿉�뼱而�
-	private int heating; // �궃諛�
-	private int socket; // 肄섏꽱�듃
+	private String host_id; 
+	private int room_no; 
+	private String subject; 
+	private String room;
+	private String people; 
+	private int drink; 
+	private int elevator; 
+	private int toilet; 
+	private int airconditioner; 
+	private int heating; 
+	private int socket;
 	
 	
 	// getter, setter

@@ -11,36 +11,34 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 public class NoticeBoardDAO {
-	// DB �옉�뾽 媛앹껜
+		// DB 작업 객체
 		private Connection con;
 		private PreparedStatement pstmt;
 		private ResultSet rs;
 		
 		
-		// 而ㅻ꽖�뀡 ���쓣 �떞�쓣 蹂��닔 �꽑�뼵
+		// 커넥션 풀을 담을 변수 선언
 		DataSource ds = null;
-		// �깮�꽦�옄
+		// 생성자
 		public NoticeBoardDAO() {
-			// TODO Auto-generated constructor stub
 			try {
-				// 1. Was�꽌踰꾩� �뿰寃곕맂 �쎒�봽濡쒖젥�듃�쓽 紐⑤뱺�젙蹂대�� 媛�吏�怨� �엳�뒗 而⑦뀓�뒪�듃 媛앹껜 �깮�꽦
+				// 1. Was서버와 연결된 웹프로젝트의 모든정보를 가지고 있는 컨텍스트 객체 생성
 				Context init = new InitialContext();
-				// 2. �뿰寃곕맂 Was�꽌踰꾩뿉�꽌 DataSource(而ㅻ꽖�뀡 ��)�쓣 寃��깋�빐�꽌 �뼸湲�
+				// 2. 연결된 Was서버에서 DataSource(커넥션 풀)을 검색해서 얻기
 				ds = (DataSource)init.lookup("java:comp/env/jdbc/jspbeginner");
+				ds = (DataSource)init.lookup("java:comp/env/jdbc/sharespace");
 				
 			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println("而ㅻ꽖�뀡�� 媛��졇�삤湲� �떎�뙣 : "+e);
+				System.out.println("커넥션풀 가져오기 실패 : "+e);
 			}
-		}// �깮�꽦�옄 �걹
+		}// 생성자 끝
 		
-		// 由ъ냼�뒪 諛섎궔(�빐�젣) 硫붿꽌�뱶
+		// 리소스 반납(해제) 메서드
 		public void freeResource(){
 			if(con != null){
 				try {
 					con.close();
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 				}
 			}
@@ -48,20 +46,18 @@ public class NoticeBoardDAO {
 				try {
 					rs.close();
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 				}
 			}if(pstmt != null){
 				try {
 					pstmt.close();
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 				}
 			}
 		}
 		
-		// �쟾泥� 寃뚯떆湲� 媛��닔 媛��졇�삤�뒗 硫붿꽌�뱶
+		// 전체 게시글 갯수 가져오는 메서드
 		public int getNoticeCount(){
 			System.out.println("전체 게시글 메서드");
 			String sql="";
@@ -85,28 +81,27 @@ public class NoticeBoardDAO {
 			}
 			return count;
 		}
-		// 紐⑤뱺 �뻾�쓽 DTO
+		//모든 행의 DTO
 		public List<NoticeBoardDTO> getNoticeList(int startRow,int pageSize){
 			System.out.println("리스트 메서드");
 			String sql="";
 			List<NoticeBoardDTO> noticedList=new ArrayList<NoticeBoardDTO>();
 			try{
-				//1,2 �뵒鍮꾩뿰寃�
+				//1,2  디비연결
 				con= ds.getConnection();
-				//3 sql �쟾泥� board 湲�媛��졇�삤湲�  
-				//�젙�젹 理쒓렐湲� 留⑥쿂�쓬 re_ref�궡由쇱감�닚 �떟湲��닚�꽌 re_seq �삤由꾩감�닚
-				// limit �떆�옉�뻾-1 , 紐뉕컻 
+				//3 sql 전체 board 글가져오기   
+				//정렬 최근글 맨처음 re_ref내림차순 답글순서 re_seq 오름차순
+				// limit 시작행-1 , 몇개 
 				/*sql="select * from board2 order by re_ref desc, re_seq asc limit ?,?";*/
-				// DB Subject
 				sql = "SELECT * FROM hosting order by room_no limit ?,?";
 				pstmt=con.prepareStatement(sql);				
 				pstmt.setInt(1, startRow-1);
 				pstmt.setInt(2, pageSize);
-				//4 rs = �떎�뻾 ���옣
+				//4 rs = 실행 저장
 				rs=pstmt.executeQuery();
-				//5 rs �떎�쓬�뻾�씠�룞 �뜲�씠�꽣 �엳�쑝硫�  ReBoardDTO rb 媛앹껜 �깮�꽦
-				//    bb 硫ㅻ쾭蹂��닔  <-  rs �뿴�쓣 ���옣
-				//  諛곗뿴 boardList �븳移� ���옣
+				//5 rs 다음행이동 데이터 있으면  ReBoardDTO rb 객체 생성
+				//    bb 멤버변수  <-  rs 열을 저장
+				//  배열 boardList 한칸 저장
 				while(rs.next()){
 					NoticeBoardDTO rb=new NoticeBoardDTO();
 					rb.setHost_id(rs.getString("host_id"));
