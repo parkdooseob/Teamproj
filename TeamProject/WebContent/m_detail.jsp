@@ -310,10 +310,10 @@
 	</footer>
 
 	<form action="#" method="post">
-		<input type="hidden" id="roomNo" value="${hosting.room_no}">
-		<input type="hidden" id="selectDate" value="">
-		<input type="hidden" id="time" value="">
-		<input type="hidden" id="allPrice" value=""> 
+		<input type="hidden" id="roomNo" name="roomNumber" value="${hosting.room_no}">
+		<input type="hidden" id="selectDate" name="selectDate" value="">
+		<input type="hidden" id="time" name="selectTime" value="">
+		<input type="hidden" id="allPrice" name="allPrice" value=""> 
 	</form>
 
 
