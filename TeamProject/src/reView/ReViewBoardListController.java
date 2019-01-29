@@ -46,8 +46,8 @@ public class ReViewBoardListController extends HttpServlet {
 			
 			// 현재 세션의 호스트 id 값을 받아오기
 			HttpSession session = request.getSession();
-			HostDTO hdto  = (HostDTO)session.getAttribute("hdto");
-			String email = hdto.getEmail();
+			//HostDTO hdto  = (HostDTO)session.getAttribute("hdto");
+			String email = "hong@itwillbs.com";//hdto.getEmail();
 			
 			
 			/*--------------------페이징 처리 부분 시작--------------------*/
@@ -58,9 +58,9 @@ public class ReViewBoardListController extends HttpServlet {
 			// boardList=메서드호출  getBoardList(시작행startRow,몇개pageSize)
 			if(count!=0){
 				boardList = bdao.getBoardList(startRow, pageSize, email);
-				for(int i=0;i<boardList.size();i++){
+				/*for(int i=0;i<boardList.size();i++){
 					hosting.add(bdao.getHostingList(boardList.get(i).getRoom_no()));
-				}
+				}*/
 				
 				
 			}
@@ -87,6 +87,7 @@ public class ReViewBoardListController extends HttpServlet {
 			request.setAttribute("pageBlock", pageBlock);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
+			request.setAttribute("flag", "4");
 			/*--------------------페이징 처리 부분 끝--------------------*/
 			// 이동   reBoard.jsp
 			RequestDispatcher dis = request.getRequestDispatcher("review/reView.jsp");
