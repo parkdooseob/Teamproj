@@ -49,12 +49,23 @@ public class ReViewBoardListController extends HttpServlet {
 			HostDTO hdto  = (HostDTO)session.getAttribute("hdto");
 			String email = hdto.getEmail();
 			
+			
+			/*--------------------페이징 처리 부분 시작--------------------*/
 			List<ReViewBoardDTO> boardList=null;
+			// 리뷰에 해당하는 공간 정보들을 가져온다.
+			List<DB.HostingDTO> hosting = null;			
 			//  시작행번호  몇개(10) 가져오기
 			// boardList=메서드호출  getBoardList(시작행startRow,몇개pageSize)
 			if(count!=0){
-				boardList=bdao.getBoardList(startRow, pageSize, email);
+				boardList = bdao.getBoardList(startRow, pageSize, email);
+				for(int i=0;i<boardList.size();i++){
+					hosting.add(bdao.getHostingList(boardList.get(i).getRoom_no()));
+				}
+				
+				
 			}
+			
+			
 			//전체 페이지 수 구하기  50개 글  10개씩 보여주기 => 5+0
 					//                 55개 글 10개씩 보여주기 => 5+1
 			int pageCount =count/pageSize+(count%pageSize==0?0:1);
@@ -76,6 +87,7 @@ public class ReViewBoardListController extends HttpServlet {
 			request.setAttribute("pageBlock", pageBlock);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
+			/*--------------------페이징 처리 부분 끝--------------------*/
 			// 이동   reBoard.jsp
 			RequestDispatcher dis = request.getRequestDispatcher("review/reView.jsp");
 			System.out.println("디스패쳐");

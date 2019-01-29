@@ -12,6 +12,7 @@
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link href="../css/recharge.css" rel="stylesheet">
 <style type="text/css"></style> 
 <script type="text/javascript">	
 	var flag=0;

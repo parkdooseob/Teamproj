@@ -61,6 +61,7 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
+		$("#contents").load("../ReservationController.do?userId=aaa@gmail.com");
 	});
 	$(".a_click3").click(function(){
 		//alert("클릭");
@@ -92,6 +93,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->

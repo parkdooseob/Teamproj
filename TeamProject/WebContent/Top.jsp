@@ -42,8 +42,6 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <!-- datepicker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
-
 <title>Insert title here</title>
 <script type="text/javascript">
 //일반회원 0, 호스트회원 1
@@ -144,6 +142,9 @@ function host_space(){
  }
 </script>
 <style type="text/css">
+a{
+   text-decoration:none;
+}
  .w3-bar-item{
   letter-spacing: 1px;
   font-family: "Nanum Barun Gothic" !important; 
@@ -155,15 +156,17 @@ function host_space(){
 }
 #drop>a:HOVER{
 	border-bottom: 1px solid black;
-	trans
-}
+}	
 
+.nav_top{	
+	height: 55px;
+}
 </style>
 </head>
 <body>
 <!-- Navbar 복사4-->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card  nav_top">
     <a href="${path}index.jsp" class="w3-bar-item w3-button"><b>SS</b> share space</a>
     <c:set var="email" value="${sessionScope.udto.email }"/>
     <c:set var="host_id" value="${sessionScope.hdto.host_id }"/>
@@ -175,7 +178,7 @@ function host_space(){
       		<a href="${path2}userPage.jsp" class="w3-bar-item w3-button">마이페이지</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button">${sessionScope.udto.name }</button>
-      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:63px;">
+      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
       				<a href="#" class="w3-bar-item w3-button">프로필 수정</a>      				   				
       				<a href="${path1}./UserLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
     			</div>
@@ -189,8 +192,9 @@ function host_space(){
    			<a href="${path2}hostPage.jsp" class="w3-bar-item w3-button">마이페이지</a>
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button">${sessionScope.hdto.host_nic }</button>
-   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:63px;">
-   					<a href="#" class="w3-bar-item w3-button">프로필 수정</a>      				   				
+   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
+   					<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : ${sessionScope.point}</small>
+   					      				   				
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
