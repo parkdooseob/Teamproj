@@ -309,7 +309,7 @@
 		</div>
 	</footer>
 
-	<form action="#" method="post">
+	<form action="BookingController.do" method="post">
 		<input type="hidden" id="roomNo" value="${hosting.room_no}">
 		<input type="hidden" id="selectDate" value="">
 		<input type="hidden" id="time" value="">

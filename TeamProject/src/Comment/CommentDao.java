@@ -17,7 +17,7 @@ public class CommentDao {
 	
 	private Connection con;
 	private PreparedStatement pstmt;
-	private ResultSet rs;
+	private ResultSet rs; 
 	
 	// 커넥션 풀을 담을 변수 선언
 	DataSource ds = null;
