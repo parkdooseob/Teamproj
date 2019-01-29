@@ -77,7 +77,7 @@ public class NoticeBoardListController extends HttpServlet {
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			// �씠�룞   reBoard.jsp
-			RequestDispatcher dis = request.getRequestDispatcher("footer/notice/noticeBoard.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("footer/noticeBoard.jsp");
 			System.out.println("�뵒�뒪�뙣爾�");
 			dis.forward(request, response);
 			
