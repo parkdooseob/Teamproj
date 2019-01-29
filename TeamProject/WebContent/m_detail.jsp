@@ -308,12 +308,13 @@
 			</div>
 		</div>
 	</footer>
-
+		
 	<form action="BookingController.do" method="post">
-		<input type="hidden" id="roomNo" value="${hosting.room_no}">
-		<input type="hidden" id="selectDate" value="">
-		<input type="hidden" id="time" value="">
-		<input type="hidden" id="allPrice" value=""> 
+		<input type="hidden" id="roomNo" name="roomNumber" value="${hosting.room_no}">
+		<input type="hidden" id="selectDate" name="selectDate" value="">
+		<input type="hidden" id="time" name="selectTime" value="">
+		<input type="hidden" id="allPrice" name="allPrice" value=""> 
+
 	</form>
 
 
@@ -347,8 +348,8 @@
 	var s_date="";	//DatePicker에 선택한 날짜
 	var a_price = 0;// 총요금
 	
-	var day_price = parseInt(${bill.room_sum}); //평일 요금
-	var sun_price = parseInt(${bill.room_day});	//주말 요금
+	var day_price = parseInt(${bill.room_sum} ); //평일 요금
+	var sun_price = parseInt(${bill.room_day} );	//주말 요금
 	
 	//$(".t_btn").attr("disabled",true);	//날짜를 선택하기전 시간 버튼 disabled
 	//$(".price").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
