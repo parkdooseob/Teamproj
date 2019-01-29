@@ -1,0 +1,320 @@
+/* 너비가 768px 이하일때의 미디어 쿼리 -------------------------------------------- */
+@media (max-width : 768px) {
+	.main-container {
+		display: none;
+	}
+	.main-slide{
+		margin-top: 65px;
+		padding: 0;
+		height: 400px;
+	}
+	.mySlides {
+		display:none;
+	}
+	.w3-left, .w3-right, .w3-badge {
+		cursor:pointer;
+	}
+	.w3-badge {
+		height:13px;
+		width:13px;
+		padding:0;
+	}
+	
+	
+}
+
+/* 너비가 769px 이상일때의 미디어 쿼리 -------------------------------------------- */
+
+@media (min-width : 769px) {
+	.main-container {
+		margin-top: 65px;
+		padding: 0;
+		height: 100px;
+	}
+	.main-slide{
+		display: none;
+	}
+	.main-container {
+		height: 500px;
+	}
+	.row-container {
+		height: 100%;
+	}
+	#img_div1 {
+		height: 100%;
+		overflow: hidden;
+	}
+	#img_div1-1{
+		position: relative;
+		height: 100%;
+	}
+	.row-container img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		cursor:pointer;
+	}
+	#img_div2 {
+		border: 1px solid yellow;
+		height: 100%;
+	}
+	.hidden{
+		overflow:hidden;
+		height: 50%;
+	}
+	#img_div2-1, #img_div2-2, #img_div2-3, #img_div2-4{
+		position: relative;
+		height: 100%;
+	}
+/* 	image hover 확대 */
+	.scale {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transition: all 0.3s ease-in-out;
+/* 		부드러운모션을 위해	추가 */
+	}
+	.scale:hover {
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-ms-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}	
+	
+	
+}
+/* content-header 시작 */
+.content-center{
+	
+	height: auto;
+	position:relative;
+	
+}
+.content-header{
+	margin-top:40px;
+	height: 200px;
+	width: 100%;
+	border-bottom: 1px solid #b3b3b3;
+}
+
+.header-small{
+	width:100%;
+	height:20%;
+}
+.header-subject{
+	padding-top:20px;
+	width:100%;
+	height:50%;
+	font-size:40px;
+}
+.host-profile{
+	text-align: center;
+	cursor: pointer;
+}
+/* content-header 끝 */
+
+/* content-time 시작 */
+.content-time{
+	
+	height:500px;
+	width:100%;
+	border-bottom: 1px solid #b3b3b3;
+}
+
+.time-subject{
+	width:100%;
+	height: 70px;
+}
+
+.time-date{
+	width:100%;
+	height: 300px;
+	margin-bottom:50px;
+}
+.date1{
+	
+	height: 100%;
+}
+#datepicker1{
+	width:100%;
+	height:100%;
+}
+.map{
+	
+	height:100%;	
+}
+#map{
+	width:100%;
+	height:100%;
+}
+
+#datepicker1>div{
+	width:100%;
+	height:100%;
+}
+
+
+.time{
+	width: 100%;
+	height: 100px;
+}
+.time button{
+	padding: 8px 12px;
+}
+
+/* content-time 끝 */
+
+/* content-option 시작 */
+.content-option{
+	margin-top:30px;
+	width: 100%;
+	height: auto;
+	
+}
+.option{
+	width: 100%;
+	height: 60px;
+	
+	
+}
+.option div{
+	float:left;
+	width:40px;
+	
+}
+
+.option-amenities{
+	width: 100%;
+	height: 40%;
+	margin-bottom:50px;
+}
+.option-amenities img{
+	width:24px;
+	height:24px;
+}
+.amenities div{
+	float:left;
+	width:150px;
+}
+.option-charge{
+	width: 100%;
+	height: 40%;
+	margin-bottom:50px;
+}
+.charge div{
+	float:left;
+	width:150px;
+}
+
+
+/* content-option 끝 ----------------------------------------------- */
+/* content-comment 시작----------------------------------------------- */
+.content-comment{
+	
+	width:100%;
+	height:auto;
+}
+.item-div{
+	margin:10px 0;
+	width:200px;
+}
+.item-img-div{
+	margin:10px 0;
+}
+.c-btn,.u_btn:hover{
+	cursor:pointer;
+}
+.c-profile-img{
+	width: 60px;
+	float: left;
+	margin-top: auto;
+}
+.item-input{
+	float: left;
+	width: 670px;
+	margin:20px 0;
+}
+.item-content{
+	float:left;
+	width:550px;
+	margin:20px 0;
+}
+
+/* content-comment 끝-----------------------------------------------*/
+/* footer content --------------------------------------------------- */
+.foot{
+	height:75px;
+}
+
+.foot-content{
+	border:1px solid red;
+	height:100%;
+}
+
+.foot-row{
+	width:100%;
+	height:100%;
+}
+
+.foot-price{
+	height:100%;
+}
+
+.price-div{
+	text-align:center;
+	height:100%;
+}
+.price{
+	border:1px solid blue;
+	display:inline-block;
+	width:85px;
+}
+
+
+
+.reservation-req{
+	text-align:center;
+	height:100%;
+}
+
+.req-div{
+	border:1px solid blue;
+	width:85px;
+	display:inline-block;
+}
+
+#req-btn{
+	margin-top: 10px;
+}
+
+
+
+/* footer content --------------------------------------------------- */
+/*
+.container{
+	border: 1px solid blue;	
+	margin: 0 20%;
+	
+	height: 300px;
+}
+.container-header{
+	border: 1px solid red;
+	position: relative;
+	height:200px;
+}
+.spaceType-a{
+	position: absolute;
+	top:0;
+	left:0;
+}
+.spaceType-a a{text-decoration: none;}
+.spaceType-a a:link{color:black;}
+.spaceType-a a:visited{color:black;}
+*/
+
+
