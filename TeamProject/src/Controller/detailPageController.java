@@ -27,7 +27,7 @@ public class detailPageController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		int a = Integer.parseInt(request.getParameter("a"));
-		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("detail.jsp");
 		DAO dao = new DAO();
 
 		if(a == 1) {
@@ -41,7 +41,6 @@ public class detailPageController extends HttpServlet {
 			
 			Vector<SelectDTO> vector =	dao.select(2);
 			request.setAttribute("vector", vector);
-	
 						
 			dis.forward(request, response);
 			
@@ -52,7 +51,6 @@ public class detailPageController extends HttpServlet {
 				
 			Vector<SelectDTO> vector =	dao.select(3);
 			request.setAttribute("vector", vector);
-			
 			dis.forward(request, response);
 		}
 		else if (a == 4) {
@@ -60,7 +58,6 @@ public class detailPageController extends HttpServlet {
 			
 			Vector<SelectDTO> vector =	dao.select(4);
 			request.setAttribute("vector", vector);
-			
 			dis.forward(request, response);
 		}else {
 			System.out.println("올바른경로로 접속하시오.");

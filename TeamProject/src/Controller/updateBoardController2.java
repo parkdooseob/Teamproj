@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -22,10 +23,11 @@ import DB.HostingOptionDTO;
 import DB.HostingPicDTO;
 
 
-@WebServlet("/insertBoardController.do")
-public class insertBoardController extends HttpServlet {
+@WebServlet("/updateBoardController2.do")
+public class updateBoardController2 extends HttpServlet {
 
-	
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	
@@ -34,16 +36,14 @@ public class insertBoardController extends HttpServlet {
 	
 		ArrayList saveFile = new ArrayList();
 		
+		
 		ArrayList originFile = new ArrayList();
 		
 
-		
 		String savePath = request.getRealPath("/upload"); 
 		int sizeLimit = 100 * 1024 * 1024;
 		
-		System.out.println(savePath);
-
-		
+		String room_no =""; 
 		String fileName = "";
 		String originalFileName = "";	
 		String subject ="";
@@ -63,7 +63,11 @@ public class insertBoardController extends HttpServlet {
 		String img2="";
 		String img3="";
 		String etc ="";
-		String host_id="a@naver.com";
+		String host_id="";
+		String origin_img1 ="";
+		String origin_img2 ="";
+		String origin_img3 ="";
+		String origin_img4 ="";
 		int weekday = 0;
 		int holiday = 0;
 		int parking = 0;
@@ -102,7 +106,8 @@ public class insertBoardController extends HttpServlet {
 			String at23 =multi.getParameter("at23");
 			String at = at11 +at12 +at13+ at14+ at15+ at16+ at17+ at18+ at19+ at20+ at21+ at22+at23;
 			
-			
+					
+			room_no = multi.getParameter("room_no");
 			subject = multi.getParameter("subject");
 			room = multi.getParameter("room");
 			people = multi.getParameter("people");
@@ -129,9 +134,55 @@ public class insertBoardController extends HttpServlet {
 			projector = Integer.parseInt(multi.getParameter("projector"));
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
-
 			
-								
+			//origin_img값 무조건 4개 받음.
+			//request값 못 받아오면 오류생기기 때문에 초기화
+
+			String alive_img1 = "";
+			String alive_img2 = ""; 
+			String alive_img3 = "";
+			String alive_img4 = ""; 
+			
+			if(multi.getParameter("alive_img1") != null){
+				alive_img1 = multi.getParameter("alive_img1");
+			}if(multi.getParameter("alive_img2") != null){
+				alive_img2 = multi.getParameter("alive_img2");
+			}if(multi.getParameter("alive_img3") != null){
+				alive_img3 = multi.getParameter("alive_img3");
+			}if(multi.getParameter("alive_img4") != null){
+				alive_img4 = multi.getParameter("alive_img4");
+			}
+					
+			
+			if(multi.getParameter("alive_img1") == null){
+				origin_img1 = multi.getParameter("origin_img1");
+				File file = new File(savePath+origin_img1);
+				file.delete();
+				System.out.println(origin_img1);
+			}
+			if(multi.getParameter("alive_img2") == null ){
+				origin_img2 = multi.getParameter("origin_img2");
+				File file1 = new File(savePath+origin_img2);
+				file1.delete();
+				System.out.println("2번 삭제");
+
+			}
+			if(multi.getParameter("alive_img3") == null ){
+				origin_img3 = multi.getParameter("origin_img3");
+				File file2 = new File(savePath+origin_img3);
+				file2.delete();
+				System.out.println("3번 삭제");
+
+
+			}
+			if(multi.getParameter("alive_img4") == null ){
+				origin_img4 = multi.getParameter("origin_img4");
+				File file3 = new File(savePath+origin_img4);
+				file3.delete();
+				System.out.println("4번 삭제");
+			}
+			
+									
 			while(formNames.hasMoreElements()){
 				
 				String formName = (String) formNames.nextElement(); 
@@ -144,7 +195,7 @@ public class insertBoardController extends HttpServlet {
 			
 			if (fileName == null) { 		
 				
-				System.out.println("파일이름 없음");
+				System.out.println("파일 이름이 없음.");
 				
 			} 
 			
@@ -161,7 +212,21 @@ public class insertBoardController extends HttpServlet {
 				else if(i == 3){
 					img3 = (String)saveFile.get(i);}								
 			}
-							
+						
+			
+			// 첫번째 업로드파일을 추가해서 업로드 하지 않았을때 update시 
+			// 기존의 이미지파일 이름을 유지한다.
+			// 나머지 이미지 파일란도 마찬가지.
+			if(img.equals("") || img == null){
+				img = alive_img1;
+			}if(img1.equals("") || img1 == null){
+				img1 = alive_img2;
+			}if(img2.equals("") || img2 == null){
+				img2 = alive_img3;
+			}if(img3.equals("") || img3 == null){
+				img3 = alive_img4;
+			}						
+			
 			
 			//Hosting
 			HostingDTO dto = new HostingDTO();
@@ -180,15 +245,13 @@ public class insertBoardController extends HttpServlet {
 			dto.setHost_id(host_id);
 			dto.setSocket(socket);
 			dto.setToilet(toilet);
-			
-			
+			dto.setRoom_no(Integer.parseInt(room_no));
 			
 			
 			//HostingBill
 			HostingBillDTO dto1 = new HostingBillDTO();
 			dto1.setWeekday(weekday);
 			dto1.setHoliday(holiday);
-			
 			
 			//HostingOption 
 			HostingOptionDTO dto2 = new HostingOptionDTO();
@@ -217,21 +280,20 @@ public class insertBoardController extends HttpServlet {
 			
 			
 			DAO dao = new DAO();
-			dao.insert(dto,dto1,dto2,dto3,dto4);
-			
-			
+			dao.update(dto,dto1,dto2,dto3,dto4);			
+		
 			
 		RequestDispatcher dis =		
-					request.getRequestDispatcher("detail.jsp");
+					request.getRequestDispatcher("MyPageDetail.jsp");
 		
-		dis.forward(request, response);
-			
-			
+		
+		dis.forward(request, response);   // <--- 오류
+
 			
 
 		} catch (Exception e) {
-/* 			
-*/			} //catch		
+			System.out.println("updateController2에서 오류" + e);
+			} //catch		
 
 	
 	}
