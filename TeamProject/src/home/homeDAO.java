@@ -72,7 +72,7 @@ public class homeDAO {
 							+"on h.room_no = pic.room_no "
 							+"join (select room_no, count(*) as 'count' from booking where book_check=0 group by room_no) b "
 							+"on h.room_no = b.room_no "
-							+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
+							+"join (select room_no, avg(re_point) as 'star' from review group by room_no ) r "
 							+"on h.room_no = r.room_no "
 							+"order by b.count*r.star desc";
 						
@@ -96,7 +96,7 @@ public class homeDAO {
 						dto.setHost_id(rs.getString("host_id"));
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
-						dto.setRoom(rs.getString("room"));
+						dto.setRoom_type(rs.getString("room_type"));
 						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));
@@ -132,7 +132,7 @@ public class homeDAO {
 					+"on  h.host_id = host.host_id "
 					+"join (select room_no, count(*) as 'count' from booking where book_check=0 group by room_no) b "
 					+"on h.room_no = b.room_no "
-					+"join (select room_no, avg(rv_star) as 'star' from review group by room_no ) r "
+					+"join (select room_no, avg(re_point) as 'star' from review group by room_no ) r "
 					+"on h.room_no = r.room_no "
 					+"where host_level = 3 "
     				+"order by b.count*r.star desc ";
@@ -159,7 +159,7 @@ public class homeDAO {
 						dto.setHost_id(rs.getString("host_id"));
 						dto.setRoom_no(rs.getInt("room_no"));
 						dto.setSubject(rs.getString("subject"));
-						dto.setRoom(rs.getString("room"));
+						dto.setRoom_type(rs.getString("room_type"));
 						dto.setPeople(rs.getString("people"));
 						dto.setPic1(rs.getString("pic1"));
 						dto.setCount(rs.getInt("count"));

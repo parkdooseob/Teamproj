@@ -120,7 +120,7 @@ desc hosting_address;
 								 +"on h.room_no = b.room_no "
 								 +"join hosting_address a "
 								 +"on h.room_no = a.room_no "
-								 +"left outer join (select room_no, avg(rv_star)  as 'star' from review group by room_no ) r "
+								 +"left outer join (select room_no, avg(re_star)  as 'star' from review group by room_no ) r "
 								 +"on h.room_no = r.room_no "
 								 +"left outer join (select room_no, sum(t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19 + t20 + t21) as 'ch' "
 								+"from booking b left outer join booking_time t "
