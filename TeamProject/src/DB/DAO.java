@@ -318,7 +318,7 @@ public class DAO {
 
 	
 				try {
-					String sql ="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address where room_no = ? ";
+					String sql ="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address natural join hosting_option where room_no = ? ";
 					pstmt = con.prepareStatement(sql);
 					
 										
@@ -335,8 +335,13 @@ public class DAO {
 						dto.setElevator(rs.getInt("elevator"));
 						dto.setToilet(rs.getInt("toilet"));
 						dto.setAirconditioner(rs.getInt("airconditioner"));
+						dto.setProjector(rs.getInt("projector"));
 						dto.setHeating(rs.getInt("heating"));
 						dto.setSocket(rs.getInt("socket"));
+						dto.setParking(rs.getInt("parking"));
+						dto.setLaptop(rs.getInt("laptop"));
+						dto.setCabinet(rs.getInt("cabinet"));
+						dto.setWifi(rs.getInt("wifi"));						
 						dto.setContent(rs.getString("content"));
 						dto.setFrom(rs.getString("fromdate"));
 						dto.setTo(rs.getString("todate"));
@@ -453,6 +458,9 @@ public class DAO {
 					+ " airconditioner =? , heating =? , socket =?  , content =? , fromdate =? , todate =? ,"
 					+ " time = ? ,etc=?  where room_no = ? ";
 									
+			
+			System.out.println(dto.getDrink());
+			
 		pstmt =	con.prepareStatement(sql);			
 			pstmt.setString(1, dto.getSubject());
 			pstmt.setString(2, dto.getRoom());

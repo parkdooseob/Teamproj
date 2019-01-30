@@ -40,8 +40,8 @@ public class insertBoardController extends HttpServlet {
 		
 		String savePath = request.getRealPath("/upload"); 
 		int sizeLimit = 100 * 1024 * 1024;
-		
 		System.out.println(savePath);
+		
 
 		
 		String fileName = "";
@@ -130,7 +130,7 @@ public class insertBoardController extends HttpServlet {
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
 
-			
+
 								
 			while(formNames.hasMoreElements()){
 				
@@ -144,7 +144,7 @@ public class insertBoardController extends HttpServlet {
 			
 			if (fileName == null) { 		
 				
-				System.out.println("파일이름 없음");
+				System.out.println("�뙆�씪�씠由� �뾾�쓬");
 				
 			} 
 			
@@ -162,7 +162,8 @@ public class insertBoardController extends HttpServlet {
 					img3 = (String)saveFile.get(i);}								
 			}
 							
-			
+				
+
 			//Hosting
 			HostingDTO dto = new HostingDTO();
 			dto.setPeople(people);			
@@ -220,9 +221,8 @@ public class insertBoardController extends HttpServlet {
 			dao.insert(dto,dto1,dto2,dto3,dto4);
 			
 			
-			
 		RequestDispatcher dis =		
-					request.getRequestDispatcher("detail.jsp");
+					request.getRequestDispatcher("Jong/detail.jsp");
 		
 		dis.forward(request, response);
 			

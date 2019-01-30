@@ -135,8 +135,8 @@ public class updateBoardController2 extends HttpServlet {
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
 			
-			//origin_img값 무조건 4개 받음.
-			//request값 못 받아오면 오류생기기 때문에 초기화
+			//origin_img媛� 臾댁“嫄� 4媛� 諛쏆쓬.
+			//request媛� 紐� 諛쏆븘�삤硫� �삤瑜섏깮湲곌린 �븣臾몄뿉 珥덇린�솕
 
 			String alive_img1 = "";
 			String alive_img2 = ""; 
@@ -158,20 +158,17 @@ public class updateBoardController2 extends HttpServlet {
 				origin_img1 = multi.getParameter("origin_img1");
 				File file = new File(savePath+origin_img1);
 				file.delete();
-				System.out.println(origin_img1);
 			}
 			if(multi.getParameter("alive_img2") == null ){
 				origin_img2 = multi.getParameter("origin_img2");
 				File file1 = new File(savePath+origin_img2);
 				file1.delete();
-				System.out.println("2번 삭제");
 
 			}
 			if(multi.getParameter("alive_img3") == null ){
 				origin_img3 = multi.getParameter("origin_img3");
 				File file2 = new File(savePath+origin_img3);
 				file2.delete();
-				System.out.println("3번 삭제");
 
 
 			}
@@ -179,7 +176,6 @@ public class updateBoardController2 extends HttpServlet {
 				origin_img4 = multi.getParameter("origin_img4");
 				File file3 = new File(savePath+origin_img4);
 				file3.delete();
-				System.out.println("4번 삭제");
 			}
 			
 									
@@ -195,7 +191,7 @@ public class updateBoardController2 extends HttpServlet {
 			
 			if (fileName == null) { 		
 				
-				System.out.println("파일 이름이 없음.");
+				System.out.println("�뙆�씪 �씠由꾩씠 �뾾�쓬.");
 				
 			} 
 			
@@ -214,9 +210,9 @@ public class updateBoardController2 extends HttpServlet {
 			}
 						
 			
-			// 첫번째 업로드파일을 추가해서 업로드 하지 않았을때 update시 
-			// 기존의 이미지파일 이름을 유지한다.
-			// 나머지 이미지 파일란도 마찬가지.
+			// 泥ル쾲吏� �뾽濡쒕뱶�뙆�씪�쓣 異붽��빐�꽌 �뾽濡쒕뱶 �븯吏� �븡�븯�쓣�븣 update�떆 
+			// 湲곗〈�쓽 �씠誘몄��뙆�씪 �씠由꾩쓣 �쑀吏��븳�떎.
+			// �굹癒몄� �씠誘몄� �뙆�씪���룄 留덉갔媛�吏�.
 			if(img.equals("") || img == null){
 				img = alive_img1;
 			}if(img1.equals("") || img1 == null){
@@ -284,10 +280,10 @@ public class updateBoardController2 extends HttpServlet {
 		
 			
 		RequestDispatcher dis =		
-					request.getRequestDispatcher("MyPageDetail.jsp");
+					request.getRequestDispatcher("Jong/MyPageDetail.jsp");
 		
 		
-		dis.forward(request, response);   // <--- 오류
+		dis.forward(request, response);   // <--- �삤瑜�
 
 			
 

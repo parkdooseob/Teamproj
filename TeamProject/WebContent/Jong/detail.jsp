@@ -95,10 +95,10 @@ $(document).ready(function() {
 				  <div class="w3-bar w3-green">
 				  	<div class="w3-bar-item">팀장님</div></div>
 				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
-				  	<div class="w3-bar-item"><a href="detailPageController.do?a=1">전체</a></div>
-				  	<div class="w3-bar-item"><a href="detailPageController.do?a=2">카페</a></div>
-				  	<div class="w3-bar-item"><a href="detailPageController.do?a=3">강의실</a></div>
-				  	<div class="w3-bar-item"><a href="detailPageController.do?a=4">룸</a></div>
+				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=1">전체</a></div>
+				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=2">카페</a></div>
+				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=3">강의실</a></div>
+				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=4">룸</a></div>
 				  </div>
 				</div>	
 				
@@ -136,7 +136,7 @@ $(document).ready(function() {
 								
 					%>					
 					<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="40%"><div style="width: 90%"><img src="http://localhost:8080/TeamProject/upload/<%=dto.getImg1()%>" width="100%"></div></td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>

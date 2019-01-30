@@ -422,7 +422,7 @@ $( function() {
 
 <div class="container">
 
-  <form action="insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
+  <form action="http://localhost:8080/TeamProject/insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
   
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">

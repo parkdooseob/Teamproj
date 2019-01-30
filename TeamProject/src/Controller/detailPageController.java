@@ -27,7 +27,7 @@ public class detailPageController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		int a = Integer.parseInt(request.getParameter("a"));
-		RequestDispatcher dis = request.getRequestDispatcher("detail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		DAO dao = new DAO();
 
 		if(a == 1) {
@@ -60,7 +60,7 @@ public class detailPageController extends HttpServlet {
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);
 		}else {
-			System.out.println("올바른경로로 접속하시오.");
+			System.out.println("�삱諛붾Ⅸ寃쎈줈濡� �젒�냽�븯�떆�삤.");
 		}
 		
 		

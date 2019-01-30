@@ -36,7 +36,7 @@ public class deleteBoardController extends HttpServlet {
 		
 		//작업다 끝낸뒤 detail.jsp로 이동
 		RequestDispatcher dis = 
-					request.getRequestDispatcher("MyPageDetail.jsp");
+					request.getRequestDispatcher("Jong/MyPageDetail.jsp");
 		
 		dis.forward(request	,response);
 		
