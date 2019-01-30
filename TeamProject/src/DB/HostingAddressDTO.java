@@ -9,8 +9,16 @@ public class HostingAddressDTO {
 	private String a_address;
 	private String a_D_address;
 	private String a_etc_address;
+	private int room_no;
 	
 	
+	
+	public int getRoom_no() {
+		return room_no;
+	}
+	public void setRoom_no(int room_no) {
+		this.room_no = room_no;
+	}
 	public String getA_wdo() {
 		return a_wdo;
 	}
