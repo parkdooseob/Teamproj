@@ -130,7 +130,7 @@ $('#cancled').click(function () {
   </div>
   <div class="w3-rest w3-container ">
     <h5>${rList.subject}<!-- 공간이름 --> </h5>
-    <p style="margin:2px;">${rList.room}</p>
+    <p style="margin:2px;">${rList.room_type}</p>
     <hr style="margin: 3px;"/>
     <div id="reservContent_${rList.book_no}" style="display: block; height: 60px">
     
@@ -171,9 +171,9 @@ $('#cancled').click(function () {
 					<span style="color: grey;">작성된 리뷰가 없습니다</span>
 					<a href="m_detail.jsp?${rList.room_no}">리뷰 작성</a>
 				</c:if>
-				<c:if test="${rList.rv_post ne null}">
-					<p style="margin:2px;">별점:${rList.rv_star}점 </p>
-					<textarea rows="2" cols="30" readonly="readonly" style="border:none; height: 2em;">${rList.rv_post}</textarea>
+				<c:if test="${rList.re_content ne null}">
+					<p style="margin:2px;">별점:${rList.re_point}점 </p>
+					<textarea rows="2" cols="30" readonly="readonly" style="border:none; height: 2em;">${rList.re_content}</textarea>
 				</c:if>
 				
 			</c:when>
