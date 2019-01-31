@@ -24,7 +24,7 @@
 	padding:0;
 }
 </style>
-
+//
 <!-- 카카오 맵 script -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
 <!-- jstl -->
@@ -41,10 +41,11 @@
 <c:set var="commentList" value="${commentList}"/>
 <c:set var="noList" value="${noList}"></c:set>
 <c:set var="reviewList" value="${reviewList}"/>
+<c:set var="session" value="${sessionScope.udto}"/>
 <script>
 	
 	console.log("noList는");
-	console.log('${noList[0]}');
+	console.log('${noList[3]}');
 </script>
 <jsp:include page="Top.jsp"/>
 
@@ -363,7 +364,7 @@
 	var num = '${hosting.room_no}';//공간번호
 	var disabledDays = [];	//예약이 불가능한 날짜 리턴
 	var i =0;
-	//test
+	
 	//예약 불가능한 날짜 DB에서 받아서 배열에 SET해준다
 	<c:forEach items="${noList}" var="item1">
 		disabledDays.push("${item1}");
@@ -387,10 +388,8 @@
 	var s_date="";	//DatePicker에 선택한 날짜
 	var a_price = 0;// 총요금
 	
-
 	var day_price = parseInt(${bill.weekday} ); //평일 요금
 	var sun_price = parseInt(${bill.holiday} );	//주말 요금
-
 	
 	
 
