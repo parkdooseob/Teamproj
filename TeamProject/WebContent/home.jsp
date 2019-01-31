@@ -438,7 +438,7 @@ Vector<homeDTO> recV = (Vector<homeDTO>)request.getAttribute("recommendV");
       <a href="m_detail.jsp?<%=recDTO.getRoom_no()%>" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
 		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
-		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=recDTO.getRoom()%> 평점:<%=(Math.round(recDTO.getStar()*10)/10.0)%></small>
+		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=recDTO.getRoom_type()%> 평점:<%=(Math.round(recDTO.getStar()*10)/10.0)%></small>
       			<p style="font-weight:bold;"><%=recDTO.getSubject()%></p>
 		    </div>
 		    <img src="<%=recDTO.getPic1()%>" alt="House" style="width:100%">
@@ -507,7 +507,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
       <a href="m_detail.jsp?<%=popDTO.getRoom_no()%>" class="w3-btn" style="padding: 0px">
 	      <div class="w3-display-container">
 		    <div class="w3-display-topleft w3-white w3-padding" style="opacity:0.8">
-		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=popDTO.getRoom()%> 예약수:<%=popDTO.getCount()%> 평점:<%=(Math.round(popDTO.getStar()*10)/10.0)%></small>
+		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=popDTO.getRoom_type()%> 예약수:<%=popDTO.getCount()%> 평점:<%=(Math.round(popDTO.getStar()*10)/10.0)%></small>
       			<p style="font-weight:bold;"><%=popDTO.getSubject()%></p>
 		    </div>
 		    <img src="<%=popDTO.getPic1()%>" alt="House" style="width:100%">

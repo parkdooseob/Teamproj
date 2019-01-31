@@ -44,6 +44,7 @@ $(document).ready(function() {
 		
 	$(".a_click1").css("color","black");
 	$("#contents").load("userProfileUpdate.jsp");
+	var id = $("#email").val();
 	
 	$(".a_click1").click(function(){
 		//alert("클릭");
@@ -61,7 +62,7 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
-		$("#contents").load("../ReservationController.do?userId=aaa@gmail.com");
+		$("#contents").load("../ReservationController.do?userId="+id);
 	});
 	$(".a_click3").click(function(){
 		//alert("클릭");
@@ -93,7 +94,8 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-
+<!-- jquery에서 세션값으 받아가기 위한 hidden -->
+<input type="hidden" id="email" value="${sessionScope.udto.email}">
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->

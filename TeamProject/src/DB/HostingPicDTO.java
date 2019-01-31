@@ -4,17 +4,26 @@ public class HostingPicDTO {
 
 	
 	
-	private String room_no;
+	private int room_no;
 	private String pic1;
 	private String pic2;
 	private String pic3;
+	private String pic4;
+
 	
 	
 	
-	public String getRoom_no() {
+	
+	public String getPic4() {
+		return pic4;
+	}
+	public void setPic4(String pic4) {
+		this.pic4 = pic4;
+	}
+	public int getRoom_no() {
 		return room_no;
 	}
-	public void setRoom_no(String room_no) {
+	public void setRoom_no(int room_no) {
 		this.room_no = room_no;
 	}
 	public String getPic1() {

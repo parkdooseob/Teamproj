@@ -123,12 +123,12 @@ public class ReservListDAO {
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			System.out.println("Getlist 실행됨");
+//			System.out.println("Getlist 실행됨");
 		
 			rs = pstmt.executeQuery();
-			System.out.println("P1");
+//			System.out.println("P1");
 			while(rs.next()){
-				System.out.println("P2");
+//				System.out.println("P2");
 				ReservListDTO dto = new ReservListDTO();
 				dto.setBook_no(rs.getInt("book_no")); 
 				dto.setEmail(id);
@@ -155,15 +155,15 @@ public class ReservListDAO {
 				
 				
 				dto.setPic1(rs.getString("pic1"));
-				dto.setRoom(rs.getString("room"));
+				dto.setRoom_type(rs.getString("roomm_type"));
 				
 				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
 				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
 				
 				dto.setReview_no(rs.getInt("review_no"));
-				dto.setRv_date(rs.getDate("rv_date"));
-				dto.setRv_star(rs.getInt("rv_star"));
-				dto.setRv_post(rs.getString("rv_post"));
+				dto.setRe_date(rs.getDate("re_date"));
+				dto.setRe_point(rs.getInt("re_point"));
+				dto.setRe_content(rs.getString("re_content"));
 				
 				ReservList.add(dto);
 				System.out.println("Getlist 담김");

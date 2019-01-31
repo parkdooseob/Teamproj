@@ -11,6 +11,8 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe&libraries=services"></script>
 
+
+
 <!-- 날짜추가 script -->
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> 
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
@@ -19,8 +21,6 @@
 <!-- 날짜 끝 --> 
 
 <style type="text/css">
-
-
 
 
 .Tbutton {
@@ -318,6 +318,16 @@ $( function() {
     		
     	count++;
     	
+			if(mytbody.rows.length == 4){
+    		
+        	alert("4개 까지만 등록이 가능합니다.");
+        	
+        	 var input = document.getElementById("plus");
+             // input엘리먼트에 disbled="disabled" 속성 추가한다.
+             input.setAttribute("disabled", "disabled");        	        	
+        	}
+    	
+    	
     }
     function delete_row() {
     	var mytbody = document.getElementById("mytbody");
@@ -325,6 +335,12 @@ $( function() {
         // my_tbody.deleteRow(0); // 상단부터 삭제
         mytbody.deleteRow( mytbody.rows.length-1 ); // 하단부터 삭제
         count--;
+        if(mytbody.rows.length < 4){
+    		var input = document.getElementById("plus");
+            // input엘리먼트에 disabled 제거
+            input.removeAttribute("disabled");
+    		
+    	}
             
       }
 
@@ -406,7 +422,7 @@ $( function() {
 
 <div class="container">
 
-  <form action="http://localhost:8080/TeamProj/insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
+  <form action="http://localhost:8080/TeamProject/insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
   
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">
@@ -417,7 +433,7 @@ $( function() {
       <label>제 목</label>
     </div>
     <div class="col-90">
-      <input type="text" id="title" name="title" placeholder="Title">
+      <input type="text" id="subject" name="subject" placeholder="Title">
     </div>
   </div>
   
@@ -426,7 +442,7 @@ $( function() {
       <label>공간 유형</label>
     </div>
     <div class="col-90">
-      <select name="space">
+      <select name="room">
       	<option value="카페">카페</option>
       	<option value="강의실">강의실</option>
       	<option value="룸">룸</option>
@@ -439,7 +455,7 @@ $( function() {
       <label for="peopleNum">수용 범위</label>
     </div>
     <div class="col-90">
-      <select id="peopleValue" name="peopleValue">
+      <select id="people" name="people">
         <option value="소">소(1~4명)</option>
         <option value="중">중(5~10명)</option>
         <option value="대">대(10명~20명)</option>
@@ -468,12 +484,62 @@ $( function() {
         <label>음료기본제공</label>
         <input type="radio" name="drink"  value=1>가능        
         <input type="radio" name="drink"  value=2>불가능
-    </div> 
-    <div class="col-10">
-    	<input type="text" placeholder="옵션 " name="etc">&nbsp;<span id="option">그 외 옵션을 적어주세요.</span>
     </div>    
        
-  </div> 
+	  </div> 
+	  
+	    <div class="row">
+	    <div class="col-10"></div>
+	    <div class="col-20">
+	        <label>에어컨</label>
+	        <input type="radio" name="airconditioner"  value=1>가능        
+	        <input type="radio" name="airconditioner"  value=2>불가능
+	    </div>
+	    <div class="col-20">
+	        <label>난방</label>
+	        <input type="radio" name="heating"  value=1>가능        
+	        <input type="radio" name="heating"  value=2>불가능
+	    </div>
+	    <div class="col-20">
+	        <label>엘리베이터</label>
+	        <input type="radio" name="elevator"  value=1>있음        
+	        <input type="radio" name="elevator"  value=2>없음
+	    </div>
+	    <div class="col-20">
+	        <label>콘센트</label>
+	        <input type="radio" name="socket"  value=1>가능        
+	        <input type="radio" name="socket"  value=2>불가능
+	    </div>   
+	       
+	  </div> 
+	  
+	  <div class="row">
+	    <div class="col-10"></div>
+	    <div class="col-20">
+	        <label>프로젝트 빔</label>
+	        <input type="radio" name="projector"  value=1>가능        
+	        <input type="radio" name="projector"  value=2>불가능
+	    </div>
+	    <div class="col-20">
+	        <label>컴퓨터</label>
+	        <input type="radio" name="laptop"  value=1>가능        
+	        <input type="radio" name="laptop"  value=2>불가능
+	    </div>
+	    <div class="col-20">
+	        <label>캐비넷</label>
+	        <input type="radio" name="cabinet"  value=1>있음        
+	        <input type="radio" name="cabinet"  value=2>없음
+	    </div>
+	    
+	      <div class="col-20">
+	       
+	    	</div>
+	   
+	    <div class="col-10">
+	    	<input type="text" placeholder="옵션 " name="etc">&nbsp;<span id="option">그 외 옵션을 적어주세요.</span>
+	    </div>    
+	       
+	  </div> 
   
   
   <div class="row">
@@ -513,7 +579,7 @@ $( function() {
   <div class="row">
   	<div class="col-10">이미지 첨부</div>
   	<div class="col-90">
-  		<input type="button"  value="+" onclick="add_row()" class="button button2">
+  		<input type="button"  value="+" onclick="add_row()" class="button button2" id="plus">
 		<input type="button"  value="-" onclick="delete_row()" class="button button2">	
 		<table>
 			<tbody id="mytbody"></tbody>
@@ -557,7 +623,7 @@ $( function() {
 		<input type="button" class="Tbutton" value="16:00" >
 		<input type="button" class="Tbutton" value="17:00" >
 		<input type="button" class="Tbutton" value="18:00" >
-		<input type="button" class="Tbutton" value="19:00">
+		<input type="button" class="Tbutton" value="19:00" >
 		<input type="button" class="Tbutton" value="20:00" >
 		<input type="button" class="Tbutton" value="21:00" >
 		<input type="button" class="Tbutton" value="22:00" >
@@ -571,14 +637,10 @@ $( function() {
   
   <div class="row">
   	<div class="col-10">요금</div>
-  	<div class="col-10">
-  		  	<select name="day">
-  		  		<option value="평일">평일</option>
-  		  		<option value="주말">주말</option>
-  		  	</select>  	
-  	</div>
+  
   	<div class="col-80">
-  		<input type="text" name="billValue" maxlength="10" placeholder="가격을 입력해주세요.">
+  		<input type="text" name="weekday" maxlength="10" placeholder="평일 요금">
+  		<input type="text" name="holiday" maxlength="10" placeholder="주말 요금">
   	 </div>
   </div>
   

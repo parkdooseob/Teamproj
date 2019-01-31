@@ -41,7 +41,6 @@ public class detailPageController extends HttpServlet {
 			
 			Vector<SelectDTO> vector =	dao.select(2);
 			request.setAttribute("vector", vector);
-	
 						
 			dis.forward(request, response);
 			
@@ -52,7 +51,6 @@ public class detailPageController extends HttpServlet {
 				
 			Vector<SelectDTO> vector =	dao.select(3);
 			request.setAttribute("vector", vector);
-			
 			dis.forward(request, response);
 		}
 		else if (a == 4) {
@@ -60,10 +58,9 @@ public class detailPageController extends HttpServlet {
 			
 			Vector<SelectDTO> vector =	dao.select(4);
 			request.setAttribute("vector", vector);
-			
 			dis.forward(request, response);
 		}else {
-			System.out.println("올바른경로로 접속하시오.");
+			System.out.println("�삱諛붾Ⅸ寃쎈줈濡� �젒�냽�븯�떆�삤.");
 		}
 		
 		
