@@ -169,7 +169,7 @@ $('#cancled').click(function () {
 			<c:when test = "${rList.rStatus == 1}">
 				<c:if test="${rList.re_content eq null}">
 					<span style="color: grey;">작성된 리뷰가 없습니다</span>
-					<a href="m_detail.jsp?${rList.room_no}">리뷰 작성</a>
+					<a href="../m_detail?num=${rList.room_no}">리뷰 작성</a>
 				</c:if>
 				<c:if test="${rList.re_content ne null}">
 					<p style="margin:2px;">별점:${rList.re_point}점 </p>
