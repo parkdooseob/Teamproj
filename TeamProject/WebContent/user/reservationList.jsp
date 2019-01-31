@@ -60,6 +60,11 @@ h2{
 }  
 
 
+.checked {
+  color: orange;
+}
+
+
 </style>
 
 <script type="text/javascript">
@@ -103,7 +108,34 @@ $('#cancled').click(function () {
 });
 
 
+function limit(no){
+// 	alert("글자수는 10자로 이내로 제한됩니다.");
+	var text_id = '#reviewArea' + no;
+	var size_id = '#byte'+no;
+	var len = $(text_id).val().length;
+// 	alert(len);
+	$(size_id).val(len);
+	if($(text_id).val().length > 200) {
 
+		alert("글자수는 200byte 이내로 제한됩니다.");
+
+		$(text_id).val($(text_id).val().substring(0, 200));
+
+	}
+}
+
+
+function start(idx, no){
+// 	alert(idx);
+	$('.fa').attr('class', 'fa fa-star');
+	var id = '#starVal'+no;
+	$(id).val(idx);
+	for(var i = 1; i <= idx; i++){
+
+		document.getElementById('star'+i+'_'+no).className= 'fa fa-star checked';
+	}
+	 
+}
 
 
 </script>
@@ -170,9 +202,48 @@ $('#cancled').click(function () {
 				<c:if test="${rList.re_content eq null}">
 					<div id="beforeWriting_${rList.book_no}" style="display:block;">
 						<span style="color: grey;">작성된 리뷰가 없습니다</span>
-						<a href="../m_detail?num=${rList.room_no}">리뷰 작성</a>
+<%-- 						<a onclick="writingForm(${rList.book_no})">리뷰 작성</a> --%>
+						
+						<a onclick="document.getElementById('writingForm_${rList.book_no}').style.display='block'">리뷰 작성</a>
 					</div>
-					<div id="Writing_${rList.book_no}" style="display:none;">df</div>
+					<!-- 여기서부터 모달 -->
+					<div id="writingForm_${rList.book_no}" class="w3-modal">
+						<div class="w3-modal-content w3-card-4" style="width: 300px;">
+						<!-- 
+							review_no 자동증가 
+							book_no
+							room_no
+							email
+							re_date
+							re_point
+							re_content
+						 -->	
+						 <div class="w3-container w3-light-grey w3-padding">
+								<span>평점 :</span>
+								
+								<a href="javascript:start(1, ${rList.book_no})"><span id="star1_${rList.book_no}" class="fa fa-star checked"></span></a> 
+								<a href="javascript:start(2, ${rList.book_no})"><span id="star2_${rList.book_no}" class="fa fa-star checked"></span></a>
+								<a href="javascript:start(3, ${rList.book_no})"><span id="star3_${rList.book_no}" class="fa fa-star checked"></span></a>
+								<a href="javascript:start(4, ${rList.book_no})"><span id="star4_${rList.book_no}" class="fa fa-star checked"></span></a>
+								<a href="javascript:start(5, ${rList.book_no})"><span id="star5_${rList.book_no}" class="fa fa-star"></span></a>
+								<input type="hidden" value=" " id="starVal${rList.book_no}">
+							</div>
+				
+							<div class="w3-container">
+								<small style="margin: 1px; float:right;"><input type="text" id="byte${rList.book_no}" maxlength="3" size="3" value="0" style="text-align:right; border: none;" >/200byte</small>
+								<textarea id="reviewArea${rList.book_no}" rows="5" cols="28" onkeypress="limit(${rList.book_no})"	name="re_content" style="resize:none; overflow:hidden; width:100%;  height: 200px;"></textarea>
+							</div>
+				
+							<div class="w3-container w3-light-grey">
+								<button class="w3-button w3-light-grey "
+									onclick="document.getElementById('writingForm_${rList.book_no}').style.display='none'" >닫기</button>
+								<button class="w3-button w3-right w3-light-grey "
+									onclick="">완료</button>
+								
+							</div>
+				
+						</div>
+					</div><!--모달 여기까지-->
 				</c:if>
 				<c:if test="${rList.re_content ne null}">
 					<p style="margin:2px;">별점:${rList.re_point}점 </p>
