@@ -56,7 +56,7 @@
 
 		});
 
-	 
+	 //
 	 /*시간 버튼 클릭 했을때 값 추출*/
 	$(".t_btn").on("click", function(event){
 		var f_date = [];
