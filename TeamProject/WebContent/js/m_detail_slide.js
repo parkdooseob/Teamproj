@@ -40,7 +40,7 @@ function big(num){
 function map(){
 	var lat = document.getElementById("lat").value;
 	var lng = document.getElementById("lng").value;
-	
+	console.log(lng);
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = { 
 	    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
@@ -61,7 +61,7 @@ function map(){
 	marker.setMap(map);
 
 	//아래 코드는 지도 위의 마커를 제거하는 코드입니다
-	//marker.setMap(null);
+//	marker.setMap(null);
 }
 
 map();

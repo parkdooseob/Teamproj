@@ -28,7 +28,7 @@ public class CommentDao {
 			// 1. Was서버와 연결된 웹프로젝트의 모든정보를 가지고 있는 컨텍스트 객체 생성
 			Context init = new InitialContext();
 			// 2. 연결된 Was서버에서 DataSource(커넥션 풀)을 검색해서 얻기
-			ds = (DataSource)init.lookup("java:comp/env/jdbc/ShareSpace");
+			ds = (DataSource)init.lookup("java:comp/env/jdbc/sharespace");
 			
 		} catch (Exception e) {
 			// TODO: handle exception

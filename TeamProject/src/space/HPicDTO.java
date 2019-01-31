@@ -7,6 +7,7 @@ public class HPicDTO {
 	private String pic2;	//사진 2
 	private String pic3;	//사진 3
 	private String pic4;	//사진 4
+	private String pic5;	//사진 4
 	
 	
 	
@@ -39,6 +40,12 @@ public class HPicDTO {
 	}
 	public void setPic4(String pic4) {
 		this.pic4 = pic4;
+	}
+	public String getPic5() {
+		return pic5;
+	}
+	public void setPic5(String pic5) {
+		this.pic5 = pic5;
 	}
 	
 	

@@ -24,10 +24,10 @@ public class TimeSpaceController extends HttpServlet {
 		Date selectDate = Date.valueOf(date[0]);
 		int roomNo = Integer.parseInt(request.getParameter("room_no"));
 		
-		System.out.println("date : "+request.getParameter("date"));
+		System.out.println("date : "+selectDate);
 		System.out.println("room : "+roomNo);
 		SpaceDao dao = new SpaceDao();
-		JSONArray jarray = dao.getTime(selectDate, roomNo);
+		JSONArray jarray = dao.getTime(date[0], roomNo);
 		PrintWriter out = response.getWriter();
 		out.print(jarray);
 	}

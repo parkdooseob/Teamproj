@@ -1,5 +1,10 @@
 // 	var disabledDays = ["2019-1-24","2019-1-25"];ddasdasd
+	$(".t_btn").attr("disabled",true);	//날짜를 선택하기전 시간 버튼 disabled
+//	$(".price").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
 	
+	
+	
+	//예약 불가능한 날짜 체크
 	function disableAllTheseDays(date) {
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 	    for (i = 0; i < disabledDays.length; i++) {
@@ -10,23 +15,10 @@
 	    return [true];
 	}
 	
-	$("#datepicker1").datepicker({
-		minDate: 1,
-		maxDate: 7,
-		dateFormat: 'yy-mm-dd D',
-		beforeShowDay: disableAllTheseDays,
-		onSelect: function(date) {
-			
-			s_date=date;
-
-			nonBtn(date)
-// 	         alert(date);
-	    }   
-
-	});
 	
+	//선택한 날짜의 예약가능한 시간 ajax로 동작
 	 function nonBtn(date){
-		 $(".t_btn").attr("disabled",false);	
+		 $(".t_btn").attr("disabled",false);	//	
 		 $(".t_btn").removeClass("w3-grey");	//시간버튼 클릭시 변경되는 색상 모두 제거
 		 	list = new Array();
 		 $.ajax({
@@ -38,7 +30,8 @@
 	        	var json = JSON.parse(data);
 	        	
 // 	        	$(".t_btn").attr("disabled",false);
-	        	for(var i=1;i<13;i++){
+	        	for(var i=0;i<12;i++){
+	        		console.log("j i : "+json[i]);
 	        		if(json[i]==1){
 	        			$(".t_btn").eq(i).attr("disabled",true);
 	        		}
@@ -46,6 +39,23 @@
 	        }
 	     }); 
 	 }
+	 
+	 //캘린더 함수
+	 $("#datepicker1").datepicker({
+			minDate: 1,
+			maxDate: 7,
+			dateFormat: 'yy-mm-dd D',
+			beforeShowDay: disableAllTheseDays,
+			onSelect: function(date) {
+				
+				s_date=date;
+
+				nonBtn(date)
+//	 	         alert(date);
+		    }   
+
+		});
+
 	 
 	 /*시간 버튼 클릭 했을때 값 추출*/
 	$(".t_btn").on("click", function(event){
@@ -163,6 +173,7 @@
         			
         			//동적 버튼 이벤트 추가해야함
 	        		});	
+	        		/*
 	        		$(document).on("click", ".delete"+comment_no, function(event){
 	        			console.log("동적 생성 삭제 버튼 눌러짐");
 	        			del(event);
@@ -171,6 +182,7 @@
 	        			console.log("동적 생성 수정 버튼 눌러짐")
 	        			update(event);
 	        		});
+	        		*/
 	        	
 	        }
 		}); 
@@ -246,17 +258,25 @@
         									+'		<span>'+update_content+'</span> '
         									+'	</div>');
 		        		
+		        		/*
 		        		$(document).on("click", ".delete"+comment_no, function(event){
 		        			del(event);
 		        		});
 		        		$(document).on("click", ".update"+comment_no, function(event){
 		        			update(event);
 		        		});
+		        		*/
 		        	}
 		        }
 			});	
 		});
 	}
+	$(document).on("click", ".c-btn", function(event){
+		del(event);
+	});
+	$(document).on("click", ".u-btn", function(event){
+		update(event);
+	});
 	
 	//무한스크롤-----------------------------------
 	let isEnd = false;
@@ -348,7 +368,7 @@
 	    });
 	}
 	
-
+/*
 	
 	$(window).scroll(function(){
 
@@ -371,14 +391,11 @@
         }
 	});
 
+	*/
+	//없는 옵션 가림
+	optionDisplay();
 	
-
-
-	 
-
-
-
-
+	
 	
 	
 	

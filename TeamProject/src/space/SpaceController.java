@@ -38,9 +38,15 @@ public class SpaceController extends HttpServlet {
 		ArrayList<CommentDTO> comList = new ArrayList<CommentDTO>();
 		comList = dao.getCommentList(num);
 		request.setAttribute("commentList", comList);
+		
 		//예약이 다찬 날짜를 가져온다
-		List noList = dao.getNoDate(num);
+		ArrayList<String> noList = dao.getNoDate(num);
 		request.setAttribute("noList", noList);
+		
+		//review를 가져온다
+		ArrayList<ReviewDTO> reviewList = dao.getReviewList(num);
+		request.setAttribute("reviewList", reviewList);
+		
 		
 		RequestDispatcher dis = request.getRequestDispatcher("m_detail.jsp");
 		dis.forward(request, response);
