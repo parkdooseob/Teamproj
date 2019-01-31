@@ -1,10 +1,11 @@
 package home;
 
 public class SearchDTO {
+		
 	private String host_id;
 	private int room_no;
 	private String subject;
-	private String room;
+	private String room_type;
 	private String people;
 	private int drink;
 	private int elevator;
@@ -13,14 +14,20 @@ public class SearchDTO {
 	private int heating;
 	private int socket;
 
+	private String content;
+	private String fromdate;
+	private String todate;
+	private String time;
+	private String etc;
+	
 	private int parking;
 	private int wifi;
 	private int projector;
 	private int laptop;
 	private int cabinet;
 
-	private int room_day;
-	private int room_sum;
+	private int weekday;
+	private int holiday;
 
 	private String a_wdo;
 	private String a_kdo;
@@ -30,6 +37,53 @@ public class SearchDTO {
 	private String a_etc_address;
 
 	private double star;
+
+	
+	
+	
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFromdate() {
+		return fromdate;
+	}
+
+	public void setFromdate(String fromdate) {
+		this.fromdate = fromdate;
+	}
+
+	public String getTodate() {
+		return todate;
+	}
+
+	public void setTodate(String todate) {
+		this.todate = todate;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getEtc() {
+		return etc;
+	}
+
+	public void setEtc(String etc) {
+		this.etc = etc;
+	}
+
+	public void setRoom_type(String room_type) {
+		this.room_type = room_type;
+	}
 
 	public String getHost_id() {
 		return host_id;
@@ -55,12 +109,12 @@ public class SearchDTO {
 		this.subject = subject;
 	}
 
-	public String getRoom() {
-		return room;
+	public String getRoom_type() {
+		return room_type;
 	}
 
-	public void setRoom(String room) {
-		this.room = room;
+	public void setRoom(String room_type) {
+		this.room_type = room_type;
 	}
 
 	public String getPeople() {
@@ -159,20 +213,20 @@ public class SearchDTO {
 		this.cabinet = cabinet;
 	}
 
-	public int getRoom_day() {
-		return room_day;
+	public int getWeekday() {
+		return weekday;
 	}
 
-	public void setRoom_day(int room_day) {
-		this.room_day = room_day;
+	public void setWeekday(int weekday) {
+		this.weekday = weekday;
 	}
 
-	public int getRoom_sum() {
-		return room_sum;
+	public int getHoliday() {
+		return holiday;
 	}
 
-	public void setRoom_sum(int room_sum) {
-		this.room_sum = room_sum;
+	public void setHoliday(int holiday) {
+		this.holiday = holiday;
 	}
 
 	public String getA_wdo() {
