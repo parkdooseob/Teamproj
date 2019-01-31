@@ -126,7 +126,7 @@ $('#cancled').click(function () {
 <c:forEach var="rList"  items="${requestScope.rList}">
 <div class="rStatus_${rList.rStatus} w3-row w3-border-top w3-border-bottom" style="margin: 10px auto; display: block;'">
   <div class="w3-third w3-container ">
-    <img src="${rList.pic1}" style="width: 100%; height: 100%"/>
+    <img src="../img/${rList.pic1}" style="width: 100%; height: 100%"/>
   </div>
   <div class="w3-rest w3-container ">
     <h5>${rList.subject}<!-- 공간이름 --> </h5>
