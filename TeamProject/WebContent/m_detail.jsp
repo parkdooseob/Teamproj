@@ -387,8 +387,10 @@
 	var s_date="";	//DatePicker에 선택한 날짜
 	var a_price = 0;// 총요금
 	
+
 	var day_price = parseInt(${bill.weekday} ); //평일 요금
 	var sun_price = parseInt(${bill.holiday} );	//주말 요금
+
 	
 	
 
