@@ -39,14 +39,14 @@ h2{
 	color:grey;
 }
 
-.w3-bar > a{
+#filterbar > a{
 	text-decoration: none;
 	font-weight: bold;
  	color: white !important;
 
 }
 
-.w3-bar > a:hover{
+#filterbar > a:hover{
  	color: green !important;
 
 }
@@ -111,7 +111,7 @@ $('#cancled').click(function () {
 <body>
 <h2 class="w3-left">내 예약 정보<i class="material-icons" style="font-size:60px; vertical-align: middle;">event</i></h2>
 <span class="w3-right">총 ${fn:length(rList)}개의 내역</span>
-<div class="w3-bar w3-green">
+<div class="w3-bar w3-green" id="filterbar">
   <a class="w3-bar-item w3-hover-white w3-padding" id="all">전체보기</a>
   <a class="w3-bar-item w3-hover-white w3-padding" id="last">지난 예약</a>
   <a class="w3-bar-item w3-hover-white w3-padding" id="coming">다가올 예약</a>

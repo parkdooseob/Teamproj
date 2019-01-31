@@ -511,6 +511,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
       			<p style="font-weight:bold;"><%=popDTO.getSubject()%></p>
 		    </div>
 		    <img src="<%=popDTO.getPic1()%>" alt="House" style="width:100%">
+<!-- 		    <img src="img/room03.jpg" alt="House" style="width:100%"> -->
 	      </div>
       </a>
       </div>
