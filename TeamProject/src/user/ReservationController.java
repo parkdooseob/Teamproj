@@ -20,7 +20,7 @@ public class ReservationController extends HttpServlet {
 		System.out.println("get요청");
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("userId");
-//		System.out.println(id);
+		System.out.println(id);
 		ReservListDAO dao = new ReservListDAO();
 		
 		Vector<ReservListDTO> rList = dao.getList(id);

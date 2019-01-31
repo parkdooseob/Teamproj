@@ -44,6 +44,7 @@ $(document).ready(function() {
 		
 	$(".a_click1").css("color","black");
 	$("#contents").load("userProfileUpdate.jsp");
+	var id = $("#email").val();
 	
 	$(".a_click1").click(function(){
 		//alert("클릭");
@@ -61,8 +62,12 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
+<<<<<<< HEAD
 		/* $("#contents").load("../ReservationController.do?userId=aaa@gmail.com"); */
 		 $("#contents").load("../Jong/MyPageDetail.jsp"); 
+=======
+		$("#contents").load("../ReservationController.do?userId="+id);
+>>>>>>> branch 'master' of https://github.com/parkdooseob/Teamproj.git
 	});
 	$(".a_click3").click(function(){
 		//alert("클릭");
@@ -94,7 +99,8 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-
+<!-- jquery에서 세션값으 받아가기 위한 hidden -->
+<input type="hidden" id="email" value="${sessionScope.udto.email}">
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
@@ -111,7 +117,7 @@ $(document).ready(function() {
 					<li><a href="#" class="a_click5">결제 정보</a></li>
 				</ul>			
 			</div>		
-			<div class="w3-col m6" id="contents" style="border: solid 1px red"></div>
+			<div class="w3-col m6" id="contents" ></div>
 			<div class="w3-col m2"></div>			
 		</div>
 </div>

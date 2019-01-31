@@ -59,9 +59,36 @@ small{
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var parking = "${boodto.parking}";
+		var wifi = "${boodto.wifi}";
+		var projector = "${boodto.projector}";
+		var laptop = "${boodto.laptop}";
+		var cabinet = "${boodto.cabinet}";
+		
+		
+		
+		if(parking == 0){
+			$("#chk_1").attr("disabled", true );
+		}
+		if(wifi == 0){
+			$("#chk_2").attr("disabled", true );
+		}
+		if(projector == 0){
+			$("#chk_3").attr("disabled", true );
+		}
+		if(laptop == 0){
+			$("#chk_4").attr("disabled", true );
+		}
+		if(cabinet == 0){
+			$("#chk_5").attr("disabled", true );
+		}
+		
+		
+		
+		
 		$("#chk_1").click(function(){
 			if($("#chk_1").is(":checked")){
-				$("#div_add1").append("<div class='w3-row'><div class='w3-col m6'>	주차 :</div><div class='w3-col m6' align='right'>1000원</div></div>");	
+				$("#div_add1").append("<div class='w3-row'><div class='w3-col m6'>	주차 :</div><div class='w3-col m6' align='right'>+"+parking+"</div></div>");	
 			}else{
 				$("#div_add1").empty();
 				
@@ -70,7 +97,7 @@ small{
 		});
 		$("#chk_2").click(function(){
 			if($("#chk_2").is(":checked")){
-				$("#div_add2").append("<div class='w3-row'><div class='w3-col m6'>	무선인터넷 :</div><div class='w3-col m6' align='right'>1000원</div></div>");	
+				$("#div_add2").append("<div class='w3-row'><div class='w3-col m6'>	무선인터넷 :</div><div class='w3-col m6' align='right'>+"+wifi+"</div></div>");	
 			}else{
 				$("#div_add2").empty();
 				
@@ -79,7 +106,7 @@ small{
 		});
 		$("#chk_3").click(function(){
 			if($("#chk_3").is(":checked")){
-				$("#div_add3").append("<div class='w3-row'><div class='w3-col m6'>	빔프로젝트 :</div><div class='w3-col m6' align='right'>1000원</div></div>");	
+				$("#div_add3").append("<div class='w3-row'><div class='w3-col m6'>	빔프로젝트 :</div><div class='w3-col m6' align='right'>+"+projector+"</div></div>");	
 			}else{
 				$("#div_add3").empty();
 				
@@ -88,7 +115,7 @@ small{
 		});
 		$("#chk_4").click(function(){
 			if($("#chk_4").is(":checked")){
-				$("#div_add4").append("<div class='w3-row'><div class='w3-col m6'>	컴퓨터 :</div><div class='w3-col m6' align='right'>1000원</div></div>");	
+				$("#div_add4").append("<div class='w3-row'><div class='w3-col m6'>	컴퓨터 :</div><div class='w3-col m6' align='right'>+"+laptop+"</div></div>");	
 			}else{
 				$("#div_add4").empty();
 				
@@ -97,7 +124,7 @@ small{
 		});
 		$("#chk_5").click(function(){
 			if($("#chk_5").is(":checked")){
-				$("#div_add5").append("<div class='w3-row'><div class='w3-col m6'>	사물함 :</div><div class='w3-col m6' align='right'>1000원</div></div>");	
+				$("#div_add5").append("<div class='w3-row'><div class='w3-col m6'>	사물함 :</div><div class='w3-col m6' align='right'>+"+cabinet+"</div></div>");	
 			}else{
 				$("#div_add5").empty();
 				
@@ -146,11 +173,11 @@ small{
 						<input type="checkbox" id="chk_4" class="w3-check" value="1"><b> 컴퓨터</b>  &nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="checkbox" id="chk_5" class="w3-check" value="1"><b> 사물함</b>  &nbsp;&nbsp;&nbsp;&nbsp;
 						<p class="w3-margin-top">각 유료 부대시설은 각각의 요금이 다르며 해당 가격 표는 아래와 같습니다.</p>
-						<p>주차 : 1000원</p>
-						<p>무선 인터넷 : 1000원</p>
-						<p>빔 프로젝트 : 1000원</p>
-						<p>컴퓨터 : 1000원</p>
-						<p>사물함 : 1000원</p>
+						<p>주차 : ${boodto.parking }원</p>
+						<p>무선 인터넷 : ${boodto.wifi }원</p>
+						<p>빔 프로젝트 : ${boodto.projector }원</p>
+						<p>컴퓨터 : ${boodto.laptop }원</p>
+						<p>사물함 : ${boodto.cabinet }원</p>
 						
 					</div>
 				</div>
@@ -244,7 +271,7 @@ small{
 							<h5>예약일</h5>
 						</div>	
 						<div class="w3-col m12">
-							<font size="10px"><b>2019-01-31</b></font>
+							<font size="10px"><b>${selectDate}</b></font>
 						</div>							
 						<div class="w3-col m12">
 						<hr>
@@ -253,7 +280,7 @@ small{
 							예약시간
 						</div>
 						<div class="w3-col m6" align="right">	
-							1 시간
+							${time }시간
 						</div>
 					</div>
 				</div>			
@@ -263,7 +290,7 @@ small{
 							예약 인원
 						</div>
 						<div class="w3-col m6" align="right">						
-							1
+							${boodto.people}
 						</div>												
 					</div>
 					<hr>
@@ -296,7 +323,7 @@ small{
 							<h3><font color="red">결제금액</font></h3>
 						</div>
 						<div class="w3-col m6" align="right">
-							<h2><font color="red">40000</font></h2>						
+							<h2><font color="red">${allPrice}</font></h2>						
 						</div>												
 					</div>
 					

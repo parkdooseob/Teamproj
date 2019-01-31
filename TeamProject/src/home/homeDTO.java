@@ -5,7 +5,7 @@ public class homeDTO {
 	 private String host_id;	
 	 private int room_no;	
 	 private String subject;	
-	 private String room;	
+	 private String room_type;	
 	 private String people;		
 	 private String pic1;	
 	 private int count;	
@@ -30,11 +30,11 @@ public class homeDTO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getRoom() {
-		return room;
+	public String getRoom_type() {
+		return room_type;
 	}
-	public void setRoom(String room) {
-		this.room = room;
+	public void setRoom_type(String room_type) {
+		this.room_type = room_type;
 	}
 	public String getPeople() {
 		return people;

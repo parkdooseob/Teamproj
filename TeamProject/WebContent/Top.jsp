@@ -179,7 +179,7 @@ a{
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button">${sessionScope.udto.name }</button>
       			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
-      				<a href="#" class="w3-bar-item w3-button">프로필 수정</a>      				   				
+      				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : ${sessionScope.udto.point}</small>      				   				
       				<a href="${path1}./UserLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
     			</div>
       		</div>	
@@ -260,8 +260,10 @@ a{
 } 
 
  // 상단 호스트 별표 클릭시
+
  function star_click(){	 
-	 if(${sessionScope.udto.host_check} != 1){		 
+	 if("${sessionScope.udto.host_check}" != 1){		 
+
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
 			 location.href="${path2}hostSignUp.jsp";
 		}		 
@@ -270,7 +272,7 @@ a{
 		 
 	 }	
  }
- 
+
 
 </script>
 

@@ -31,21 +31,21 @@ public class ReservListDTO {
 	private int rStatus; //예약 상태(사용 전, 사용 후, 취소)
 	
 	private String pic1;
-	private String room;
+	private String room_type;
 	
 	private int review_no;
-	private Date rv_date;
-	private int rv_star;
-	private String rv_post;
+	private Date re_date;
+	private int re_point;
+	private String re_content;
 	
 	
 	
 	
-	public String getRoom() {
-		return room;
+	public String getRoom_type() {
+		return room_type;
 	}
-	public void setRoom(String room) {
-		this.room = room;
+	public void setRoom_type(String room_type) {
+		this.room_type = room_type;
 	}
 	public String getSubject() {
 		return subject;
@@ -191,23 +191,23 @@ public class ReservListDTO {
 	public void setReview_no(int review_no) {
 		this.review_no = review_no;
 	}
-	public Date getRv_date() {
-		return rv_date;
+	public Date getRe_date() {
+		return re_date;
 	}
-	public void setRv_date(Date rv_date) {
-		this.rv_date = rv_date;
+	public void setRe_date(Date re_date) {
+		this.re_date = re_date;
 	}
-	public int getRv_star() {
-		return rv_star;
+	public int getRe_point() {
+		return re_point;
 	}
-	public void setRv_star(int rv_star) {
-		this.rv_star = rv_star;
+	public void setRe_point(int re_point) {
+		this.re_point = re_point;
 	}
-	public String getRv_post() {
-		return rv_post;
+	public String getRe_content() {
+		return re_content;
 	}
-	public void setRv_post(String rv_post) {
-		this.rv_post = rv_post;
+	public void setRe_content(String re_content) {
+		this.re_content = re_content;
 	}
 	public String getPic1() {
 		return pic1;

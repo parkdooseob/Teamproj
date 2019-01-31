@@ -37,7 +37,7 @@ public class SpaceDao {
 				// 1. Was서버와 연결된 웹프로젝트의 모든정보를 가지고 있는 컨텍스트 객체 생성
 				Context init = new InitialContext();
 				// 2. 연결된 Was서버에서 DataSource(커넥션 풀)을 검색해서 얻기
-				ds = (DataSource)init.lookup("java:comp/env/jdbc/ShareSpace");
+				ds = (DataSource)init.lookup("java:comp/env/jdbc/sharespace");
 				
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -86,11 +86,11 @@ public class SpaceDao {
 						+"from hosting h "
 						+"join hosting_address ha "
 						+"on h.room_no=ha.room_no "
-						+"join hosting_bill hb "
+						+"left join hosting_bill hb "
 						+"on h.room_no=hb.room_no "
-						+"join hosting_option ho "
+						+"left join hosting_option ho "
 						+"on h.room_no=ho.room_no "
-						+"join hosting_pic hp "
+						+"left join hosting_pic hp "
 						+"on h.room_no=hp.room_no "
 						+"where h.room_no=? ";
 			pstmt = con.prepareStatement(sql);
@@ -98,46 +98,52 @@ public class SpaceDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				hdto=new HostingDTO();
-				hdto.setHost_id(rs.getString(1));
 				hdto.setRoom_no(num);
+				hdto.setHost_id(rs.getString(2));
 				hdto.setSubject(rs.getString(3));
-				hdto.setRoom(rs.getString(4));
-				hdto.setPeople(rs.getInt(5));
+				hdto.setRoom_type(rs.getString(4));
+				hdto.setPeople(rs.getString(5));
 				hdto.setDrink(rs.getInt(6));
 				hdto.setElevator(rs.getInt(7));
 				hdto.setToilet(rs.getInt(8));
 				hdto.setAirconditioner(rs.getInt(9));
 				hdto.setHeating(rs.getInt(10));
 				hdto.setSocket(rs.getInt(11));
+				hdto.setContent(rs.getString(12));
+				hdto.setFromdate(rs.getString(13));
+				hdto.setTodate(rs.getString(14));
+				hdto.setTime(rs.getString(15));
+				hdto.setEtc(rs.getString(16));
 				list.add(hdto);
 				
 				haDto=new HAddressDTO();
-				haDto.setA_wdo(rs.getString(13));
-				haDto.setA_kdo(rs.getString(14));
-				haDto.setA_woo(rs.getString(15));
-				haDto.setA_address(rs.getString(16));
-				haDto.setA_D_address(rs.getString(17));
-				haDto.setA_etc_address(rs.getString(18));
+				haDto.setA_wdo(rs.getString("a_wdo"));
+				haDto.setA_kdo(rs.getString("a_kdo"));
+				haDto.setA_woo(rs.getString("a_woo"));
+				haDto.setA_address(rs.getString("a_address"));
+				haDto.setA_D_address(rs.getString("a_D_address"));
+				haDto.setA_etc_address(rs.getString("a_etc_address"));
 				list.add(haDto);
 				
 				hbDto = new HBillDTO();
-				hbDto.setRoom_day(rs.getInt(20));
-				hbDto.setRoom_sum(rs.getInt(21));
+				hbDto.setWeekday(rs.getInt("weekday"));
+				hbDto.setHoliday(rs.getInt("holiday"));
 				list.add(hbDto);
 				
 				hoDto = new HOptionDTO();
-				hoDto.setParking(rs.getInt(23));
-				hoDto.setWifi(rs.getInt(24));
-				hoDto.setProjector(rs.getInt(25));
-				hoDto.setLaptop(rs.getInt(26));
-				hoDto.setCabinet(rs.getInt(27));
+				hoDto.setParking(rs.getInt("parking"));
+				hoDto.setWifi(rs.getInt("wifi"));
+				hoDto.setProjector(rs.getInt("projector"));
+				hoDto.setLaptop(rs.getInt("laptop"));
+				hoDto.setCabinet(rs.getInt("cabinet"));
 				list.add(hoDto);
 				
 				hpDto = new HPicDTO();
-				hpDto.setPic1(rs.getString(29));
-				hpDto.setPic2(rs.getString(30));
-				hpDto.setPic3(rs.getString(31));
-				hpDto.setPic4(rs.getString(32));
+				hpDto.setPic1(rs.getString("pic1"));
+				hpDto.setPic2(rs.getString("pic2"));
+				hpDto.setPic3(rs.getString("pic3"));
+				hpDto.setPic4(rs.getString("pic4"));
+				hpDto.setPic5(rs.getString("pic5"));
 				list.add(hpDto);
 				
 				
@@ -173,11 +179,10 @@ public class SpaceDao {
 		return list;
 	}
 
-	public ArrayList getNoDate(int num) {
-		ArrayList noList = new ArrayList();
-		try{
-			for(int i=0;i<7;i++){
-				
+	public ArrayList<String> getNoDate(int num) {
+		ArrayList<String> noList = new ArrayList<String>();
+		for(int i=0;i<7;i++){
+			try{
 				Date date = Date.valueOf(LocalDate.now().plusDays(i));
 				System.out.println(date);
 				SimpleDateFormat fo = new SimpleDateFormat("yyyy-M-dd");
@@ -203,8 +208,9 @@ public class SpaceDao {
 								break;
 							}
 							if(j==12){
-								System.out.println(date);
+								System.out.println("예약이 다찬 날짜 : "+date);
 								noList.add(fo.format(date));
+								
 							}
 						}
 						
@@ -213,18 +219,18 @@ public class SpaceDao {
 //						noList.add(dd);
 			//			System.out.println(dd);
 					}
-					freeResource();
+					
+			
+			}catch(Exception e){
+				System.out.println("getNoDate에서 에러"+e);
+			}finally{
+				freeResource();
 			}
-		}catch(Exception e){
-			System.out.println("getNoDate에서 에러"+e);
-		}finally{
-			freeResource();
 		}
-		
 		return noList;
 	}
 
-	public JSONArray getTime(Date selectDate, int roomNo) {
+	public JSONArray getTime(String selectDate, int roomNo) {
 		
 		JSONArray jarray = new JSONArray();
 		
@@ -240,7 +246,7 @@ public class SpaceDao {
 						+"on b.book_no = bt.book_no "
 						+"and b.book_date = bt.book_date";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setDate(1, selectDate);
+			pstmt.setString(1, selectDate);
 			pstmt.setInt(2, roomNo);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
@@ -266,7 +272,7 @@ public class SpaceDao {
 			freeResource();
 		}
 		for(int i=0;i<jarray.size();i++){
-			System.out.println("i : "+jarray.get(i));
+			System.out.println(i+" : "+jarray.get(i));
 		}
 		return jarray;
 	}
@@ -302,6 +308,43 @@ public class SpaceDao {
 		}
 		
 		return comList;
+	}
+
+	public ArrayList<ReviewDTO> getReviewList(int num) {
+		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		ReviewDTO reviewDto;
+		 try{
+			 con = ds.getConnection();
+			 String sql = "select r.review_no, r.book_no, r.room_no, "
+			 			+ "u.email, u.name, r.re_date, r.re_point, r.re_content "
+			 			+ "from review r "
+			 			+ "join user u "
+			 			+ "on r.email = u.email "
+			 			+ "where r.room_no = ?";
+			 pstmt = con.prepareStatement(sql);
+			 pstmt.setInt(1, num);
+			 rs =pstmt.executeQuery();
+			 while(rs.next()){
+				 reviewDto = new ReviewDTO();
+				 reviewDto.setReview_no(rs.getInt(1));
+				 reviewDto.setBook_no(rs.getInt(2));
+				 reviewDto.setRoom_no(num);
+				 reviewDto.setEmail(rs.getString(4));
+				 reviewDto.setNic_name(rs.getString(5));
+				 reviewDto.setRe_date(rs.getDate(6));
+				 System.out.println("date : "+rs.getDate(6));
+				 reviewDto.setRe_point(rs.getInt(7));
+				 reviewDto.setRe_content(rs.getString(8));
+				 
+				 reviewList.add(reviewDto);
+				 
+			 }
+			 
+		 }catch(Exception e){
+			 System.out.println("getReviewList에서 에러"+e);
+			 
+		 }
+		return reviewList;
 	}
 	
 	
