@@ -120,11 +120,11 @@ public class ReservListDAO {
 						+"join hosting_pic p "
 						+"on b.room_no = p.room_no "
 						+"where b.email = ? "
-						+ "order by b.book_no desc";
+						+"order by b.book_no desc";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-//			System.out.println("Getlist 실행됨");
+			System.out.println("Getlist 실행됨");
 		
 			rs = pstmt.executeQuery();
 //			System.out.println("P1");
@@ -156,7 +156,7 @@ public class ReservListDAO {
 				
 				
 				dto.setPic1(rs.getString("pic1"));
-				dto.setRoom_type(rs.getString("roomm_type"));
+				dto.setRoom_type(rs.getString("room_type"));
 				
 				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
 				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
@@ -172,7 +172,7 @@ public class ReservListDAO {
 			
 		
 		} catch (SQLException e) {
-			System.out.println("FindSpaces 함수 오류"+e);
+			System.out.println("getList 함수 오류"+e);
 			e.printStackTrace();
 		} finally {
 			freeResource();

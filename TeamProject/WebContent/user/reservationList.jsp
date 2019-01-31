@@ -167,7 +167,7 @@ $('#cancled').click(function () {
 				<span style="color: grey;">공간 사용 전입니다</span>
 			</c:when>
 			<c:when test = "${rList.rStatus == 1}">
-				<c:if test="${rList.rv_post eq null}">
+				<c:if test="${rList.re_content eq null}">
 					<span style="color: grey;">작성된 리뷰가 없습니다</span>
 					<a href="m_detail.jsp?${rList.room_no}">리뷰 작성</a>
 				</c:if>
