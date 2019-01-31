@@ -207,6 +207,7 @@ function start(idx, no){
 						<a onclick="document.getElementById('writingForm_${rList.book_no}').style.display='block'">리뷰 작성</a>
 					</div>
 					<!-- 여기서부터 모달 -->
+					
 					<div id="writingForm_${rList.book_no}" class="w3-modal">
 						<div class="w3-modal-content w3-card-4" style="width: 300px;">
 						<!-- 
@@ -218,7 +219,11 @@ function start(idx, no){
 							re_point
 							re_content
 						 -->	
-						 <div class="w3-container w3-light-grey w3-padding">
+						 <form action="../reviewController.do" method="post">
+						 	<input type="hidden" name="book_no" value="${rList.book_no}">
+						 	<input type="hidden" name="room_no" value="${rList.room_no}">
+						 	<input type="hidden" name="email" value="${rList.email}">
+						 	<div class="w3-container w3-light-grey w3-padding">
 								<span>평점 :</span>
 								
 								<a href="javascript:start(1, ${rList.book_no})"><span id="star1_${rList.book_no}" class="fa fa-star checked"></span></a> 
@@ -226,7 +231,8 @@ function start(idx, no){
 								<a href="javascript:start(3, ${rList.book_no})"><span id="star3_${rList.book_no}" class="fa fa-star checked"></span></a>
 								<a href="javascript:start(4, ${rList.book_no})"><span id="star4_${rList.book_no}" class="fa fa-star checked"></span></a>
 								<a href="javascript:start(5, ${rList.book_no})"><span id="star5_${rList.book_no}" class="fa fa-star"></span></a>
-								<input type="hidden" value=" " id="starVal${rList.book_no}">
+								<input type="hidden" name="re_point" value=" " id="starVal${rList.book_no}">
+							
 							</div>
 				
 							<div class="w3-container">
@@ -235,15 +241,17 @@ function start(idx, no){
 							</div>
 				
 							<div class="w3-container w3-light-grey">
-								<button class="w3-button w3-light-grey "
+								<button type="button" class="w3-button w3-light-grey "
 									onclick="document.getElementById('writingForm_${rList.book_no}').style.display='none'" >닫기</button>
 								<button class="w3-button w3-right w3-light-grey "
-									onclick="">완료</button>
-								
+									type="submit">완료</button>
 							</div>
-				
+							
+						</form>
 						</div>
 					</div><!--모달 여기까지-->
+					
+					
 				</c:if>
 				<c:if test="${rList.re_content ne null}">
 					<p style="margin:2px;">별점:${rList.re_point}점 </p>
