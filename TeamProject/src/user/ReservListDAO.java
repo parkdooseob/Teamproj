@@ -119,7 +119,8 @@ public class ReservListDAO {
 						+"on b.room_no = h.room_no "
 						+"join hosting_pic p "
 						+"on b.room_no = p.room_no "
-						+"where b.email = ?";
+						+"where b.email = ? "
+						+ "order by b.book_no desc";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
