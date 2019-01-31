@@ -2,11 +2,11 @@
 <Context>
 <!-- JNDI기술을 사용하여 접속할 DB정보를 지정 -->
 	 <Resource 
-	name="jdbc/ShareSpace"
+	name="jdbc/sharespace"
 	auth="Container"
 	type="javax.sql.DataSource"
 	driverClassName="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/ShareSpace"
+	url="jdbc:mysql://localhost:3306/sharespace"
 	username="team"
 	password="1111"	
 	/>

@@ -349,7 +349,7 @@
 	var a_price = 0;// 총요금
 	
 	var day_price = parseInt(${bill.room_sum} ); //평일 요금
-	var sun_price = parseInt(${bill.room_day} );	//주말 요금
+	var sun_price = parseInt(${bill.room_day} );	// 주말 요금
 	
 	//$(".t_btn").attr("disabled",true);	//날짜를 선택하기전 시간 버튼 disabled
 	//$(".price").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
