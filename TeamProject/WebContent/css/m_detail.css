@@ -252,7 +252,7 @@
 }
 
 .foot-content{
-	border:1px solid red;
+	
 	height:100%;
 }
 
@@ -266,13 +266,14 @@
 }
 
 .price-div{
-	text-align:center;
+	
 	height:100%;
 }
 .price{
-	border:1px solid blue;
+	
 	display:inline-block;
-	width:85px;
+	
+	margin:10px 0;
 }
 
 
@@ -283,7 +284,7 @@
 }
 
 .req-div{
-	border:1px solid blue;
+	
 	width:85px;
 	display:inline-block;
 }
