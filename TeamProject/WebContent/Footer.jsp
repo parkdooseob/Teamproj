@@ -4,18 +4,23 @@
 <%
 	/* <jsp:include page="../Top.jsp" flush="false"/>
 		동적 페이지 폴더 변경 */
-	String servlet = request.getServletPath();
-	String path = "../";
-	String path1 = ".";
-	String path2 = "../user/";
-	if(servlet.equals("/home.jsp") || servlet.equals("/Footer.jsp")){
-		path="";
-		path1="";
-		path2 = "user/";
-	}
-	request.setAttribute("path", path);
-	request.setAttribute("path1", path1);
-	request.setAttribute("path2", path2);
+		String servlet = request.getServletPath();
+		// 이미지 동적경로 지정시
+		String path = "../";
+		// 컨트롤러 동적경로 지정시
+		String path1 = ".";
+		// 페이지 동적경로 지정시
+		String path2 = "../user/";
+		System.out.println(servlet);
+		if(servlet.equals("/home.jsp") || servlet.equals("/Top.jsp") ||servlet.equals("/m_detail.jsp") || servlet.equals("/booking/booking.jsp")){
+			
+			path="";
+			path1="";
+			path2 = "user/";
+		}
+		request.setAttribute("path", path);
+		request.setAttribute("path1", path1);
+		request.setAttribute("path2", path2);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

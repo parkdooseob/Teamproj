@@ -220,7 +220,7 @@ small{
 							<p>이메일</p>
 						</div>
 						<div class="w3-col m4">
-							<input type="text" class="w3-input" placeholder="예약자 이메일" name="email" value="" disabled="disabled">
+							<input type="text" class="w3-input" placeholder="예약자 이메일" name="email" value="${sessionScope.udto.email }" disabled="disabled">
 						</div>
 					</div>
 					<div class="w3-row w3-margin-top">

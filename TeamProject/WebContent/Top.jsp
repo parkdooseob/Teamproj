@@ -11,7 +11,7 @@
 	String path1 = ".";
 	// 페이지 동적경로 지정시
 	String path2 = "../user/";
-	if(servlet.equals("/home.jsp") || servlet.equals("/Top.jsp")){
+	if(servlet.equals("/home.jsp") || servlet.equals("/Top.jsp") || servlet.equals("/m_detail.jsp")){
 		path="";
 		path1="";
 		path2 = "user/";
@@ -260,10 +260,8 @@ a{
 } 
 
  // 상단 호스트 별표 클릭시
-
  function star_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 
-
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
 			 location.href="${path2}hostSignUp.jsp";
 		}		 
@@ -272,7 +270,7 @@ a{
 		 
 	 }	
  }
-
+ 
 
 </script>
 
