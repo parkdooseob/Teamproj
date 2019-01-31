@@ -1,6 +1,8 @@
 package booking;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 import javax.servlet.RequestDispatcher;
@@ -30,22 +32,27 @@ public class BookingController extends HttpServlet {
 		
 		System.out.println("roomNumber : "+roomNumber +" selectDate : "+selectDate+ " selectTime : "+selectTime +" allPrice :"+allPrice);
 		
-		/*
+		
 		StringTokenizer st = new StringTokenizer(selectTime,",");		
 		
 		System.out.println(st.countTokens());
-		*/
+		
+		Date date = new Date();
+		
+		// 날짜 포멧 변경
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy년-mm월-dd일");		
+		
 		// 사진 제목 내용 (호스트 쪽)
 		BookingDAO boodao = new BookingDAO();	
 		
 		BookingDTO boodto = boodao.getPreBookingList(roomNumber); 
 		
 		request.setAttribute("roomNumber", roomNumber);
-		request.setAttribute("selectDate", selectDate);
+		request.setAttribute("selectDate", sd.format(date.parse(selectDate)));
 		request.setAttribute("selectTime", selectTime);
 		request.setAttribute("allPrice", allPrice);
 		request.setAttribute("boodto", boodto);
-		
+		request.setAttribute("time", st.countTokens());
 		RequestDispatcher dis = request.getRequestDispatcher("booking/booking.jsp");
 		
 		dis.forward(request, response);

@@ -71,7 +71,7 @@ public class BookingDAO {
 				
 				con = ds.getConnection();
 				
-				String sql = "SELECT h.subject, h.content, hp.pic1,"
+				String sql = "SELECT h.subject, h.people, h.content, hp.pic1,"
 						+ " ho.parking, ho.wifi, ho.projector, "
 						+ "ho.laptop, ho.cabinet "
 						+ "FROM hosting h join hosting_pic hp on h.room_no = hp.room_no "
@@ -93,6 +93,7 @@ public class BookingDAO {
 				rs.next();
 				
 				boodto.setRoom_no(Integer.parseInt(roomNumber));
+				boodto.setPeople(rs.getString("people"));
 				boodto.setSubject(rs.getString("subject"));
 				boodto.setContent(rs.getString("content"));
 				boodto.setPic1(rs.getString("pic1"));

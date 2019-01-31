@@ -6,6 +6,7 @@ public class BookingDTO {
 	
 	private int book_no; // 예약 번호
 	private int room_no; // 예약 공간 번호
+	private String people; // 예약 인원	
 	private String email; // 가입한 회원의 이메일
 	private String book_phone; // 호스트가입시 넣은 전화번호
 	private Timestamp book_date; // 예약 날짜
@@ -85,6 +86,12 @@ public class BookingDTO {
 	}
 	public void setRoom_no(int room_no) {
 		this.room_no = room_no;
+	}
+	public String getPeople() {
+		return people;
+	}
+	public void setPeople(String people) {
+		this.people = people;
 	}
 	public String getEmail() {
 		return email;
