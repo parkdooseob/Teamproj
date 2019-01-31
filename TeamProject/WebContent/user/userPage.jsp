@@ -62,7 +62,10 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
+		$(".a_click5").css("color","grey");
 		$("#contents").load("../ReservationController.do?userId="+id);
+
+
 	});
 	$(".a_click3").click(function(){
 		//alert("클릭");
