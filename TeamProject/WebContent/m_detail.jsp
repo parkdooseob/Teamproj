@@ -364,7 +364,7 @@
 	var num = '${hosting.room_no}';//공간번호
 	var disabledDays = [];	//예약이 불가능한 날짜 리턴
 	var i =0;
-	//test
+	//aaaa
 	//예약 불가능한 날짜 DB에서 받아서 배열에 SET해준다
 	<c:forEach items="${noList}" var="item1">
 		disabledDays.push("${item1}");
