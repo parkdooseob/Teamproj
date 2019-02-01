@@ -90,15 +90,15 @@ $(document).ready(function() {
 		
 	<div style="width:100%;">		
 			
-			
-				<div class="w3-bar" style="width: 100%; position: fixed; z-index: 9999; height:80px;">
+				<jsp:include page="../Top.jsp" flush="false"/>
+				<div class="w3-bar" style="margin-top: 55px; position: fixed; z-index: 1">
 				  <div class="w3-bar w3-green">
-				  	<div class="w3-bar-item">팀장님</div></div>
+				  	<div class="w3-bar-item" style="height: 55px;">검색조건 예정</div></div>
 				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
-				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=1">전체</a></div>
-				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=2">카페</a></div>
-				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=3">강의실</a></div>
-				  	<div class="w3-bar-item"><a href="http://localhost:8080/TeamProject/detailPageController.do?a=4">룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">강의실</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">룸</a></div>
 				  </div>
 				</div>	
 				
@@ -106,7 +106,7 @@ $(document).ready(function() {
 				
 			<!-- 왼쪽 영역 , 오른쪽 영역 시작 -->
 			<!-- 좌측 영역  -->
-			<div style="float: left; width: 50%; margin-top: 80px">
+			<div style="float: left; width: 50%; margin-top: 152px">
 			
 		
 		
@@ -136,7 +136,7 @@ $(document).ready(function() {
 								
 					%>					
 					<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%"><img src="http://localhost:8080/TeamProject/upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="40%"><div style="width: 90%"><img src="../upload/<%=dto.getImg1()%>" width="100%"></div></td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
@@ -178,10 +178,10 @@ $(document).ready(function() {
 			
 			</div>
 			<!-- 오른쪽 영역 시작 -->
-			<div style="width: 50%; position: fixed; right: 0; margin-top: 80px; height:100%">
+			<div style="width: 50%; position: fixed; right: 0; margin-top: 152px; height:100%">
 					
 					<div id="map" style="width:100%; height:100%;"></div>
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe"></script>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
 						<script>
 						var container = document.getElementById('map');
 						var options = {
@@ -191,10 +191,10 @@ $(document).ready(function() {
 				
 						var map = new daum.maps.Map(container, options);
 						</script>		
-			</div>	
-			
-				
-		</div>	
-
+			</div>		
+	
+		</div>
+	
+	
 </body>
 </html>

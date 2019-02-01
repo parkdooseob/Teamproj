@@ -1,21 +1,42 @@
+<%@page import="java.util.StringTokenizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	/* <jsp:include page="../Top.jsp" flush="false"/>
-		동적 페이지 폴더 변경 */
+		동적 페이지 폴더 변경 */		
 	String servlet = request.getServletPath();
-	// 이미지 동적경로 지정시
+	StringTokenizer st = new StringTokenizer(servlet,"/");
+		
+	System.out.println(servlet+" : "+st.countTokens());
+	
+	// 홈화면버튼 동적경로 지정
+	String path="";
+	String path1="";
+	String path2 = "user/";
+	
+	if(st.countTokens()>=2){
+		path="./";
+		if(st.nextToken().equals("user")){			
+			path="../";
+			path2="";
+		}
+	}
+	/*
+	// 이미지,홈화면 동적경로 지정시
 	String path = "../";
 	// 컨트롤러 동적경로 지정시
 	String path1 = ".";
 	// 페이지 동적경로 지정시
 	String path2 = "../user/";
+	
+	
 	if(servlet.equals("/home.jsp") || servlet.equals("/Top.jsp") || servlet.equals("/m_detail.jsp")){
 		path="";
 		path1="";
 		path2 = "user/";
 	}
+	*/
 	request.setAttribute("path", path);
 	request.setAttribute("path1", path1);
 	request.setAttribute("path2", path2);
